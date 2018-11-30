@@ -1,0 +1,13 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.city-info,
+.more-info,
+.time,
+.day,
+.search-form,
+.temp,
+.air-pollution {
+    display: inline-block;
+}
