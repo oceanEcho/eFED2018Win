@@ -13,15 +13,15 @@
   </head>
   <body>
     <div class="container">
-      <div class="navigation">
-        <input type="button" value="Сегодня" />
-        <input type="button" value="5 дней" />
-        <input type="button" value="История погоды" />
-      </div>
+      <nav class="navigation">
+        <input class="simple-btn" type="button" value="Сегодня" />
+        <input class="simple-btn" type="button" value="5 дней" />
+        <input class="simple-btn" type="button" value="История погоды" />
+      </nav>
       <div class="search-bar">
-        <div class="air-pollution">
-          Загрязнение воздуха: 8.394
-        </div>
+        <span class="air-pollution">
+          Загрязнение воздуха: 8.394234235345324532
+        </span>
         <form class="search-form" action="#" method="post">
           <div role="search">
             <input type="search" id="search" placeholder="Поиск" />
@@ -39,8 +39,8 @@
           <div class="condition">
             облачно
           </div>
-          <img src="assets/sunny_weather.png" alt="Sunny Weather" />
-          <div class="temp" >
+          <img class="curr-cond-img" src="assets/sunny_weather.png" alt="Sunny Weather" />
+          <div class="current-temp" >
             22 ℃
           </div>
         </div>
@@ -55,37 +55,23 @@
             Ветер: 11 км/ч
           </div>
           <div class="inner-nav">
-            <input type="button" value="Температура" />
-            <input type="button" value="Вероятость осадков" />
-            <input type="button" value="Ветер" />
+            <input class="simple-btn" type="button" value="Температура" />
+            <input class="simple-btn" type="button" value="Вероятость осадков" />
+            <input class="simple-btn" type="button" value="Ветер" />
           </div>
         </div>
         <div class="visualisation">
-          <div class="graphic">
-            <img src="assets/path.PNG" alt="Температура" />
+          <div class="chart">
+            <img src="assets/path.PNG" alt="Temperature chart" />
           </div>
           <div class="timepoints">
-            <div class="time">
-              <span>17:00</span>
-            </div>
-            <div class="time">
-              <span>20:00</span>
-            </div>
-            <div class="time">
-              <span>23:00</span>
-            </div>
-            <div class="time">
-              <span>01:00</span>
-            </div>
-            <div class="time">
-              <span>04:00</span>
-            </div>
-            <div class="time">
-              <span>07:00</span>
-            </div>
-            <div class="time">
-              <span>10:00</span>
-            </div>
+            <span class="timepoint">17:00</span>
+            <span class="timepoint">20:00</span>
+            <span class="timepoint">23:00</span>
+            <span class="timepoint">01:00</span>
+            <span class="timepoint">04:00</span>
+            <span class="timepoint">07:00</span>
+            <span class="timepoint">10:00</span>
           </div>
           <div class="week-info">
             <div class="day">
@@ -126,7 +112,9 @@
           </div>
         </div>
       </div>
-      <div class="footer">2018 © Copyright</div>
+      <div class="footer">
+        2018 © Copyright
+      </div>
     </div>
   </body>
 </html>

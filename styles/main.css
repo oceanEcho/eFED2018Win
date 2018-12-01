@@ -2,12 +2,76 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.city-info,
-.more-info,
-.time,
-.day,
-.search-form,
-.temp,
-.air-pollution {
+.container {
+    max-width: 630px;
+    border: 1px solid gray;
+}
+
+.navigation {
+    padding: 10px;
+    border-bottom: 1px solid gray;
+}
+
+.simple-btn {
+    border: 1px solid gray;
+    background-color: white;
+    padding: 5px;
+}
+
+.simple-btn:hover {
+    cursor: pointer;
+}
+
+.simple-btn:active {
+    background-color: #e6e6e6;
+}
+
+.search-bar {
+    padding: 10px;
+    border-bottom: 1px solid gray;
+}
+
+.search-form{
+    float: right;
+}
+
+.main-info {
+    padding: 10px;
+}
+
+.city-info {
     display: inline-block;
+}
+
+.current-temp {
+    display: inline-block;
+}
+
+.more-info {
+    float: right;
+}
+
+.inner-nav {
+    margin-top: 50px;
+}
+
+.timepoint {
+    margin-left: 10px;
+    margin-right: 33px;
+}
+
+.day {
+    margin-right: 21px;
+    text-align: center;
+    display: inline-block;
+}
+
+.week-info {
+    padding-top: 10px;
+}
+
+.footer {
+    border-top: 1px solid gray;
+    padding: 10px;
+    text-align: center;
 }
