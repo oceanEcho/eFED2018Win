@@ -13,16 +13,18 @@
   </head>
   <body>
     <div class="container">
-      <nav class="navigation">
-        <div class="nav-btn active">
-          <a href="#">Сегодня</a>
-        </div>
-        <div class="nav-btn">
-          <a href="index.html">5 дней</a>
-        </div>
-        <div class="nav-btn">
-          <a href="historical-review.html">История погоды</a>
-        </div>
+      <nav class="main-nav">
+        <ul>
+          <li class="nav-btn active">
+            <a href="#">Сегодня</a>
+          </li>
+          <li class="nav-btn">
+            <a href="index.html">5 дней</a>
+          </li>
+          <li class="nav-btn">
+            <a href="historical-review.html">История погоды</a>
+          </li>
+        </ul>
         
         <!--
         <input class="simple-btn" type="button" value="Сегодня" />
@@ -32,13 +34,9 @@
 
       </nav>
       <div class="search-bar">
-        <span class="air-pollution">
-          Загрязнение воздуха: 8.394234235345324532
-        </span>
+        <span class="air-pollution">Загрязнение воздуха: 8.394234235345324532</span>
         <form class="search-form" action="#" method="post">
-          <div role="search">
-            <input type="search" id="search" placeholder="Поиск" />
-          </div>
+          <input type="search" id="search" placeholder="Поиск..." />
         </form>
       </div>
       <div class="main-info">
@@ -67,16 +65,18 @@
           <div class="windspeed">
             Ветер: 11 км/ч
           </div>
-          <div class="inner-nav">
-            <div class="nav-btn active">
-              <a href="#">Температура</a>
-            </div>
-            <div class="nav-btn">
-              <a href="#">Вероятость осадков</a>
-            </div>
-            <div class="nav-btn">
-              <a href="#">Ветер</a>
-            </div>
+          <nav class="inner-nav">
+            <ul>
+              <li class="nav-btn active">
+                <a href="#">Температура</a>
+              </li>
+              <li class="nav-btn">
+                <a href="#">Вероятость осадков</a>
+              </li>
+              <li class="nav-btn">
+                <a href="#">Ветер</a>
+              </li>
+            </ul>
 
             <!--
             <input class="simple-btn" type="button" value="Температура" />
@@ -84,7 +84,7 @@
             <input class="simple-btn" type="button" value="Ветер" />
             -->
 
-          </div>
+          </nav>
         </div>
         <div class="visualisation">
           <div class="chart">

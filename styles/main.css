@@ -1,39 +1,47 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    color: black;
+    color: rgb(113, 113, 156);
+    background: linear-gradient(to right, rgb(226, 230, 247), rgb(164, 177, 221));
 }
 
 .container {
-    max-width: 630px;
+    width: 640px;
     border: 1px solid #c0c0c0;
-    border-radius: 5px 5px 5px 5px;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.navigation {
+.main-nav {
     padding: 10px;
     border-bottom: 1px solid #c0c0c0;
 }
 
+.main-nav > ul {
+    margin: 0px;
+    padding: 0px;
+}
+
 .nav-btn {
     display: inline-block;
-    border: 1px solid gray;
+    border: 1px solid #c0c0c0;
     padding: 5px;
-    border-radius: 2px;
+    border-radius: 5px;
+    background: white;
 }
 
-.nav-btn.active {
-    background-color: #c0c0c0;
-}
-
+.nav-btn.active,
 .nav-btn:hover {
-    background-color: #c0c0c0;
+    background-color: rgb(226, 230, 247);
 }
 
 .nav-btn > a,
 .nav-btn > a:hover,
 .nav-btn > a:visited {
     text-decoration: none;
-    color: black;
+    color: rgb(79, 79, 109);
 }
 
 .simple-btn {
@@ -53,6 +61,12 @@ body {
 .search-bar {
     padding: 10px;
     border-bottom: 1px solid #c0c0c0;
+    overflow: hidden;
+    background: rgb(226, 230, 247);
+}
+
+.air-pollution {
+    vertical-align: bottom;
 }
 
 .search-form {
@@ -61,7 +75,9 @@ body {
 
 input[type="search"] {
     border: 1px solid #c0c0c0;
-    border-radius: 2px;
+    border-radius: 10px;
+    font-size: 14px;
+    padding: 3px 5px 3px 5px;
 }
 
 .main-info {
@@ -84,6 +100,20 @@ input[type="search"] {
     margin-top: 50px;
 }
 
+.inner-nav > ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+.inner-nav > ul > li.nav-btn {
+    border: 1px solid #c0c0c0;
+}
+
+.inner-nav > ul > li.nav-btn.active,
+.inner-nav > ul > li.nav-btn:hover {
+    background-color: rgb(226, 230, 247);
+}
+
 .timepoint {
     margin-left: 10px;
     margin-right: 33px;
@@ -103,4 +133,6 @@ input[type="search"] {
     border-top: 1px solid #c0c0c0;
     padding: 10px;
     text-align: center;
+    border-radius: 0px 0px 10px 10px;
+    background: rgb(226, 230, 247);
 }
