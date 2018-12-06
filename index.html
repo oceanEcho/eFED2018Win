@@ -1,16 +1,75 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
   <head>
-    <meta charset="UTF-8">
-    <title>Five-day weather forecast</title>
-    <script type="text/javascript" src="mocks/FullWeatherDetailsMock.js"></script>
-    <script type="text/javascript" src="mocks/HistoricalReviewMock.js"></script>
-    <script type="text/javascript" src="mocks/WeekForecastMock.js"></script>
-  <script type="text/javascript" src="js/index.js"></script>
+    <title>Прогноз погоды на пять дней</title>
+
+    <meta charset="UTF-8" />
+    <meta name="application-name" content="WeatherForecast" />
+    <meta name="author" content="Ivan Zaytsev" />
+    <meta name="description" content="Weather forecast for five days" >
+    <meta name="keywords" content="weather, izhevsk, temperature" />
+
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
   </head>
   <body>
-    <h1>Пятидневный прогноз погоды</h1>
-    <div id="mainInfo">
+    <section class="container">
+      <nav class="main-nav">
+        <ul>
+          <li class="nav-btn active">
+            <a href="weather-details.html">Сегодня</a>
+          </li>
+          <li class="nav-btn">
+            <a href="index.html">5 дней</a>
+          </li>
+          <li class="nav-btn">
+            <a href="historical-review.html">История погоды</a>
+          </li>
+        </ul>
+      </nav>
+      <section class="search-bar">
+        <img class="curr-cond-img" src="assets/light_cloud.png" alt="Light cloud" />
+        <span class="curr-city-info">22° Ижевск, Россия</span>
+        <form class="search-form" action="#" method="post">
+          <input type="search" id="search" placeholder="Поиск..." />
+        </form>
+      </section>
+      <main>
+        <a class="arrows left-arrow" href="#">
+          <img src="assets/arrow_to_left.png" alt="Left arrow" />
+        </a>
+
+        <section class="five-days-table">
+
+        </section>
+
+        <a class="arrows right-arrow" href="#">
+          <img src="assets/arrow_to_right.png" alt="Right arrow" />
+        </a>
+
+        <section class="date-sun-moon">
+          <section class="today-sun-moon">
+            <span class="today">Сегодня пятница, 18 мая</span>
+            <span class="sun-moon">Солнце и луна</span>
+          </section>
+          <section class="sun-moon-info">
+            <article class="sun-info">
+              <figure class="sun">
+                <img src="assets/sun.png" width="100" alt="Sun" />
+              </figure>
+            </article>
+            <article class="moon-info">
+              <figure class="moon">
+                <img src="assets/moon.png" width="90" alt="Moon" />
+              </figure>
+            </article>
+          </section>
+          <article class="moon">
+
+          </article>
+        </section>
+
+      </main>
+      <footer> 2018 © Copyright </footer>
+    </section>
   </body>
-  
 </html>

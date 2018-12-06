@@ -44,20 +44,6 @@ body {
     color: rgb(79, 79, 109);
 }
 
-.simple-btn {
-    border: 1px solid #c0c0c0;
-    background-color: white;
-    padding: 5px;
-}
-
-.simple-btn:hover {
-    cursor: pointer;
-}
-
-.simple-btn:active {
-    background-color: #e6e6e6;
-}
-
 .search-bar {
     padding: 10px;
     border-bottom: 1px solid #c0c0c0;
@@ -66,7 +52,7 @@ body {
 }
 
 .air-pollution {
-    vertical-align: bottom;
+   font-size:14px;
 }
 
 .search-form {
@@ -80,7 +66,7 @@ input[type="search"] {
     padding: 3px 5px 3px 5px;
 }
 
-.main-info {
+main{
     padding: 10px;
 }
 
@@ -88,12 +74,20 @@ input[type="search"] {
     display: inline-block;
 }
 
+.city-info > span {
+    display: block;
+}
+
 .current-temp {
-    display: inline-block;
+    display: inline;
 }
 
 .more-info {
     float: right;
+}
+
+.more-info > span {
+    display: block;
 }
 
 .inner-nav {
@@ -114,12 +108,25 @@ input[type="search"] {
     background-color: rgb(226, 230, 247);
 }
 
+.visualisation {
+    text-align: center;
+} 
+
+.timepoints {
+    display: block;
+}
+
 .timepoint {
     margin-left: 10px;
     margin-right: 33px;
 }
 
+.chart {
+    margin: 0;
+}
+
 .day {
+    max-width: 63px;
     margin-right: 21px;
     text-align: center;
     display: inline-block;
@@ -129,7 +136,55 @@ input[type="search"] {
     padding-top: 10px;
 }
 
-.footer {
+.curr-cond-img {
+    width: 30px;
+}
+
+.curr-city-info {
+    font-size: 16px;
+}
+
+.arrows {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.arrows > img {
+    height: 60px;
+}
+
+.five-days-table {
+    display: inline-block;
+}
+
+.date-sun-moon {
+    padding-top: 10px;
+}
+
+.sun-moon-info {
+    margin-top: 10px;
+}
+
+.sun-moon-info > article {
+    display: inline-block;
+}
+
+.sun-moon-info > article > figure {
+    margin: 0;
+}
+
+.today-sun-moon {
+    padding: 10px;
+    border: 1px solid #c0c0c0;
+    background: rgb(226, 230, 247);
+    border-radius: 5px;
+}
+
+.today {
+    margin-right: 130px;
+}
+
+footer {
     border-top: 1px solid #c0c0c0;
     padding: 10px;
     text-align: center;
