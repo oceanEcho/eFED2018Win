@@ -150,7 +150,7 @@ span.current-temp {
 .arrows {
     text-decoration: none;
     display: inline-block;
-    margin: 100px 0px 100px 0px; 
+    margin-top: -100px;
 }
 
 .arrows > img {
@@ -194,7 +194,8 @@ span.current-temp {
     background: rgb(226, 230, 247);
 }
 
-.tbl-max-wind-speed {
+.tbl-max-wind-speed,
+.tbl-pollution {
     border: 1px solid #c0c0c0;
     background: rgb(226, 230, 247);
     border-radius: 10px;
