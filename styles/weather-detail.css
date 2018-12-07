@@ -1,0 +1,69 @@
+@import "main.css";
+
+.air-pollution {
+    font-size:14px;
+}
+ 
+.city-info {
+    display: inline-block;
+    font-size: 22px;
+}
+ 
+.city-info > span {
+    display: block;
+}
+ 
+span.current-temp {
+    display: inline;
+}
+ 
+.curr-cond-img {
+    width: 60px;
+}
+ 
+.more-info {
+    float: right;
+    font-size: 16px;
+}
+ 
+.more-info > span {
+    display: block;
+}
+ 
+.inner-nav {
+    margin-top: 50px;
+}
+ 
+.inner-nav > ul {
+    margin: 0px;
+    padding: 0px;
+}
+ 
+.visualisation {
+    text-align: center;
+} 
+ 
+.timepoints {
+    display: block;
+}
+ 
+.timepoint {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+ 
+.chart {
+    margin: 0;
+}
+ 
+.day {
+    max-width: 63px;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+    display: inline-block;
+}
+ 
+.week-info {
+    padding-top: 10px;
+}

@@ -1,0 +1,116 @@
+@import "main.css";
+
+.city-cnd-img {
+    width: 30px;
+}
+
+.curr-city-info {
+    font-size: 16px;
+}
+
+.five-days {
+    text-align: center;
+}
+
+.arrows {
+    text-decoration: none;
+    display: inline-block;
+    margin-top: -100px;
+}
+
+.arrows > img {
+    height: 40px;
+}
+
+.five-days-table {
+    display: inline-block;
+    width: 90%;
+    text-align: center;
+}
+
+.row {
+    margin-bottom: 5px;
+}
+
+.col {
+    display: inline-block;
+    width: 19%;
+    border: 1px solid #c0c0c0;
+    border-radius: 10px;
+    padding-top: 3px; 
+    padding-bottom: 3px;
+}
+
+.col > * {
+    display: block;
+}
+
+.col-2 {
+    display: inline-block;
+    width: 21%;
+    font-size: 14px;
+}
+
+.col-2 > img {
+    width: 30px;
+}
+
+.tbl-day-of-week {
+    background: rgb(226, 230, 247);
+}
+
+.tbl-max-wind-speed,
+.tbl-pollution {
+    border: 1px solid #c0c0c0;
+    background: rgb(226, 230, 247);
+    border-radius: 10px;
+    width: 98%;
+}
+
+.date-sun-moon {
+    padding-top: 10px;
+}
+
+.sun-moon-info {
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.sun-info {
+    width: 50%;
+    float: left;
+}
+
+.moon-info {
+    width: 50%;
+    float: right;
+}
+
+.sun-info > img,
+.moon-info > img {
+    float: left;
+    margin: 0px 10px 10px 0px;
+}
+
+.sun-info > span,
+.moon-info > span {
+    display: block;
+    height: 40px;
+}
+
+.today-sun-moon {
+    padding: 10px;
+    border: 1px solid #c0c0c0;
+    background: rgb(226, 230, 247);
+    border-radius: 5px;
+}
+
+.today {
+    margin-right: 130px;
+}
+
+.d-gt-thn-yst,
+.full-moon {
+    margin-bottom: -20px;
+    text-align: center;
+}
