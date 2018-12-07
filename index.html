@@ -15,7 +15,7 @@
     <section class="container">
       <nav class="main-nav">
         <ul>
-          <li class="nav-btn active">
+          <li class="nav-btn">
             <a href="weather-details.html">Сегодня</a>
           </li>
           <li class="nav-btn">
@@ -27,15 +27,15 @@
         </ul>
       </nav>
       <section class="search-bar">
-        <img class="curr-cond-img" src="assets/light_cloud.png" alt="Light cloud" />
+        <img class="city-cnd-img" src="assets/light_cloud.png" alt="Light cloud" />
         <span class="curr-city-info">22° Ижевск, Россия</span>
         <form class="search-form" action="#" method="post">
-          <input type="search" id="search" placeholder="Поиск..." />
+          <input type="search" id="search" placeholder="Поиск..." pattern="[А-Я]{1}[а-я]+(?:[\s-][а-яА-Я]+)*$"/>
         </form>
       </section>
       <main>
         <a class="arrows left-arrow" href="#">
-          <img src="assets/arrow_to_left.png" alt="Left arrow" />
+          <img src="assets/arrow_left.png" alt="Left arrow" />
         </a>
 
         <section class="five-days-table">
@@ -43,7 +43,7 @@
         </section>
 
         <a class="arrows right-arrow" href="#">
-          <img src="assets/arrow_to_right.png" alt="Right arrow" />
+          <img src="assets/arrow_right.png" alt="Right arrow" />
         </a>
 
         <section class="date-sun-moon">
