@@ -1,5 +1,9 @@
 @import "main.css";
 
+.container {
+    width: 700px;
+}
+
 .air-pollution {
     font-size:14px;
 }
@@ -43,13 +47,9 @@ span.current-temp {
     text-align: center;
 } 
  
-.timepoints {
-    display: block;
-}
- 
 .timepoint {
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 25px;
+    margin-right: 25px;
 }
  
 .chart {
@@ -58,8 +58,8 @@ span.current-temp {
  
 .day {
     max-width: 63px;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
     text-align: center;
     display: inline-block;
 }
