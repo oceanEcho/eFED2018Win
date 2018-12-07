@@ -1,10 +1,41 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <title>Five-day weather forecast</title>
+    <title>История погоды</title>
+
+    <meta charset="UTF-8" />
+    <meta name="application-name" content="WeatherForecast" />
+    <meta name="author" content="Ivan Zaytsev" />
+    <meta name="description" content="Weather forecast for five days" >
+    <meta name="keywords" content="weather, izhevsk, temperature" />
+
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
   </head>
   <body>
-    <h1>Историческая справка о погоде на текущий день</h1>
+    <section class="container">
+      <nav class="main-nav">
+        <ul>
+          <li class="nav-btn">
+            <a href="weather-details.html">Сегодня</a>
+          </li>
+          <li class="nav-btn">
+            <a href="index.html">5 дней</a>
+          </li>
+          <li class="nav-btn">
+            <a href="historical-review.html">История погоды</a>
+          </li>
+        </ul>
+      </nav>
+      <section class="search-bar">
+        <span class="curr-location">Ижевск, Россия</span>
+        <form class="search-form" action="#" method="post">
+          <input type="search" id="search" placeholder="Поиск..." pattern="[А-Я]{1}[а-я]+(?:[\s-][а-яА-Я]+)*$"/>
+        </form>
+      </section>
+      <main>
+        <h1>История погоды</h1>
+      </main>
+      <footer> 2018 © Copyright </footer>
+    </section>
   </body>
 </html>
