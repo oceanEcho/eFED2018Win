@@ -73,6 +73,7 @@ main{
 
 .city-info {
     display: inline-block;
+    font-size: 22px;
 }
 
 .city-info > span {
@@ -89,6 +90,7 @@ span.current-temp {
 
 .more-info {
     float: right;
+    font-size: 16px;
 }
 
 .more-info > span {
