@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-    width: 640px;
+    width: 1000px;
     border: 1px solid #c0c0c0;
     border-radius: 10px;
     margin-left: auto;
@@ -79,7 +79,7 @@ main{
     display: block;
 }
 
-.city-info > span.current-temp {
+span.current-temp {
     display: inline;
 }
 
@@ -104,15 +104,6 @@ main{
     padding: 0px;
 }
 
-.inner-nav > ul > li.nav-btn {
-    border: 1px solid #c0c0c0;
-}
-
-.inner-nav > ul > li.nav-btn.active,
-.inner-nav > ul > li.nav-btn:hover {
-    background-color: rgb(226, 230, 247);
-}
-
 .visualisation {
     text-align: center;
 } 
@@ -122,8 +113,8 @@ main{
 }
 
 .timepoint {
-    margin-left: 10px;
-    margin-right: 25px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .chart {
@@ -132,7 +123,8 @@ main{
 
 .day {
     max-width: 63px;
-    margin-right: 21px;
+    margin-left: 20px;
+    margin-right: 20px;
     text-align: center;
     display: inline-block;
 }
@@ -149,9 +141,14 @@ main{
     font-size: 16px;
 }
 
+.five-days {
+    text-align: center;
+}
+
 .arrows {
     text-decoration: none;
     display: inline-block;
+    margin: 100px 0px 100px 0px; 
 }
 
 .arrows > img {
@@ -160,6 +157,46 @@ main{
 
 .five-days-table {
     display: inline-block;
+    width: 90%;
+    text-align: center;
+}
+
+.row {
+    margin-bottom: 5px;
+}
+
+.col {
+    display: inline-block;
+    width: 19%;
+    border: 1px solid #c0c0c0;
+    border-radius: 10px;
+    padding-top: 3px; 
+    padding-bottom: 3px;
+}
+
+.col > * {
+    display: block;
+}
+
+.col-2 {
+    display: inline-block;
+    width: 21%;
+    font-size: 14px;
+}
+
+.col-2 > img {
+    width: 30px;
+}
+
+.tbl-day-of-week {
+    background: rgb(226, 230, 247);
+}
+
+.tbl-max-wind-speed {
+    border: 1px solid #c0c0c0;
+    background: rgb(226, 230, 247);
+    border-radius: 10px;
+    width: 98%;
 }
 
 .date-sun-moon {
@@ -168,14 +205,29 @@ main{
 
 .sun-moon-info {
     margin-top: 10px;
+    overflow: hidden;
 }
 
-.sun-moon-info > article {
-    display: inline-block;
+.sun-info {
+    width: 50%;
+    float: left;
 }
 
-.sun-moon-info > article > figure {
-    margin: 0;
+.moon-info {
+    width: 50%;
+    float: right;
+}
+
+.sun-info > img,
+.moon-info > img {
+    float: left;
+    margin: 0px 10px 10px 0px;
+}
+
+.sun-info > span,
+.moon-info > span {
+    display: block;
+    height: 40px;
 }
 
 .today-sun-moon {
@@ -187,6 +239,12 @@ main{
 
 .today {
     margin-right: 130px;
+}
+
+.d-gt-thn-yst,
+.full-moon {
+    margin-bottom: -20px;
+    text-align: center;
 }
 
 footer {
