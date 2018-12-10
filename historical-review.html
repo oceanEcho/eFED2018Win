@@ -6,32 +6,34 @@
     <meta charset="UTF-8" />
     <meta name="application-name" content="WeatherForecast" />
     <meta name="author" content="Ivan Zaytsev" />
-    <meta name="description" content="Weather forecast for five days" >
+    <meta name="description" content="Weather forecast, historical review" >
     <meta name="keywords" content="weather, izhevsk, temperature" />
 
     <link rel="stylesheet" type="text/css" href="styles/historical-review.css">
   </head>
   <body>
-    <wrapper class="container">
-      <nav class="main-nav">
-        <ul>
-          <li class="nav-btn">
-            <a href="weather-details.html">Сегодня</a>
-          </li>
-          <li class="nav-btn">
-            <a href="index.html">5 дней</a>
-          </li>
-          <li class="nav-btn">
-            <a href="historical-review.html">История погоды</a>
-          </li>
-        </ul>
-      </nav>
-      <section class="search-bar">
-        <span class="curr-location">Ижевск, Россия</span>
-        <form class="search-form" action="#" method="post">
-          <input type="search" id="search" placeholder="Поиск..." pattern="[А-Я]{1}[а-я]+(?:[\s-][а-яА-Я]+)*$"/>
-        </form>
-      </section>
+    <div class="container">
+      <header>
+        <nav class="main-nav">
+          <ul>
+            <li class="nav-btn">
+              <a href="weather-details.html">Сегодня</a>
+            </li>
+            <li class="nav-btn">
+              <a href="index.html">5 дней</a>
+            </li>
+            <li class="nav-btn">
+              <a href="historical-review.html">История погоды</a>
+            </li>
+          </ul>
+        </nav>
+        <section class="search-bar">
+          <span class="curr-location">Ижевск, Россия</span>
+          <form class="search-form" action="#" method="post">
+            <input type="search" id="search" placeholder="Поиск..." pattern="[А-Я]{1}[а-я]+(?:[\s-][а-яА-Я]+)*$"/>
+          </form>
+        </section>
+      </header>
       <main>
         <section class="table">
           <p class="row month-names">
@@ -107,6 +109,6 @@
         </section>
       </main>
       <footer> 2018 © Copyright </footer>
-    </wrapper>
+    </div>
   </body>
 </html>
