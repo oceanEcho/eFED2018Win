@@ -1,0 +1,51 @@
+@import "main.css";
+
+main {
+    padding: 5px;
+}
+
+.table {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    margin: 40px 0px;
+}
+
+.row {
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+.col {
+    display: inline-block;
+    width: 7.7%;
+    border: 1px solid #c0c0c0;
+    border-radius: 10px;
+    padding: 10px 0px;
+}
+
+.month-names .col:nth-child(odd) {
+    background: rgb(226, 230, 247);
+}
+
+.avg-max .col:nth-child(even) {
+    background: rgb(226, 230, 247);
+}
+
+.avg-min .col:nth-child(odd) {
+    background: rgb(226, 230, 247);
+}
+
+.most-max .col:nth-child(even) {
+    background: rgb(226, 230, 247);
+}
+
+.most-min .col:nth-child(odd) {
+    background: rgb(226, 230, 247);
+}
+
+.month-names .col:first-child {
+    border: none;
+    background: none;
+}

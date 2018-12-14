@@ -2,10 +2,12 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(113, 113, 156);
     background: linear-gradient(to right, rgb(226, 230, 247), rgb(164, 177, 221));
+    font-size: 16px;
 }
 
 .container {
-    width: 640px;
+    display: block;
+    width: 1000px;
     border: 1px solid #c0c0c0;
     border-radius: 10px;
     margin-left: auto;
@@ -44,20 +46,6 @@ body {
     color: rgb(79, 79, 109);
 }
 
-.simple-btn {
-    border: 1px solid #c0c0c0;
-    background-color: white;
-    padding: 5px;
-}
-
-.simple-btn:hover {
-    cursor: pointer;
-}
-
-.simple-btn:active {
-    background-color: #e6e6e6;
-}
-
 .search-bar {
     padding: 10px;
     border-bottom: 1px solid #c0c0c0;
@@ -65,71 +53,22 @@ body {
     background: rgb(226, 230, 247);
 }
 
-.air-pollution {
-    vertical-align: bottom;
-}
-
 .search-form {
     float: right;
 }
-
+ 
 input[type="search"] {
     border: 1px solid #c0c0c0;
     border-radius: 10px;
     font-size: 14px;
     padding: 3px 5px 3px 5px;
 }
-
-.main-info {
+ 
+main {
     padding: 10px;
 }
 
-.city-info {
-    display: inline-block;
-}
-
-.current-temp {
-    display: inline-block;
-}
-
-.more-info {
-    float: right;
-}
-
-.inner-nav {
-    margin-top: 50px;
-}
-
-.inner-nav > ul {
-    margin: 0px;
-    padding: 0px;
-}
-
-.inner-nav > ul > li.nav-btn {
-    border: 1px solid #c0c0c0;
-}
-
-.inner-nav > ul > li.nav-btn.active,
-.inner-nav > ul > li.nav-btn:hover {
-    background-color: rgb(226, 230, 247);
-}
-
-.timepoint {
-    margin-left: 10px;
-    margin-right: 33px;
-}
-
-.day {
-    margin-right: 21px;
-    text-align: center;
-    display: inline-block;
-}
-
-.week-info {
-    padding-top: 10px;
-}
-
-.footer {
+footer {
     border-top: 1px solid #c0c0c0;
     padding: 10px;
     text-align: center;

@@ -9,65 +9,60 @@
     <meta name="description" content="Weather forecast for today" >
     <meta name="keywords" content="weather, izhevsk, temperature" />
 
-    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <link rel="stylesheet" type="text/css" href="styles/weather-detail.css">
   </head>
   <body>
     <div class="container">
-      <nav class="main-nav">
-        <ul>
-          <li class="nav-btn active">
-            <a href="#">Сегодня</a>
-          </li>
-          <li class="nav-btn">
-            <a href="index.html">5 дней</a>
-          </li>
-          <li class="nav-btn">
-            <a href="historical-review.html">История погоды</a>
-          </li>
-        </ul>
-        
-        <!--
-        <input class="simple-btn" type="button" value="Сегодня" />
-        <input class="simple-btn" type="button" value="5 дней" />
-        <input class="simple-btn" type="button" value="История погоды" />
-        -->
-
-      </nav>
-      <div class="search-bar">
-        <span class="air-pollution">Загрязнение воздуха: 8.394234235345324532</span>
-        <form class="search-form" action="#" method="post">
-          <input type="search" id="search" placeholder="Поиск..." />
-        </form>
-      </div>
-      <div class="main-info">
-        <div class="city-info">
-          <div class="location">
+      <header>
+        <nav class="main-nav">
+          <ul>
+            <li class="nav-btn">
+              <a href="weather-details.html">Сегодня</a>
+            </li>
+            <li class="nav-btn">
+              <a href="index.html">5 дней</a>
+            </li>
+            <li class="nav-btn">
+              <a href="historical-review.html">История погоды</a>
+            </li>
+          </ul>
+        </nav>
+        <section class="search-bar">
+          <span class="air-pollution">Загрязнение воздуха: 8.394234235345324532</span>
+          <form class="search-form" action="#" method="post">
+            <input type="search" id="search" placeholder="Поиск..." pattern="[А-Я]{1}[а-я]+(?:[\s-][а-яА-Я]+)*$"/>
+          </form>
+        </section>
+      </header>
+      <main>
+        <section class="city-info">
+          <span class="location">
             Ижевск, Россия
-          </div>
-          <div class="day-of-week">
+          </span>
+          <span class="day-of-week">
             среда
-          </div>
-          <div class="condition">
+          </span>
+          <span class="condition">
             облачно
-          </div>
-          <img class="curr-cond-img" src="assets/sunny_weather.png" alt="Sunny Weather" />
-          <div class="current-temp" >
+          </span>
+          <img class="curr-cond-img" src="assets/partly_cloudy.png" alt="Sunny weather"/>
+          <span class="current-temp">
             22 ℃
-          </div>
-        </div>
-        <div class="more-info">
-          <div class="prob-of-precip">
+          </span>
+        </section>
+        <section class="more-info">
+          <span class="prob-of-precip">
             Вероятность осадков: 20%
-          </div>
-          <div class="humidity">
+          </span>
+          <span class="humidity">
             Влажность: 45%
-          </div>  
-          <div class="windspeed">
+          </span>  
+          <span class="windspeed">
             Ветер: 11 км/ч
-          </div>
+          </span>
           <nav class="inner-nav">
             <ul>
-              <li class="nav-btn active">
+              <li class="nav-btn">
                 <a href="#">Температура</a>
               </li>
               <li class="nav-btn">
@@ -77,20 +72,13 @@
                 <a href="#">Ветер</a>
               </li>
             </ul>
-
-            <!--
-            <input class="simple-btn" type="button" value="Температура" />
-            <input class="simple-btn" type="button" value="Вероятость осадков" />
-            <input class="simple-btn" type="button" value="Ветер" />
-            -->
-
           </nav>
-        </div>
-        <div class="visualisation">
-          <div class="chart">
+        </section>
+        <section class="visualisation">
+          <figure class="chart">
             <img src="assets/path.PNG" alt="Temperature chart" />
-          </div>
-          <div class="timepoints">
+          </figure>
+          <p class="timepoints">
             <span class="timepoint">17:00</span>
             <span class="timepoint">20:00</span>
             <span class="timepoint">23:00</span>
@@ -98,49 +86,47 @@
             <span class="timepoint">04:00</span>
             <span class="timepoint">07:00</span>
             <span class="timepoint">10:00</span>
-          </div>
-          <div class="week-info">
-            <div class="day">
-              <div class="day-of-week">пн</div>
+          </p>
+          <section class="week-info">
+            <article class="day">
+              <span class="day-of-week">пн</span>
               <img src="assets/partly_cloudy.png" alt="Partlly cloudly" />
-              <div class="temp-range">22 ° 13 °</div>
-            </div>
-            <div class="day">
-              <div class="day-of-week">вт</div>
+              <span class="temp-range">22° 13°</span>
+            </article>
+            <article class="day">
+              <span class="day-of-week">вт</span>
               <img src="assets/partly_cloudy.png" alt="Partlly cloudly" />
-              <div class="temp-range">22 ° 13 °</div>
-            </div>
-            <div class="day">
-              <div class="day-of-week">ср</div>
+              <span class="temp-range">22° 13°</span>
+            </article>
+            <article class="day">
+              <span class="day-of-week">ср</span>
               <img src="assets/partly_cloudy.png" alt="Partlly cloudly" />
-              <div class="temp-range">22 ° 13 °</div>
-            </div>
-            <div class="day">
-              <div class="day-of-week">чт</div>
+              <span class="temp-range">22° 13°</span>
+            </article>
+            <article class="day">
+              <span class="day-of-week">чт</span>
               <img src="assets/partly_cloudy.png" alt="Partlly cloudly" />
-              <div class="temp-range">22 ° 13 °</div>
-            </div>
-            <div class="day">
-              <div class="day-of-week">пт</div>
+              <span class="temp-range">22° 13°</span>
+            </article>
+            <article class="day">
+              <span class="day-of-week">пт</span>
               <img src="assets/partly_cloudy.png" alt="Partlly cloudly" />
-              <div class="temp-range">22 ° 13 °</div>
-            </div>
-            <div class="day">
-              <div class="day-of-week">сб</div>
+              <span class="temp-range">22° 13°</span>
+            </article>
+            <article class="day">
+              <span class="day-of-week">сб</span>
               <img src="assets/partly_cloudy.png" alt="Partlly cloudly" />
-              <div class="temp-range">22 ° 13 °</div>
-            </div>
-            <div class="day">
-            <div class="day-of-week">вс</div>
+              <span class="temp-range">22° 13°</span>
+            </article>
+            <article class="day">
+              <span class="day-of-week">вс</span>
               <img src="assets/partly_cloudy.png" alt="Partlly cloudly" />
-              <div class="temp-range">22 ° 13 °</div>
-            </div>   
-          </div>
-        </div>
-      </div>
-      <div class="footer">
-        2018 © Copyright
-      </div>
+              <span class="temp-range">22° 13°</span>
+            </article>   
+          </section>
+        </section>
+      </main>
+      <footer> 2018 © Copyright </footer>
     </div>
   </body>
 </html>
