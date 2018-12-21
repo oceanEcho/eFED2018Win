@@ -20,8 +20,38 @@ console.log(CountChar("A true master is an eternal student.", "a"));
 
 function DeepCompare(firstObject, secondObject) {
 
-    return true;
+    for (key in firstObject) {
+        if (!!secondObject[key]) {
+            if ((typeof firstObject[key] == String) || (typeof firstObject[key] == Number) ||
+            (typeof firstObject[key] == Boolean) || (typeof firstObject[key] == null)) {
+                if ((typeof secondObject[key] == String) || (typeof secondObject[key] == Number) ||
+                (typeof secondObject[key] == Boolean) || (typeof secondObject[key] == null)) {
+                    if (firstObject[key] === secondObject[key]) {
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
+                }
+            }
+            else {
+                if (firstObject[key] == secondObject[key]) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+        }
+        else {
+            return false;
+        }
+    }
+
+    return false;
 }
+
+console.log(DeepCompare({ one: 1, two: "2" }, { one: 1, two: "2" }));
 
 // 3. Chess board
 
