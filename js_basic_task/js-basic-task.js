@@ -6,7 +6,7 @@ function CountChar(sourceString, requiredLetter) {
     var lettersCount = 0;
 
     for (letter of sourceString) {
-        if ((letter == requiredLetter) || letter == requiredLetter.toUpperCase()) {
+        if ((letter === requiredLetter.toLowerCase()) || letter === requiredLetter.toUpperCase()) {
             lettersCount++;
         }
     }
@@ -14,29 +14,38 @@ function CountChar(sourceString, requiredLetter) {
     return lettersCount;
 }
 
-console.log(CountChar("A true master is an eternal student.", "a"));
+console.log(CountChar("A true master is an eternal student.", " "));
 
 // 2. Deep compare
 
 function DeepCompare(firstObject, secondObject) {
 
     for (key in firstObject) {
-        if (!!secondObject[key]) {
-            if ((typeof firstObject[key] == String) || (typeof firstObject[key] == Number) ||
-            (typeof firstObject[key] == Boolean) || (typeof firstObject[key] == null)) {
-                if ((typeof secondObject[key] == String) || (typeof secondObject[key] == Number) ||
-                (typeof secondObject[key] == Boolean) || (typeof secondObject[key] == null)) {
-                    if (firstObject[key] === secondObject[key]) {
-                        return true;
+
+        var isEqual = false;
+
+        var first = firstObject[key];
+        var second = secondObject[key];
+
+        if (!!second) {
+            if ((typeof first == "string") || (typeof first == "number") ||
+            (typeof first == "boolean") || (typeof first == "null")) {
+                if ((typeof second == "string") || (typeof second == "number") ||
+                (typeof second == "boolean") || (typeof second == "null")) {
+                    if (first === second) {
+                        isEqual = true;
                     }
                     else {
                         return false;
                     }
                 }
+                else {
+                    return false;
+                }
             }
             else {
-                if (firstObject[key] == secondObject[key]) {
-                    return true;
+                if (first == second) {
+                    isEqual = true;
                 }
                 else {
                     return false;
@@ -48,10 +57,10 @@ function DeepCompare(firstObject, secondObject) {
         }
     }
 
-    return false;
+    return isEqual;
 }
 
-console.log(DeepCompare({ one: 1, two: "2" }, { one: 1, two: "2" }));
+console.log(DeepCompare({ one: 1, two: "2" }, { one: 1, two: 2 }));
 
 // 3. Chess board
 
@@ -109,6 +118,9 @@ function MakeArray(head, tail, step) {
 }
 
 console.log(MakeArray(0, 10, 2));
+console.log(MakeArray(0, -10, 2));
+console.log(MakeArray(100, 10, 20));
+//console.log(MakeArray(0, 10, -20));
 
 // 5.1. Reverse array
 
@@ -148,11 +160,11 @@ console.log(testArray);
 
 // 6. Merging
 
-function MergeArrays() {
+function MergeArrays(...array) {
 
     var newArray = [];
 
-    for (currentArray of arguments) {
+    for (currentArray of array) {
         newArray = [...newArray, ...currentArray];
     }
 
