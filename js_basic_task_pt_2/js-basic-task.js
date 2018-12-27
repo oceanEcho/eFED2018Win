@@ -69,3 +69,59 @@ function replaceQuotes(sourceString) {
 }
 
 console.log(replaceQuotes("I'm 'hero' '"));
+
+// 10. Find numbers
+
+function findNumbers(sourceArray) {
+
+    return sourceArray;
+}
+
+// 11. Day and month
+
+function getNames(date) {
+
+    var months = [
+        "January",
+        "Febriary",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+    ];
+
+    var weekdays = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+    ];
+
+    return months[date.getMonth()] + ", " + weekdays[date.getDay()];
+}
+
+console.log(getNames(new Date()));
+
+// 12. Difference in years
+
+function differenceInYears(firstDate, secondDate) {
+
+    var firstDateDays = firstDate.getMonth() * 30 + firstDate.getDate();
+    var secondDateDays = secondDate.getMonth() * 30 + secondDate.getDate();
+
+    var difference = Math.abs(firstDate.getYear() - secondDate.getYear()) + Math.abs(firstDateDays - secondDateDays) / 365;
+
+    return difference.toFixed(1);
+}
+
+console.log(differenceInYears(new Date(2014, 10, 2), new Date(2016, 10, 2)));
+console.log(differenceInYears(new Date(2014, 0), new Date(2014, 6)));
