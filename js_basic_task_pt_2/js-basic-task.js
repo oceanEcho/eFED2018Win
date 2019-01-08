@@ -68,14 +68,26 @@ function replaceQuotes(sourceString) {
     return sourceString.replace(/^'|(\s)'|'(\s)|'$/g, '$1"$2');
 }
 
-console.log(replaceQuotes("I'm 'hero' '"));
+console.log(replaceQuotes("I'm 'hero'"));
 
 // 10. Find numbers
 
 function findNumbers(sourceArray) {
 
-    return sourceArray;
+    var numbersExp = /^[+,-]?\d+\.?\d*([e,E][+,-]?)?\d*$/;
+    var newArray = [];
+
+    for (item of sourceArray) {
+        if (numbersExp.test(item)) {
+            newArray.push(item);
+        }
+    }
+
+    return newArray;
 }
+
+console.log(findNumbers(["1", "-1", "+15", "1.55", ".5", "5.", "1.3e2", "1E-4", "1e+12"]));
+console.log(findNumbers(["1a", "+-1", "1.2.3", "1+1", "1e4.5", ".5.", "1f5", "."]));
 
 // 11. Day and month
 
