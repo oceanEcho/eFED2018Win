@@ -40,21 +40,13 @@ function multiplyOrThrow(a, b) {
 
 //console.log(multiplyOrThrow(2, 3))
 
-function finallyMultiply (a, b) {
-
-    while(1) {
-        try {
-            if (Math.random() < 0.5) {
-                return a * b;
-            }
-            else {
-                throw "MultiplicatorUnitFailure";
-            }
-        }
-        catch(e) {
-            if (e === "MultiplicatorUnitFailure") {
-                console.log(e);
-            }
+function finallyMultiply(a, b) {
+    try {
+        return multiplyOrThrow(a, b);
+    }
+    catch(e) {
+        if (e === "MultiplicatorUnitFailure") {
+            return finallyMultiply(a, b);
         }
     }
 }
