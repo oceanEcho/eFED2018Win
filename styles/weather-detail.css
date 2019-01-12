@@ -51,9 +51,13 @@ span.current-temp {
     margin-left: 25px;
     margin-right: 25px;
 }
- 
-.chart {
-    margin: 0;
+
+.chart-img {
+    display: none;
+}
+
+.chart-img.visible {
+    display: inline-block;
 }
  
 .day {

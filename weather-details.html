@@ -16,7 +16,7 @@
       <header>
         <nav class="main-nav">
           <ul>
-            <li class="nav-btn">
+            <li class="nav-btn active">
               <a href="weather-details.html">Сегодня</a>
             </li>
             <li class="nav-btn">
@@ -62,22 +62,22 @@
           </span>
           <nav class="inner-nav">
             <ul>
-              <li class="nav-btn">
+              <li id="temp-btn" class="inner nav-btn active">
                 <a href="#">Температура</a>
               </li>
-              <li class="nav-btn">
+              <li id="prob-of-precip-btn" class="inner nav-btn">
                 <a href="#">Вероятость осадков</a>
               </li>
-              <li class="nav-btn">
+              <li id="wind-btn" class="inner nav-btn">
                 <a href="#">Ветер</a>
               </li>
             </ul>
           </nav>
         </section>
         <section class="visualisation">
-          <figure class="chart">
-            <img src="assets/path.PNG" alt="Temperature chart" />
-          </figure>
+          <img id="tempChart" class="chart-img visible" src="assets/temp.png" alt="Temperature chart" />
+          <img id="precipChart" class="chart-img" src="assets/precip.png" alt="Precipation chart" />
+          <img id="windChart" class="chart-img" src="assets/wind.png" alt="Wind chart" />
           <p class="timepoints">
             <span class="timepoint">17:00</span>
             <span class="timepoint">20:00</span>
@@ -128,5 +128,7 @@
       </main>
       <footer> 2018 © Copyright </footer>
     </div>
+
+    <script type="text/javascript" src="js/weather-detail.js"></script>
   </body>
 </html>
