@@ -110,7 +110,8 @@ function getNames(date) {
         "Saturday"
     ];
 
-    return months[date.getMonth()] + ", " + weekdays[date.getDay()];
+    // return months[date.getMonth()] + ", " + weekdays[date.getDay()];
+    return `${date.toLocaleString("en-US", {month: "long"})}, ${date.toLocaleString("en-US", {weekday: "long"})}`;
 }
 
 console.log(getNames(new Date()));
