@@ -16,9 +16,6 @@ main {
     text-decoration: none;
     display: inline-block;
     margin-top: -100px;
-}
-
-.arrows {
     height: 40px;
 }
 
@@ -51,14 +48,13 @@ main {
 .col {
     display: inline-block;
     width: 19%;
+}
+
+.bordered {
     border: 1px solid #c0c0c0;
     border-radius: 10px;
     padding-top: 3px; 
     padding-bottom: 3px;
-}
-
-.col {
-    display: inline-block;
 }
 
 .col-2 {
@@ -71,7 +67,26 @@ main {
     width: 30px;
 }
 
+.day {
+    display: none;
+    width: 40%;
+}
+
+.day.current {
+    display: inline-block;
+    animation: fade-in 0.5s 1;
+}
+
 .tbl-day-of-week {
+    background: rgb(226, 230, 247);
+}
+
+.day-marker {
+    width: 30px;
+    cursor: pointer;
+}
+
+.day-marker.current {
     background: rgb(226, 230, 247);
 }
 
@@ -119,53 +134,3 @@ main {
     border: none;
     margin: 0px;
 }
-
-/*
-.date-sun-moon {
-    padding-top: 10px;
-}
-
-.sun-moon-info {
-    margin-top: 10px;
-    overflow: hidden;
-}
-
-.sun-info {
-    width: 50%;
-    float: left;
-}
-
-.moon-info {
-    width: 50%;
-    float: right;
-}
-
-.sun-info > img,
-.moon-info > img {
-    float: left;
-    margin: 0px 10px 10px 0px;
-}
-
-.sun-info > span,
-.moon-info > span {
-    display: block;
-    height: 40px;
-}
-
-.today-sun-moon {
-    padding: 10px;
-    border: 1px solid #c0c0c0;
-    background: rgb(226, 230, 247);
-    border-radius: 5px;
-}
-
-.today {
-    margin-right: 130px;
-}
-
-.d-gt-thn-yst,
-.full-moon {
-    margin-bottom: -20px;
-    text-align: center;
-}
-*/
