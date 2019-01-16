@@ -9,13 +9,12 @@ var windChart = document.querySelector("#windChart");
 var chartList = document.querySelectorAll(".chart-img");
 var innerNavBtns = document.querySelectorAll(".inner.nav-btn");
 
-function showChart(chart) {
-    for (item of chartList) {
-        item.classList.remove("visible");
-    }
-
-    for (btn of innerNavBtns) {
-        btn.classList.remove("active");
+function changeChart(chart) {
+    if (chartList.length == innerNavBtns.length) {
+        for (var i = 0; i < chartList.length; i++) {
+            chartList[i].classList.remove("visible");
+            innerNavBtns[i].classList.remove("active");
+        }
     }
 
     chart.classList.add("visible");
@@ -23,13 +22,13 @@ function showChart(chart) {
 }
 
 tempBtn.addEventListener("click", function (x) {
-    return function () { showChart(x) }
+    return function () { changeChart(x) }
 }(tempChart));
 
 probOfPrecBtn.addEventListener("click", function (x) {
-    return function () { showChart(x) }
+    return function () { changeChart(x) }
 }(precipChart));
 
 windBtn.addEventListener("click", function (x) {
-    return function () { showChart(x) }
+    return function () { changeChart(x) }
 }(windChart));
