@@ -45,10 +45,10 @@ prevArrow.addEventListener("click", function () {
 });
 
 function goToDay() {
-    console.log(event.targetevent);
+    var currDay = Array.prototype.indexOf.call(daysMarkerList, event.target);
     hideDay(visibleDay);
-    showDay(Array.prototype.indexOf.call(daysMarkerList, event.target));
-    visibleDay = Array.prototype.indexOf.call(daysMarkerList, event.target);
+    showDay(currDay);
+    visibleDay = currDay;
 }
 
 for (var i = 0; i < daysMarkerList.length; i++) {
