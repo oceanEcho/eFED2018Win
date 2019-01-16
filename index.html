@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <title>Прогноз погоды на сегодня</title>
+    <title>Прогноз погоды на пять дней</title>
 
     <meta charset="UTF-8" />
     <meta name="application-name" content="WeatherForecast" />
     <meta name="author" content="Ivan Zaytsev" />
-    <meta name="description" content="Weather forecast for today" >
+    <meta name="description" content="Weather forecast for five days">
     <meta name="keywords" content="weather, izhevsk, temperature" />
 
-    <link rel="stylesheet" type="text/css" href="styles/weather-detail.css">
+    <link rel="stylesheet" type="text/css" href="styles/five-days.css">
   </head>
   <body>
     <div class="container">
       <header>
         <nav class="main-nav">
           <ul>
-            <li class="nav-btn active">
+            <li class="nav-btn">
               <a href="weather-details.html">Сегодня</a>
             </li>
-            <li class="nav-btn">
+            <li class="nav-btn active">
               <a href="index.html">5 дней</a>
             </li>
             <li class="nav-btn">
@@ -28,107 +28,282 @@
           </ul>
         </nav>
         <section class="search-bar">
-          <span class="air-pollution">Загрязнение воздуха: 8.394234235345324532</span>
+          <img class="city-cnd-img" src="assets/light_cloud.png" alt="Light
+            cloud" />
+          <span class="curr-city-info">22° Ижевск, Россия</span>
           <form class="search-form" action="#" method="post">
-            <input type="search" id="search" placeholder="Поиск..." pattern="[А-Я]{1}[а-я]+(?:[\s-][а-яА-Я]+)*$"/>
+            <input type="search" id="search" placeholder="Поиск..."
+              pattern="[А-Я]{1}[а-я]+(?:[\s-][а-яА-Я]+)*$" />
           </form>
         </section>
       </header>
       <main>
-        <section class="city-info">
-          <span class="location">
-            Ижевск, Россия
-          </span>
-          <span class="day-of-week">
-            среда
-          </span>
-          <span class="condition">
-            облачно
-          </span>
-          <img class="curr-cond-img" src="assets/partly_cloudy.png" alt="Sunny weather"/>
-          <span class="current-temp">
-            22 ℃
-          </span>
-        </section>
-        <section class="more-info">
-          <span class="prob-of-precip">
-            Вероятность осадков: 20%
-          </span>
-          <span class="humidity">
-            Влажность: 45%
-          </span>  
-          <span class="windspeed">
-            Ветер: 11 км/ч
-          </span>
-          <nav class="inner-nav">
-            <ul>
-              <li id="temp-btn" class="inner nav-btn active">
-                Температура
-              </li>
-              <li id="prob-of-precip-btn" class="inner nav-btn">
-                Вероятость осадков
-              </li>
-              <li id="wind-btn" class="inner nav-btn">
-                Ветер
-              </li>
-            </ul>
-          </nav>
-        </section>
-        <section class="visualisation">
-          <img id="tempChart" class="chart-img visible" src="assets/temp.png" alt="Temperature chart" />
-          <img id="precipChart" class="chart-img" src="assets/precip.png" alt="Precipation chart" />
-          <img id="windChart" class="chart-img" src="assets/wind.png" alt="Wind chart" />
-          <p class="timepoints">
-            <span class="timepoint">17:00</span>
-            <span class="timepoint">20:00</span>
-            <span class="timepoint">23:00</span>
-            <span class="timepoint">01:00</span>
-            <span class="timepoint">04:00</span>
-            <span class="timepoint">07:00</span>
-            <span class="timepoint">10:00</span>
-          </p>
-          <section class="week-info">
-            <article class="day">
-              <span class="day-of-week">пн</span>
-              <img src="assets/partly_cloudy.png" alt="Partlly cloudly" />
-              <span class="temp-range">22° 13°</span>
-            </article>
-            <article class="day">
-              <span class="day-of-week">вт</span>
-              <img src="assets/partly_cloudy.png" alt="Partlly cloudly" />
-              <span class="temp-range">22° 13°</span>
-            </article>
-            <article class="day">
-              <span class="day-of-week">ср</span>
-              <img src="assets/partly_cloudy.png" alt="Partlly cloudly" />
-              <span class="temp-range">22° 13°</span>
-            </article>
-            <article class="day">
-              <span class="day-of-week">чт</span>
-              <img src="assets/partly_cloudy.png" alt="Partlly cloudly" />
-              <span class="temp-range">22° 13°</span>
-            </article>
-            <article class="day">
-              <span class="day-of-week">пт</span>
-              <img src="assets/partly_cloudy.png" alt="Partlly cloudly" />
-              <span class="temp-range">22° 13°</span>
-            </article>
-            <article class="day">
-              <span class="day-of-week">сб</span>
-              <img src="assets/partly_cloudy.png" alt="Partlly cloudly" />
-              <span class="temp-range">22° 13°</span>
-            </article>
-            <article class="day">
-              <span class="day-of-week">вс</span>
-              <img src="assets/partly_cloudy.png" alt="Partlly cloudly" />
-              <span class="temp-range">22° 13°</span>
-            </article>   
-          </section>
-        </section>
+        <nav class="nav-left-arrow">
+          <a href="#" id="prevArrow">
+            <img class="arrows" src="assets/arrow_left.png" alt="Left arrow" />
+          </a>
+        </nav>
+
+        <div class="five-days-table">
+          <div class="row">
+            <div class="current day col">
+              <div class="row">
+                <div class="bordered tbl-day-of-week">Пт, 18 мая</div>
+              </div>
+              <div class="bordered tbl-daily-tmp">
+                <div class="col-2 tbl-night">
+                  <div>Ночь</div>
+                  <img src="assets/partly_cloudy.png" alt="Погода ночью" />
+                  <div>+8</div>
+                </div>
+                <div class="col-2 tbl-mrng">
+                  <div>Утро</div>
+                  <img src="assets/partly_cloudy.png" alt="Погода утром" />
+                  <div>+16</div>
+                </div>
+                <div class="col-2 tbl-day">
+                  <div>День</div>
+                  <img src="assets/partly_cloudy.png" alt="Погода днем" />
+                  <div>+21</div>
+                </div>
+                <div class="col-2 tbl-evng">
+                  <div>Вечер</div>
+                  <img src="assets/partly_cloudy.png" alt="Погода вечером" />
+                  <div>+8</div>
+                </div>
+              </div>
+            </div>
+            <div class="day col">
+                <div class="row">
+                    <div class="bordered tbl-day-of-week">Сб, 19 мая</div>
+                  </div>
+              <div class="bordered tbl-daily-temp">
+                  <div class="col-2 tbl-night">
+                      <div>Ночь</div>
+                      <img src="assets/partly_cloudy.png" alt="Погода ночью" />
+                      <div>+8</div>
+                    </div>
+                    <div class="col-2 tbl-mrng">
+                      <div>Утро</div>
+                      <img src="assets/partly_cloudy.png" alt="Погода утром" />
+                      <div>+16</div>
+                    </div>
+                    <div class="col-2 tbl-day">
+                      <div>День</div>
+                      <img src="assets/partly_cloudy.png" alt="Погода днем" />
+                      <div>+12</div>
+                    </div>
+                    <div class="col-2 tbl-evng">
+                      <div>Вечер</div>
+                      <img src="assets/partly_cloudy.png" alt="Погода вечером" />
+                      <div>+5</div>
+              </div>
+              </div>
+            </div>
+            <div class="day col">
+                <div class="row">
+                    <div class="bordered tbl-day-of-week">Вс, 20 мая</div>
+                  </div>
+              <div class="bordered">
+                  <div class="col-2 tbl-night">
+                      <div>Ночь</div>
+                      <img src="assets/partly_cloudy.png" alt="Погода ночью" />
+                      <div>+1</div>
+                    </div>
+                    <div class="col-2 tbl-mrng">
+                      <div>Утро</div>
+                      <img src="assets/partly_cloudy.png" alt="Погода утром" />
+                      <div>+22</div>
+                    </div>
+                    <div class="col-2 tbl-day">
+                      <div>День</div>
+                      <img src="assets/partly_cloudy.png" alt="Погода днем" />
+                      <div>+30</div>
+                    </div>
+                    <div class="col-2 tbl-evng">
+                      <div>Вечер</div>
+                      <img src="assets/partly_cloudy.png" alt="Погода вечером" />
+                      <div>+35</div>
+                    </div>
+              </div>
+            </div>
+            <div class="day col">
+                <div class="row">
+                    <div class="bordered tbl-day-of-week">Пн, 21 мая</div>
+                  </div>
+              <div class="bordered">
+                  <div class="col-2 tbl-night">
+                      <div>Ночь</div>
+                      <img src="assets/partly_cloudy.png" alt="Погода ночью" />
+                      <div>+7</div>
+                    </div>
+                    <div class="col-2 tbl-mrng">
+                      <div>Утро</div>
+                      <img src="assets/partly_cloudy.png" alt="Погода утром" />
+                      <div>+5</div>
+                    </div>
+                    <div class="col-2 tbl-day">
+                      <div>День</div>
+                      <img src="assets/partly_cloudy.png" alt="Погода днем" />
+                      <div>+1</div>
+                    </div>
+                    <div class="col-2 tbl-evng">
+                      <div>Вечер</div>
+                      <img src="assets/partly_cloudy.png" alt="Погода вечером" />
+                      <div>+8</div>
+                    </div>
+              </div>
+            </div>
+            <div class="day col">
+                <div class="row">
+                    <div class="bordered tbl-day-of-week">Вт, 22 мая</div>
+                  </div>
+              <div class="bordered">
+                  <div class="col-2 tbl-night">
+                      <div>Ночь</div>
+                      <img src="assets/partly_cloudy.png" alt="Погода ночью" />
+                      <div>+8</div>
+                    </div>
+                    <div class="col-2 tbl-mrng">
+                      <div>Утро</div>
+                      <img src="assets/partly_cloudy.png" alt="Погода утром" />
+                      <div>+3</div>
+                    </div>
+                    <div class="col-2 tbl-day">
+                      <div>День</div>
+                      <img src="assets/partly_cloudy.png" alt="Погода днем" />
+                      <div>+1</div>
+                    </div>
+                    <div class="col-2 tbl-evng">
+                      <div>Вечер</div>
+                      <img src="assets/partly_cloudy.png" alt="Погода вечером" />
+                      <div>0</div>
+                    </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row nav-days">
+              <div class="col day-marker bordered current">Пт</div>
+              <div class="col day-marker bordered">Сб</div>
+              <div class="col day-marker bordered">Вс</div>
+              <div class="col day-marker bordered">Пн</div>
+              <div class="col day-marker bordered">Вт</div>
+          </div>
+
+          <div class="row">
+            <span class="bordered col tbl-max-wind-speed">Максимальная скорость ветра,
+              м/с </span>
+          </div>
+
+          <div class="row">
+            <span class="bordered col tbl-daily-wnd-spd">
+              <span class="col-2">2</span>
+              <span class="col-2">5</span>
+              <span class="col-2">4</span>
+              <span class="col-2">5</span>
+            </span>
+            <span class="bordered col">
+              <span class="col-2">2</span>
+              <span class="col-2">5</span>
+              <span class="col-2">4</span>
+              <span class="col-2">5</span>
+            </span>
+            <span class="bordered col">
+              <span class="col-2">2</span>
+              <span class="col-2">5</span>
+              <span class="col-2">4</span>
+              <span class="col-2">5</span>
+            </span>
+            <span class="bordered col">
+              <span class="col-2">2</span>
+              <span class="col-2">5</span>
+              <span class="col-2">4</span>
+              <span class="col-2">5</span>
+            </span>
+            <span class="bordered col">
+              <span class="col-2">2</span>
+              <span class="col-2">5</span>
+              <span class="col-2">4</span>
+              <span class="col-2">5</span>
+            </span>
+          </div>
+
+          <div class="row">
+            <span class="bordered col tbl-pollution">Осадки, мм </span>
+          </div>
+
+          <div class="row">
+            <span class="bordered col tbl-daily-poll">
+              <span class="col-2">0</span>
+              <span class="col-2">0</span>
+              <span class="col-2">2.2</span>
+              <span class="col-2">4.6</span>
+            </span>
+            <span class="bordered col tbl-daily-poll">
+              <span class="col-2">0</span>
+              <span class="col-2">0</span>
+              <span class="col-2">2.2</span>
+              <span class="col-2">4.6</span>
+            </span>
+            <span class="bordered col tbl-daily-poll">
+              <span class="col-2">0</span>
+              <span class="col-2">0</span>
+              <span class="col-2">2.2</span>
+              <span class="col-2">4.6</span>
+            </span>
+            <span class="bordered col tbl-daily-poll">
+              <span class="col-2">0</span>
+              <span class="col-2">0</span>
+              <span class="col-2">2.2</span>
+              <span class="col-2">4.6</span>
+            </span>
+            <span class="bordered col tbl-daily-poll">
+              <span class="col-2">0</span>
+              <span class="col-2">0</span>
+              <span class="col-2">2.2</span>
+              <span class="col-2">4.6</span>
+            </span>
+          </div>
+
+          <div class="row">
+            <span class="bordered col today-sun-moon">
+              <span class="col-2 today">Сегодня пятница, 18 мая</span>
+              <span class="col-2 sun-moon">Солнце и луна</span>
+            </span>
+          </div>
+
+          <div class="row">
+            <div class="col sun-info">
+              <img class="sun-icon" src="assets/sun.png" alt="Sun" />
+              <div class="day-duration">Продолжительность дня - 16 ч 43 мин</div>
+              <div class="sunrise">Восход - 4:02</div>
+              <div class="sunset">Заход - 20:45</div>
+            </div>
+            <div class="col moon-info">
+              <img class="moon-icon" src="assets/moon.png" alt="Moon" />
+              <div class="moon-state">Луна растущая - 19%</div>
+              <div class="moonrise">Восход - 7:40</div>
+              <div class="moonset">Заход - 10:58</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <span class="col d-gt-thn-yst">Сегодня день на 2 минуты длиннее, чем
+              вчера</span>
+            <span class="col full-moon">Полнолуние - 28 июня, через 23 дня</span>
+          </div>
+
+        </div>
+
+        <nav class="nav-right-arrow">
+          <a href="#" id="nextArrow">
+            <img class="arrows" src="assets/arrow_right.png" alt="Right arrow"/>
+          </a>
+        </nav>
       </main>
       <footer> 2018 © Copyright </footer>
     </div>
-
-    <script type="text/javascript" src="js/weather-detail.js"></script>
+    <script type="text/javascript" src="js/five-days.js"></script>
   </body>
 </html>
