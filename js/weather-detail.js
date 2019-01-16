@@ -9,9 +9,7 @@ var windChart = document.querySelector("#windChart");
 var chartList = document.querySelectorAll(".chart-img");
 var innerNavBtns = document.querySelectorAll(".inner.nav-btn");
 
-console.log(innerNavBtns);
-
-function showChart(button, chart) {
+function showChart(chart) {
     for (item of chartList) {
         item.classList.remove("visible");
     }
@@ -21,17 +19,17 @@ function showChart(button, chart) {
     }
 
     chart.classList.add("visible");
-    button.classList.add("active");
+    event.target.classList.add("active");
 }
 
-tempBtn.addEventListener("click", function (x, y) {
-    return function () { showChart(x, y) }
-}(tempBtn, tempChart));
+tempBtn.addEventListener("click", function (x) {
+    return function () { showChart(x) }
+}(tempChart));
 
-probOfPrecBtn.addEventListener("click", function (x, y) {
-    return function () { showChart(x, y) }
-}(probOfPrecBtn, precipChart));
+probOfPrecBtn.addEventListener("click", function (x) {
+    return function () { showChart(x) }
+}(precipChart));
 
-windBtn.addEventListener("click", function (x, y) {
-    return function () { showChart(x, y) }
-}(windBtn, windChart));
+windBtn.addEventListener("click", function (x) {
+    return function () { showChart(x) }
+}(windChart));
