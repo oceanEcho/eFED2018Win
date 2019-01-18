@@ -17,7 +17,7 @@
     display: block;
 }
  
-span.current-temp {
+#current-temp {
     display: inline;
 }
  

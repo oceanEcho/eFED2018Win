@@ -1,5 +1,5 @@
-this.window.onload = function() {
-  window.document.getElementById("mainInfo").innerHTML = JSON.stringify(
-    weekForecastMock
-  );
-};
+// this.window.onload = function() {
+//   window.document.getElementById("mainInfo").innerHTML = JSON.stringify(
+//     weekForecastMock
+//   );
+// };
