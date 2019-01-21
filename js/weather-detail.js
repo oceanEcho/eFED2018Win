@@ -39,7 +39,8 @@ const defaultCity = "Izhevsk";
 
 const weatherDetails = {
     init() {
-        this.getWeatherDetails(defaultCity, this.render);
+        this.getWeatherDetails(defaultCity, this.renderMainInfo);
+        this.getWeatherDetails(defaultCity, this.renderSubInfo);
 
         const searchField = document.querySelector("#search");
 
@@ -49,7 +50,8 @@ const weatherDetails = {
 
         searchField.addEventListener("change", (event) => {
             const city = event.target.value;
-            this.getWeatherDetails(city, this.render);
+            this.getWeatherDetails(city, this.renderMainInfo);
+            this.getWeatherDetails(city, this.renderSubInfo);
         });
     },
 
@@ -68,15 +70,27 @@ const weatherDetails = {
         xhr.send();
     },
 
-    render(data) {
+    renderMainInfo(data) {
         const city = data.name;
         const country = data.sys.country;
         const currentTemperature = Math.round(data.main.temp);
         const date = new Date();
+        const icon = data.weather[0].icon;
 
         document.querySelector("#location").innerHTML = `${city}, ${country}`;
         document.querySelector("#current-temp").innerHTML = `${currentTemperature}℃`;
         document.querySelector("#day-of-week").innerHTML = `${date.toLocaleString("ru-RU", {weekday: "long"}) }`;
+        document.querySelector("#curr-cond-img").src = `http://openweathermap.org/img/w/${icon}.png`;
+    },
+
+    renderSubInfo(data) {
+        const probOfPrecip = 15;
+        const humidity = Math.round(data.main.humidity);
+        const windSpeed = Math.round(data.wind.speed);
+
+        document.querySelector("#prob-of-precip").innerHTML = `Вероятность осадков: ${probOfPrecip}%`;
+        document.querySelector("#humidity").innerHTML = `Влажность: ${humidity}%`;
+        document.querySelector("#windspeed").innerHTML = `Скорость ветра: ${windSpeed} м/с`;
     }
 }
 
