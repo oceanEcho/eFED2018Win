@@ -44,16 +44,14 @@ const weatherDetails = {
         this.getWeatherDetails(TODAY_ENDPOINT, defaultCity, this.renderSubInfo);
         this.getWeatherDetails(FIVE_DAYS_ENDPOINT, defaultCity, this.renderFiveDaysInfo);
 
-        const searchField = document.querySelector("#search");
+        const searchForm = document.querySelector(".search-form");
 
-        document.querySelector(".search-form").addEventListener("submit", (event) => {
+        searchForm.addEventListener("submit", (event) => {
             event.preventDefault();
-        });
-
-        searchField.addEventListener("change", (event) => {
-            const city = event.target.value;
+            const city = event.target.firstElementChild.value;
             this.getWeatherDetails(TODAY_ENDPOINT, city, this.renderMainInfo);
             this.getWeatherDetails(TODAY_ENDPOINT, city, this.renderSubInfo);
+            this.getWeatherDetails(FIVE_DAYS_ENDPOINT, city, this.renderFiveDaysInfo);
         });
     },
 
@@ -75,15 +73,17 @@ const weatherDetails = {
         const city = data.name;
         const country = data.sys.country;
         const currentTemperature = Math.round(data.main.temp);
-        const date = new Date();
+        const date = new Date(data.dt * 1000);
         const icon = data.weather[0].icon;
         const alt = data.weather[0].description;
+        const condition = data.weather[0].main;
 
         document.querySelector("#location").innerHTML = `${city}, ${country}`;
         document.querySelector("#current-temp").innerHTML = `${currentTemperature}℃`;
         document.querySelector("#day-of-week").innerHTML = `${date.toLocaleString("ru-RU", {weekday: "long"}) }`;
         document.querySelector("#curr-cond-img").src = `http://openweathermap.org/img/w/${icon}.png`;
         document.querySelector("#curr-cond-img").alt = alt;
+        document.querySelector("#condition").innerHTML = condition;
     },
 
     renderSubInfo(data) {
@@ -97,7 +97,61 @@ const weatherDetails = {
     },
 
     renderFiveDaysInfo(data) {
+        function getDayBlock(data) {
+            const daysObject = {};
+            const dataList = data.list;
+
+            for(let i = 0; i < dataList.length; i++) {
+                const date = new Date(dataList[i].dt * 1000);
+                console.log(date.toLocaleString("ru", {weekday: 'short'}));
+                const day = date.toLocaleString("ru", {weekday: 'short'});
+                
+                if (day in daysObject) {
+                    daysObject[day].push(dataList[i]);
+                }
+                else {
+                    daysObject[day] = [];
+                    daysObject[day].push(dataList[i]);
+                }
+            }
+
+            console.log(daysObject);
+
+            return daysObject;
+        }
+
+        const fiveDaysList = getDayBlock(data);
+        const daysElementList = document.querySelectorAll(".day");
+
         console.log(data);
+
+        let blockIndex = 0;
+        for (day in fiveDaysList) {
+            console.log(day);
+            let minTemperature = Math.round(fiveDaysList[day][0].main.temp_min);
+            let maxTemperature = Math.round(fiveDaysList[day][0].main.temp_max);
+
+            for (let i = 0; i < fiveDaysList[day].length; i++) {
+                if (minTemperature > Math.round(fiveDaysList[day][i].main.temp_min)) {
+                    console.log(Math.round(fiveDaysList[day][i].main.temp_min));
+                    minTemperature = Math.round(fiveDaysList[day][i].main.temp_min);
+                }
+                if (maxTemperature < Math.round(fiveDaysList[day][i].main.temp_max)) {
+                    maxTemperature = Math.round(fiveDaysList[day][i].main.temp_max);
+                }
+            }
+
+            let icon = fiveDaysList[day][0].weather[0].icon.replace("n", "d");
+
+            let dayBlock = daysElementList[blockIndex].children;
+
+            dayBlock[0].innerHTML = day;
+            dayBlock[1].src = `http://openweathermap.org/img/w/${icon}.png`;
+            dayBlock[2].innerHTML = `${minTemperature}° ${maxTemperature}°`;
+            blockIndex++;
+        }
+        
+        
     }
 }
 
