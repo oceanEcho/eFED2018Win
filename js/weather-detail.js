@@ -6,7 +6,7 @@ var tempChart = document.querySelector("#tempChart");
 var precipChart = document.querySelector("#precipChart");
 var windChart = document.querySelector("#windChart");
 
-var chartList = document.querySelectorAll(".chart-img");
+var chartList = document.querySelectorAll(".chart");
 var innerNavBtns = document.querySelectorAll(".inner.nav-btn");
 
 function changeChart(chart) {
@@ -43,15 +43,25 @@ const weatherDetails = {
         this.getWeatherDetails(TODAY_ENDPOINT, defaultCity, this.renderMainInfo);
         this.getWeatherDetails(TODAY_ENDPOINT, defaultCity, this.renderSubInfo);
         this.getWeatherDetails(FIVE_DAYS_ENDPOINT, defaultCity, this.renderFiveDaysInfo);
+        this.getWeatherDetails(FIVE_DAYS_ENDPOINT, defaultCity, this.renderTemperatureChart);
+        this.getWeatherDetails(FIVE_DAYS_ENDPOINT, defaultCity, this.renderPrecipChart);
+        this.getWeatherDetails(FIVE_DAYS_ENDPOINT, defaultCity, this.renderWindChart);
 
         const searchForm = document.querySelector(".search-form");
 
         searchForm.addEventListener("submit", (event) => {
             event.preventDefault();
+
             const city = event.target.firstElementChild.value;
+
+            event.target.firstElementChild.value = "";
+
             this.getWeatherDetails(TODAY_ENDPOINT, city, this.renderMainInfo);
             this.getWeatherDetails(TODAY_ENDPOINT, city, this.renderSubInfo);
             this.getWeatherDetails(FIVE_DAYS_ENDPOINT, city, this.renderFiveDaysInfo);
+            this.getWeatherDetails(FIVE_DAYS_ENDPOINT, city, this.renderTemperatureChart);
+            this.getWeatherDetails(FIVE_DAYS_ENDPOINT, city, this.renderPrecipChart);
+            this.getWeatherDetails(FIVE_DAYS_ENDPOINT, city, this.renderWindChart);
         });
     },
 
@@ -59,12 +69,12 @@ const weatherDetails = {
         const url = `${endpoint}${city}`;
         const xhr = new XMLHttpRequest();
 
-        xhr.onload = function() {
+        xhr.onload = function () {
             if (this.readyState === 4 && this.status === 200) {
                 callback(JSON.parse(xhr.responseText));
             }
         }
-        
+
         xhr.open("GET", url, true);
         xhr.send();
     },
@@ -80,14 +90,14 @@ const weatherDetails = {
 
         document.querySelector("#location").innerHTML = `${city}, ${country}`;
         document.querySelector("#current-temp").innerHTML = `${currentTemperature}℃`;
-        document.querySelector("#day-of-week").innerHTML = `${date.toLocaleString("ru-RU", {weekday: "long"}) }`;
+        document.querySelector("#day-of-week").innerHTML = `${date.toLocaleString("ru-RU", { weekday: "long" })}`;
         document.querySelector("#curr-cond-img").src = `http://openweathermap.org/img/w/${icon}.png`;
         document.querySelector("#curr-cond-img").alt = alt;
         document.querySelector("#condition").innerHTML = condition;
     },
 
     renderSubInfo(data) {
-        const probOfPrecip = 15;
+        const probOfPrecip = 0;
         const humidity = Math.round(data.main.humidity);
         const windSpeed = Math.round(data.wind.speed);
 
@@ -99,19 +109,18 @@ const weatherDetails = {
     renderFiveDaysInfo(data) {
         function getDayBlock(data) {
             const daysObject = {};
-            const dataList = data.list;
 
-            for(let i = 0; i < dataList.length; i++) {
-                const date = new Date(dataList[i].dt * 1000);
-                console.log(date.toLocaleString("ru", {weekday: 'short'}));
-                const day = date.toLocaleString("ru", {weekday: 'short'});
-                
+            for (let i = 0; i < data.list.length; i++) {
+                const date = new Date(data.list[i].dt * 1000);
+                console.log(date.toLocaleString("ru", { weekday: 'short' }));
+                const day = date.toLocaleString("ru", { weekday: 'short' });
+
                 if (day in daysObject) {
-                    daysObject[day].push(dataList[i]);
+                    daysObject[day].push(data.list[i]);
                 }
                 else {
                     daysObject[day] = [];
-                    daysObject[day].push(dataList[i]);
+                    daysObject[day].push(data.list[i]);
                 }
             }
 
@@ -150,9 +159,91 @@ const weatherDetails = {
             dayBlock[2].innerHTML = `${minTemperature}° ${maxTemperature}°`;
             blockIndex++;
         }
-        
-        
+
+
+    },
+
+    renderTemperatureChart(data) {
+        const chartBlocks = document.querySelectorAll(".temp-chart-block");
+        const timeSteps = document.querySelector(".temp-timepoints").children;
+        const tempValues = document.querySelector(".temp-values").children;
+
+        console.log(timeSteps);
+
+        let minTemp = Math.round(data.list[0].main.temp_min);
+        let maxTemp = Math.round(data.list[0].main.temp_max);
+        for (let i = 0; i < timeSteps.length; i++) {
+            console.log(i);
+            if (minTemp > Math.round(data.list[i].main.temp_min)) {
+                minTemp = Math.round(data.list[i].main.temp_min);
+            }
+            if (maxTemp < Math.round(data.list[i].main.temp_max)) {
+                maxTemp = Math.round(data.list[i].main.temp_max);
+            }
+        }
+
+        console.log(minTemp);
+        console.log(maxTemp);
+
+        let absMax;
+        if (Math.abs(minTemp) > Math.abs(maxTemp)) {
+            absMax = Math.abs(minTemp);
+        }
+        else {
+            absMax = Math.abs(maxTemp);
+        }
+
+        console.log(absMax);
+
+        for (let i = 0; i < timeSteps.length; i++) {
+            let date = new Date(data.list[i].dt * 1000);
+            timeSteps[i].innerHTML = date.toLocaleString("en-GB", { hour: 'numeric', minute: 'numeric' });
+            tempValues[i].innerHTML = Math.round(data.list[i].main.temp);
+            chartBlocks[i].style.height = `${absMax + Math.round(data.list[i].main.temp)}px`;
+
+        }
+    },
+
+    renderPrecipChart(data) {
+        const chartBlocks = document.querySelectorAll(".precip-chart-block");
+        const timeSteps = document.querySelector(".precip-timepoints").children;
+        const precipValues = document.querySelector(".precip-values").children;
+
+        for (let i = 0; i < timeSteps.length; i++) {
+            let date = new Date(data.list[i].dt * 1000);
+            timeSteps[i].innerHTML = date.toLocaleString("en-GB", { hour: 'numeric', minute: 'numeric' });
+            chartBlocks[i].style.height = 0;
+        }
+    },
+
+    renderWindChart(data) {
+        const timeSteps = document.querySelector(".wind-timepoints").children;
+        const windValues = document.querySelector(".wind-values").children;
+        const windArrows = document.querySelectorAll(".wind-image > img");
+
+        for (let i = 0; i < timeSteps.length; i++) {
+            let date = new Date(data.list[i].dt * 1000);
+
+            timeSteps[i].innerHTML = date.toLocaleString("en-GB", { hour: 'numeric', minute: 'numeric' });
+            windValues[i].innerHTML = `${Math.round(data.list[i].wind.speed)} м/c`;
+
+            windArrows[i].style.transform = `rotate(${Math.round(data.list[i].wind.deg)}deg)`;
+            if (data.list[i].wind.speed < 1) {
+                windArrows[i].style.width = `10%`;
+            }
+            else if (data.list[i].wind.speed < 1.5) {
+                windArrows[i].style.width = `15%`;
+            }
+            else if (data.list[i].wind.speed < 3) {
+                windArrows[i].style.width = `30%`;
+            }
+            else {
+                windArrows[i].style.width = `50%`;
+            }
+        }
     }
 }
 
 weatherDetails.init();
+
+console.log(new Date(1548622800 * 1000).toUTCString("ru", { weekday: 'short' }));

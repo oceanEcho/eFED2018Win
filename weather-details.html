@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta name="application-name" content="WeatherForecast" />
     <meta name="author" content="Ivan Zaytsev" />
-    <meta name="description" content="Weather forecast for today" >
+    <meta name="description" content="Weather forecast for today">
     <meta name="keywords" content="weather, izhevsk, temperature" />
 
     <link rel="stylesheet" type="text/css" href="styles/weather-detail.css">
@@ -30,7 +30,8 @@
         <section class="search-bar">
           <span class="air-pollution">Загрязнение воздуха: 8.394234235345324532</span>
           <form class="search-form" action="#" method="post">
-            <input type="search" id="search" placeholder="Поиск..." pattern="[A-Z]{1}[a-z]+(?:[\s-][a-zA-Z]+)*$"/>
+            <input type="search" id="search" placeholder="Поиск..."
+              pattern="[А-ЯA-Z]{1}[a-zа-я]+(?:[\s-][а-яa-zА-ЯA-Z]+)*$" />
           </form>
         </section>
       </header>
@@ -45,7 +46,8 @@
           <span id="condition">
             облачно
           </span>
-          <img id="curr-cond-img" src="assets/partly_cloudy.png" alt="Sunny weather"/>
+          <img id="curr-cond-img" src="assets/partly_cloudy.png" alt="Sunny
+            weather" />
           <span id="current-temp">
             22 ℃
           </span>
@@ -56,7 +58,7 @@
           </span>
           <span id="humidity">
             Влажность: 45%
-          </span>  
+          </span>
           <span id="windspeed">
             Ветер: 11 м/с
           </span>
@@ -75,41 +77,117 @@
           </nav>
         </section>
         <section class="visualisation">
-          <div id="tempChart" class="chart-img visible">
-            <img src="assets/temp.png" alt="Temperature chart" />
-            <p class="timepoints">
-                <span class="timepoint">17:00</span>
-                <span class="timepoint">20:00</span>
-                <span class="timepoint">23:00</span>
-                <span class="timepoint">01:00</span>
-                <span class="timepoint">04:00</span>
-                <span class="timepoint">07:00</span>
-                <span class="timepoint">10:00</span>
-              </p>
+          <div id="tempChart" class="chart visible">
+            <!-- <img src="assets/temp.png" alt="Temperature chart" /> -->
+
+            <div class="temp-values">
+              <div class="temp-value">0</div>
+              <div class="temp-value">0</div>
+              <div class="temp-value">0</div>
+              <div class="temp-value">0</div>
+              <div class="temp-value">0</div>
+              <div class="temp-value">0</div>
+              <div class="temp-value">0</div>
+            </div>
+
+            <div class="chart-img">
+              <div class="temp-chart-block"></div>
+              <div class="temp-chart-block"></div>
+              <div class="temp-chart-block"></div>
+              <div class="temp-chart-block"></div>
+              <div class="temp-chart-block"></div>
+              <div class="temp-chart-block"></div>
+              <div class="temp-chart-block"></div>
+            </div>
+
+            <div class="temp-timepoints">
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+            </div>
           </div>
-          <div id="precipChart" class="chart-img">
-            <img src="assets/precip.png" alt="Precipation chart" />
-            <p class="timepoints">
-                <span class="timepoint">17:00</span>
-                <span class="timepoint">20:00</span>
-                <span class="timepoint">23:00</span>
-                <span class="timepoint">01:00</span>
-                <span class="timepoint">04:00</span>
-                <span class="timepoint">07:00</span>
-                <span class="timepoint">10:00</span>
-              </p>
+          <div id="precipChart" class="chart">
+            <!-- <img src="assets/precip.png" alt="Precipation chart" /> -->
+            <div class="precip-values">
+              <div class="precip-value">0</div>
+              <div class="precip-value">0</div>
+              <div class="precip-value">0</div>
+              <div class="precip-value">0</div>
+              <div class="precip-value">0</div>
+              <div class="precip-value">0</div>
+              <div class="precip-value">0</div>
+            </div>
+
+            <div class="chart-img">
+              <div class="precip-chart-block"></div>
+              <div class="precip-chart-block"></div>
+              <div class="precip-chart-block"></div>
+              <div class="precip-chart-block"></div>
+              <div class="precip-chart-block"></div>
+              <div class="precip-chart-block"></div>
+              <div class="precip-chart-block"></div>
+            </div>
+
+            <div class="precip-timepoints">
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+            </div>
           </div>
-          <div id="windChart" class="chart-img">
-              <img src="assets/wind.png" alt="Wind chart" />
-              <p class="timepoints">
-                  <span class="timepoint">17:00</span>
-                  <span class="timepoint">20:00</span>
-                  <span class="timepoint">23:00</span>
-                  <span class="timepoint">01:00</span>
-                  <span class="timepoint">04:00</span>
-                  <span class="timepoint">07:00</span>
-                  <span class="timepoint">10:00</span>
-                </p>
+          <div id="windChart" class="chart">
+            <!-- <img src="assets/wind.png" alt="Wind chart" /> -->
+
+            <div class="wind-values">
+              <div class="wind-value">0</div>
+              <div class="wind-value">0</div>
+              <div class="wind-value">0</div>
+              <div class="wind-value">0</div>
+              <div class="wind-value">0</div>
+              <div class="wind-value">0</div>
+              <div class="wind-value">0</div>
+            </div>
+
+            <div class="chart-img">
+                <div class="wind-image">
+                    <img src="assets/wind.svg" alt="wind" />
+                </div>
+                <div class="wind-image">
+                    <img src="assets/wind.svg" alt="wind" />
+                </div>
+                <div class="wind-image">
+                    <img src="assets/wind.svg" alt="wind" />
+                </div>
+                <div class="wind-image">
+                    <img src="assets/wind.svg" alt="wind" />
+                </div>
+                <div class="wind-image">
+                    <img src="assets/wind.svg" alt="wind" />
+                </div>
+                <div class="wind-image">
+                    <img src="assets/wind.svg" alt="wind" />
+                </div>
+                <div class="wind-image">
+                    <img src="assets/wind.svg" alt="wind" />
+                </div>
+            </div>
+
+            <div class="wind-timepoints">
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+            </div>
           </div>
           <section class="week-info">
             <article class="day">
