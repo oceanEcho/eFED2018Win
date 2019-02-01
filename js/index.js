@@ -1,24 +1,22 @@
-console.log("hello");
+const prevArrow = document.querySelector('#prevArrow');
+const nextArrow = document.querySelector('#nextArrow');
 
-var prevArrow = document.querySelector("#prevArrow");
-var nextArrow = document.querySelector("#nextArrow");
-
-var daysList = document.querySelectorAll(".day");
-var daysMarkerList = document.querySelectorAll(".day-marker");
+const daysList = document.querySelectorAll('.day');
+const daysMarkerList = document.querySelectorAll('.day-marker');
 
 function showDay(dayNumber) {
-    daysList[dayNumber].classList.add("current");
-    daysMarkerList[dayNumber].classList.add("current");
+    daysList[dayNumber].classList.add('current');
+    daysMarkerList[dayNumber].classList.add('current');
 }
 
 function hideDay(dayNumber) {
-    daysList[dayNumber].classList.remove("current");
-    daysMarkerList[dayNumber].classList.remove("current");
+    daysList[dayNumber].classList.remove('current');
+    daysMarkerList[dayNumber].classList.remove('current');
 }
 
-var visibleDay = 0;
+let visibleDay = 0;
 
-nextArrow.addEventListener("click", function () {
+nextArrow.addEventListener('click', function () {
     if (visibleDay < daysList.length - 1) {
         hideDay(visibleDay);
         visibleDay++;
@@ -31,7 +29,7 @@ nextArrow.addEventListener("click", function () {
     }
 });
 
-prevArrow.addEventListener("click", function () {
+prevArrow.addEventListener('click', function () {
     if (visibleDay == 0) {
         hideDay(visibleDay);
         visibleDay = daysList.length - 1;
@@ -52,8 +50,8 @@ function goToDay() {
 }
 
 for (var i = 0; i < daysMarkerList.length; i++) {
-    daysMarkerList[i].addEventListener("click", function() {
-        return function () { goToDay() }
+    daysMarkerList[i].addEventListener('click', function () {
+        return function () { goToDay(); };
     }()
     );
 }
