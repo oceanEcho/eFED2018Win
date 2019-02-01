@@ -21,14 +21,6 @@ function changeChart(chart) {
     event.target.classList.add('active');
 }
 
-tempBtn.addEventListener('click', function (x) {
-    return function () { changeChart(x); };
-}(tempChart));
-
-probOfPrecBtn.addEventListener('click', function (x) {
-    return function () { changeChart(x); };
-}(precipChart));
-
-windBtn.addEventListener('click', function (x) {
-    return function () { changeChart(x); };
-}(windChart));
+tempBtn.addEventListener('click', changeChart.bind(this, tempChart));
+probOfPrecBtn.addEventListener('click', changeChart.bind(this, precipChart));
+windBtn.addEventListener('click', changeChart.bind(this, windChart));

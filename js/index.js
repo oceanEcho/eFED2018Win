@@ -16,26 +16,24 @@ function hideDay(dayNumber) {
 
 let visibleDay = 0;
 
-nextArrow.addEventListener('click', function () {
+nextArrow.addEventListener('click', function() {
     if (visibleDay < daysList.length - 1) {
         hideDay(visibleDay);
         visibleDay++;
         showDay(visibleDay);
-    }
-    else {
+    } else {
         hideDay(visibleDay);
         visibleDay = 0;
         showDay(visibleDay);
     }
 });
 
-prevArrow.addEventListener('click', function () {
+prevArrow.addEventListener('click', function() {
     if (visibleDay == 0) {
         hideDay(visibleDay);
         visibleDay = daysList.length - 1;
         showDay(visibleDay);
-    }
-    else {
+    } else {
         hideDay(visibleDay);
         visibleDay--;
         showDay(visibleDay);
@@ -50,8 +48,5 @@ function goToDay() {
 }
 
 for (var i = 0; i < daysMarkerList.length; i++) {
-    daysMarkerList[i].addEventListener('click', function () {
-        return function () { goToDay(); };
-    }()
-    );
+    daysMarkerList[i].addEventListener('click', goToDay.bind(this));
 }
