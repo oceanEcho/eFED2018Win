@@ -9,6 +9,8 @@
 }
 
 body {
+    display: flex;
+    justify-content: center;
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(113, 113, 156);
     background: linear-gradient(to right, rgb(226, 230, 247), rgb(164, 177, 221));
@@ -16,20 +18,19 @@ body {
 }
 
 .container {
-    display: block;
-    width: 1000px;
-    border: 1px solid #c0c0c0;
-    border-radius: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    background: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    animation: fade-in 1s 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
 }
 
 .main-nav {
-    padding: 10px;
-    border-bottom: 1px solid #c0c0c0;
+    display: flex;
+    padding-bottom: 10px;
 }
 
 .main-nav > ul {
@@ -59,32 +60,50 @@ body {
 }
 
 .search-bar {
-    padding: 10px;
-    border-bottom: 1px solid #c0c0c0;
-    overflow: hidden;
-    background: rgb(226, 230, 247);
-}
-
-.search-form {
-    float: right;
-}
- 
-input[type="search"] {
-    border: 1px solid #c0c0c0;
-    border-radius: 10px;
-    font-size: 14px;
-    padding: 3px 5px 3px 5px;
-    outline: none;
-}
- 
-main {
-    padding: 10px;
+    display: flex;
 }
 
 footer {
-    border-top: 1px solid #c0c0c0;
-    padding: 10px;
-    text-align: center;
-    border-radius: 0px 0px 10px 10px;
-    background: rgb(226, 230, 247);
+    display: flex;
+    justify-content: center;
 }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .container {
+        background: red;    
+    }
+}
+  
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .container {
+        background: green;
+        min-width: 600px;
+    }
+}
+  
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .container {
+        background: blue;
+        min-width: 700px;
+    }
+} 
+  
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .container {
+        background: orange;
+        min-width: 800px;
+    }
+} 
+  
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .container {
+        background: pink;
+        min-width: 1000px;
+    }
+}
+

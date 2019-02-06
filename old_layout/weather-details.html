@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Прогноз погоды на сегодня</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="application-name" content="WeatherForecast" />
+    <meta name="author" content="Ivan Zaytsev" />
+    <meta name="description" content="Weather forecast for today">
+    <meta name="keywords" content="weather, izhevsk, temperature" />
+
+    <link rel="stylesheet" type="text/css" href="styles/weather-detail.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <nav class="main-nav">
+          <ul>
+            <li class="nav-btn active">
+              <a href="weather-details.html">Сегодня</a>
+            </li>
+            <li class="nav-btn">
+              <a href="index.html">5 дней</a>
+            </li>
+            <li class="nav-btn">
+              <a href="historical-review.html">История погоды</a>
+            </li>
+          </ul>
+        </nav>
+        <section class="search-bar">
+          <span class="air-pollution">Загрязнение воздуха: 8.394234235345324532</span>
+          <form class="search-form" action="#" method="post">
+            <input type="search" id="search" placeholder="Поиск..."
+              pattern="[А-ЯA-Z]{1}[a-zа-я]+(?:[\s-][а-яa-zА-ЯA-Z]+)*$" />
+          </form>
+        </section>
+      </header>
+      <main>
+        <section class="city-info">
+          <span id="location">
+            Ижевск, Россия
+          </span>
+          <span id="day-of-week">
+            среда
+          </span>
+          <span id="condition">
+            облачно
+          </span>
+          <img id="curr-cond-img" src="assets/partly_cloudy.png" alt="Sunny
+            weather" />
+          <span id="current-temp">
+            22 ℃
+          </span>
+        </section>
+        <section class="more-info">
+          <span id="prob-of-precip">
+            Вероятность осадков: 20%
+          </span>
+          <span id="humidity">
+            Влажность: 45%
+          </span>
+          <span id="windspeed">
+            Ветер: 11 м/с
+          </span>
+          <nav class="inner-nav">
+            <ul>
+              <li id="temp-btn" class="inner nav-btn active">
+                Температура
+              </li>
+              <li id="prob-of-precip-btn" class="inner nav-btn">
+                Вероятость осадков
+              </li>
+              <li id="wind-btn" class="inner nav-btn">
+                Ветер
+              </li>
+            </ul>
+          </nav>
+        </section>
+        <section class="visualisation">
+          <div id="tempChart" class="chart visible">
+            <!-- <img src="assets/temp.png" alt="Temperature chart" /> -->
+
+            <div class="temp-values">
+              <div class="temp-value">0</div>
+              <div class="temp-value">0</div>
+              <div class="temp-value">0</div>
+              <div class="temp-value">0</div>
+              <div class="temp-value">0</div>
+              <div class="temp-value">0</div>
+              <div class="temp-value">0</div>
+            </div>
+
+            <div class="chart-img">
+              <div class="temp-chart-block"></div>
+              <div class="temp-chart-block"></div>
+              <div class="temp-chart-block"></div>
+              <div class="temp-chart-block"></div>
+              <div class="temp-chart-block"></div>
+              <div class="temp-chart-block"></div>
+              <div class="temp-chart-block"></div>
+            </div>
+
+            <div class="temp-timepoints">
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+            </div>
+          </div>
+          <div id="precipChart" class="chart">
+            <!-- <img src="assets/precip.png" alt="Precipation chart" /> -->
+            <div class="precip-values">
+              <div class="precip-value">0</div>
+              <div class="precip-value">0</div>
+              <div class="precip-value">0</div>
+              <div class="precip-value">0</div>
+              <div class="precip-value">0</div>
+              <div class="precip-value">0</div>
+              <div class="precip-value">0</div>
+            </div>
+
+            <div class="chart-img">
+              <div class="precip-chart-block"></div>
+              <div class="precip-chart-block"></div>
+              <div class="precip-chart-block"></div>
+              <div class="precip-chart-block"></div>
+              <div class="precip-chart-block"></div>
+              <div class="precip-chart-block"></div>
+              <div class="precip-chart-block"></div>
+            </div>
+
+            <div class="precip-timepoints">
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+            </div>
+          </div>
+          <div id="windChart" class="chart">
+            <!-- <img src="assets/wind.png" alt="Wind chart" /> -->
+
+            <div class="wind-values">
+              <div class="wind-value">0</div>
+              <div class="wind-value">0</div>
+              <div class="wind-value">0</div>
+              <div class="wind-value">0</div>
+              <div class="wind-value">0</div>
+              <div class="wind-value">0</div>
+              <div class="wind-value">0</div>
+            </div>
+
+            <div class="chart-img">
+              <div class="wind-image">
+                <img src="assets/wind.svg" alt="wind" />
+              </div>
+              <div class="wind-image">
+                <img src="assets/wind.svg" alt="wind" />
+              </div>
+              <div class="wind-image">
+                <img src="assets/wind.svg" alt="wind" />
+              </div>
+              <div class="wind-image">
+                <img src="assets/wind.svg" alt="wind" />
+              </div>
+              <div class="wind-image">
+                <img src="assets/wind.svg" alt="wind" />
+              </div>
+              <div class="wind-image">
+                <img src="assets/wind.svg" alt="wind" />
+              </div>
+              <div class="wind-image">
+                <img src="assets/wind.svg" alt="wind" />
+              </div>
+            </div>
+
+            <div class="wind-timepoints">
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+              <div class="timepoint">00:00</div>
+            </div>
+          </div>
+          <section class="week-info">
+            <article class="day">
+              <span class="day-of-week">пн</span>
+              <img src="assets/partly_cloudy.png" alt="Partlly cloudly" />
+              <span class="temp-range">22° 13°</span>
+            </article>
+            <article class="day">
+              <span class="day-of-week">вт</span>
+              <img src="assets/partly_cloudy.png" alt="Partlly cloudly" />
+              <span class="temp-range">22° 13°</span>
+            </article>
+            <article class="day">
+              <span class="day-of-week">ср</span>
+              <img src="assets/partly_cloudy.png" alt="Partlly cloudly" />
+              <span class="temp-range">22° 13°</span>
+            </article>
+            <article class="day">
+              <span class="day-of-week">чт</span>
+              <img src="assets/partly_cloudy.png" alt="Partlly cloudly" />
+              <span class="temp-range">22° 13°</span>
+            </article>
+            <article class="day">
+              <span class="day-of-week">пт</span>
+              <img src="assets/partly_cloudy.png" alt="Partlly cloudly" />
+              <span class="temp-range">22° 13°</span>
+            </article>
+            <article class="day">
+              <span class="day-of-week">сб</span>
+              <img src="assets/partly_cloudy.png" alt="Partlly cloudly" />
+              <span class="temp-range">22° 13°</span>
+            </article>
+            <!-- <article class="day">
+              <span class="day-of-week">вс</span>
+              <img src="assets/partly_cloudy.png" alt="Partlly cloudly" />
+              <span class="temp-range">22° 13°</span>
+            </article>    -->
+          </section>
+        </section>
+      </main>
+      <footer> 2018 © Copyright </footer>
+    </div>
+
+    <script type="text/javascript" src="js/weather-details-nav.js"></script>
+    <script type="text/javascript" src="js/weather-details.js"></script>
+  </body>
+</html>
