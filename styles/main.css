@@ -51,6 +51,7 @@ header {
     border-radius: 5px;
     background: white;
     cursor: pointer;
+    text-align: center;
 }
 
 .nav-btn.active,
@@ -116,8 +117,7 @@ footer {
     }
 
     .nav-btn {
-        margin: 0px 0px 5px 0px;
-        width: 100%;
+        margin: 0px 5px 5px 0px;
     }
 
     .search-bar {
@@ -131,6 +131,7 @@ footer {
 
     input[type="search"] {
         width: 100%;
+        font-size: 20px;
     }
 }
   

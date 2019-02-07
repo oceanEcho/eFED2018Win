@@ -32,7 +32,7 @@
 }
 
 .inner-nav > ul {
-    display: block;
+    display: flex;
     margin: 0px;
     padding: 0px;
 }
@@ -55,8 +55,17 @@
     }
 
     .city-info {
-        width: 100%;
+        width: inherit;
         font-size: 25px;
+    }
+
+    .more-info {
+        width: inherit;
+    }
+
+    .inner-nav > ul {
+        width: 100%;
+        flex-direction: column;
     }
 }
 
