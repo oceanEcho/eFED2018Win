@@ -117,8 +117,6 @@ const weatherDetails = {
             dayBlock[2].innerHTML = `${minTemperature}° ${maxTemperature}°`;
             blockIndex++;
         }
-
-
     },
 
     renderTemperatureChart(data) {
@@ -140,8 +138,7 @@ const weatherDetails = {
         let absMax;
         if (Math.abs(minTemp) > Math.abs(maxTemp)) {
             absMax = Math.abs(minTemp);
-        }
-        else {
+        } else {
             absMax = Math.abs(maxTemp);
         }
 
@@ -150,7 +147,6 @@ const weatherDetails = {
             timeSteps[i].innerHTML = date.toLocaleString('en-GB', { hour: 'numeric', minute: 'numeric' });
             tempValues[i].innerHTML = Math.round(data.list[i].main.temp);
             chartBlocks[i].style.height = `${absMax + Math.round(data.list[i].main.temp)}px`;
-
         }
     },
 
@@ -180,14 +176,11 @@ const weatherDetails = {
             windArrows[i].style.transform = `rotate(${Math.round(data.list[i].wind.deg)}deg)`;
             if (data.list[i].wind.speed < 1) {
                 windArrows[i].style.width = '10%';
-            }
-            else if (data.list[i].wind.speed < 1.5) {
+            } else if (data.list[i].wind.speed < 1.5) {
                 windArrows[i].style.width = '15%';
-            }
-            else if (data.list[i].wind.speed < 3) {
+            } else if (data.list[i].wind.speed < 3) {
                 windArrows[i].style.width = '30%';
-            }
-            else {
+            } else {
                 windArrows[i].style.width = '50%';
             }
         }
@@ -203,8 +196,7 @@ function getDayBlocks(data) {
 
         if (day in daysObject) {
             daysObject[day].push(data.list[i]);
-        }
-        else {
+        } else {
             daysObject[day] = [];
             daysObject[day].push(data.list[i]);
         }
