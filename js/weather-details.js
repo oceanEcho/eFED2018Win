@@ -146,7 +146,7 @@ const weatherDetails = {
             let date = new Date(data.list[i].dt * 1000);
             timeSteps[i].innerHTML = date.toLocaleString('en-GB', { hour: 'numeric', minute: 'numeric' });
             tempValues[i].innerHTML = Math.round(data.list[i].main.temp);
-            chartBlocks[i].style.height = `${absMax + Math.round(data.list[i].main.temp)}px`;
+            chartBlocks[i].style.height = `${absMax * 2 + Math.round(data.list[i].main.temp) * 2}px`;
         }
     },
 

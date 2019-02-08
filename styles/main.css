@@ -52,6 +52,7 @@ header {
     background: white;
     cursor: pointer;
     text-align: center;
+    white-space: nowrap;
 }
 
 .nav-btn.active,
@@ -108,7 +109,8 @@ footer {
 
     .container {
         min-width: 240px;
-        width: 95%;
+        width: 99%;
+        font-size: 20px;
     }
 
     .main-nav > ul {
@@ -138,7 +140,7 @@ footer {
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
     .container {
-        min-width: 95%;
+        min-width: 99%;
     }
 
     .main-nav {
@@ -149,7 +151,7 @@ footer {
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
     .container {
-        min-width: 95%;
+        min-width: 99%;
     }
 } 
   
