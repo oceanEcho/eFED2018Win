@@ -1,7 +1,7 @@
 @import "main.css";
 
 .container {
-    width: 700px;
+    width: 800px;
 }
 
 .air-pollution {
@@ -17,11 +17,11 @@
     display: block;
 }
  
-span.current-temp {
+#current-temp {
     display: inline;
 }
  
-.curr-cond-img {
+#curr-cond-img {
     width: 60px;
 }
  
@@ -45,23 +45,50 @@ span.current-temp {
  
 .visualisation {
     text-align: center;
-} 
- 
-.timepoint {
-    margin-left: 25px;
-    margin-right: 25px;
+    margin-top: 20px;
 }
 
-.chart-img {
+.temp-value, .precip-value, .wind-value {
+    display: inline-block;
+    width: 90px;
+    font-size: 15px;
+}
+
+.temp-chart-block {
+    display: inline-block;
+    width: 90px;
+    background: #fff5cc;
+    border-top: 2px solid #ffdf60;
+}
+
+.precip-chart-block {
+    display: inline-block;
+    width: 90px;
+    height: 20px;
+    background: #e7f1fd;
+    border-top: 2px solid #1878f0;
+}
+
+.wind-image {
+    display: inline-block;
+    width: 90px;
+}
+
+.timepoint {
+    display: inline-block;
+    width: 90px;
+}
+
+.chart {
     display: none;
 }
 
-.chart-img.visible {
+.chart.visible {
     display: inline-block;
 }
  
 .day {
-    max-width: 63px;
+    max-width: 65px;
     margin-left: 15px;
     margin-right: 15px;
     text-align: center;

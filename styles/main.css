@@ -74,6 +74,7 @@ input[type="search"] {
     border-radius: 10px;
     font-size: 14px;
     padding: 3px 5px 3px 5px;
+    outline: none;
 }
  
 main {
