@@ -123,6 +123,11 @@
     .city-info {
         width: inherit;
         font-size: 25px;
+        margin-left: 10px;
+    }
+
+    .more-info-text {
+        margin-left: 10px;
     }
 
     .more-info {
