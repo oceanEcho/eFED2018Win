@@ -17,6 +17,16 @@ body {
     font-size: 16px;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 10px 0px 10px;
+}
+
+div {
+    box-sizing: border-box;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -108,7 +118,7 @@ footer {
     }
 
     .container {
-        min-width: 240px;
+        min-width: 300px;
         width: 99%;
         font-size: 20px;
     }
@@ -165,7 +175,7 @@ footer {
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
     .container {
-        min-width: 1000px;
+        min-width: 95%;
     }
 }
 
