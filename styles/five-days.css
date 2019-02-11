@@ -1,21 +1,27 @@
 @import "main.css";
 
+.five-days-table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .tbl-all-days {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .day {
     display: none;
     flex-direction: column;
     justify-content: center;
-    padding: 5px;
-    width: 20%;
-    box-sizing: border-box;
+    width: 19%;
 }
 
-.day.current {
+.current {
     display: flex;
     animation: fade-in 0.5s 1;
 }
@@ -49,14 +55,68 @@
     font-size: 14px;
 }
 
+.title {
+    display: flex;
+    justify-content: center;
+    background: rgb(226, 230, 247);
+    border: 1px solid #c0c0c0;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+    padding: 3px 0px 3px 0px;
+}
+
+.tbl-wind-speed {
+    display: flex;
+    flex-direction: column;
+}
+
+.wind-speed-days {
+    display: flex;
+    justify-content: space-between;
+}
+
+.daily-wind-speed {
+    display: flex;
+    justify-content: space-around;
+    padding: 5px;
+    width: 19%;
+    border: 1px solid #c0c0c0;
+    border-radius: 5px;
+}
+
+.tbl-precipitation {
+    display: flex;
+    flex-direction: column;
+}
+
+.precipitation-days {
+    display: flex;
+    justify-content: space-between;
+}
+
+.daily-precipitation {
+    display: flex;
+    justify-content: space-around;
+    padding: 5px;
+    width: 19%;
+    border: 1px solid #c0c0c0;
+    border-radius: 5px;
+}
+
 .nav-arrow {
     align-self: center;
     margin: 5px;
     display: none;
 }
 
+.arrows{
+    width: 40px;
+}
+
 .nav-days {
-    display: flex;
+    display: none;
     justify-content: center;
 }
 
@@ -74,13 +134,24 @@
 
 /* Medium devices (landscape tablets, 768px and down) */
 @media only screen and (max-width: 992px) {
-    .day {
+    .day,
+    .tbl-wind-speed,
+    .tbl-precipitation {
         width: 60%;
     }
 
     .nav-arrow {
         display: block;
     }
+
+    .nav-days {
+        display: flex;
+    }
+
+    .tbl-all-days {
+        justify-content: space-around;
+    }
+
 } 
 
 /* Extra small devices (phones, 600px and down) */
