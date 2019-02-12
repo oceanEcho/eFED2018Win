@@ -115,18 +115,19 @@
     border-radius: 5px;
     padding: 5px;
     margin-bottom: 5px;
+    justify-content: space-around;
 }
 
 .sun-info,
 .moon-info {
     display: flex;
-    width: 50%;
+    font-size: 18px;
 }
 
 .sun-icon,
 .moon-icon {
     align-self: center;
-    width: 50px;
+    width: 70px;
 }
 
 .additional-info {
