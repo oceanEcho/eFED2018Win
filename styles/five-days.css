@@ -52,7 +52,7 @@
 
 .title {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     background: rgb(226, 230, 247);
     border: 1px solid #c0c0c0;
     border-radius: 5px;
@@ -60,6 +60,7 @@
     margin-bottom: 5px;
     width: 100%;
     padding: 3px 0px 3px 0px;
+    flex-wrap: wrap;
 }
 
 .tbl-wind-speed {
@@ -102,6 +103,47 @@
     border-radius: 5px;
 }
 
+.tbl-sun-moon {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.sun-moon-info {
+    display: flex;
+    border: 1px solid #c0c0c0;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.sun-info,
+.moon-info {
+    display: flex;
+    width: 50%;
+}
+
+.sun-icon,
+.moon-icon {
+    align-self: center;
+    width: 50px;
+}
+
+.additional-info {
+    display: flex;
+    border: 1px solid #c0c0c0;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+#day-duration-diff,
+#full-moon {
+    width: 50%;
+    padding: 5px;
+    text-align: center;
+}
+
 .nav-arrow {
     align-self: center;
     margin: 5px;
@@ -131,10 +173,14 @@
 
 /* Medium devices (landscape tablets, 768px and down) */
 @media only screen and (max-width: 992px) {
-    .day,
-    .tbl-wind-speed,
-    .tbl-precipitation {
+    .day {
         width: 60%;
+    }
+
+    .tbl-wind-speed,
+    .tbl-precipitation,
+    .tbl-sun-moon {
+        width: 80%;
     }
 
     .daily-wind-speed,
@@ -162,7 +208,8 @@
     }
 
     .title {
-        justify-content: center;
+        justify-content: space-around;
+        font-size: 16px;
     }
 } 
 
@@ -172,13 +219,32 @@
     .daily-wind-speed,
     .daily-precipitation,
     .tbl-wind-speed,
-    .tbl-precipitation {
+    .tbl-precipitation,
+    .tbl-sun-moon {
         width: 100%;
     }
 
     .current {
         display: flex;
         animation: fade-in 0.5s 1;
+    }
+
+    .sun-moon-info {
+        flex-wrap: wrap;
+    }
+
+    .sun-info {
+        border-bottom: 1px solid #c0c0c0;
+        margin-bottom: 5px;
+    }
+
+    .sun-info,
+    .moon-info {
+        width: 100%;
+    }
+
+    .additional-info {
+        font-size: 16px;
     }
 } 
   
