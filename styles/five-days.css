@@ -212,6 +212,11 @@
         justify-content: space-around;
         font-size: 16px;
     }
+
+    .sun-info-text, .moon-info-text {
+        width: 70%;
+
+    }
 } 
 
 /* Extra small devices (phones, 600px and down) */
