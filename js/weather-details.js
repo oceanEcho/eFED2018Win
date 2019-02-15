@@ -2,6 +2,8 @@ const APPID = 'e2c078e26648e8e09b6e90e982007c80';
 const TODAY_ENDPOINT = `http://api.openweathermap.org/data/2.5/weather?units=metric&APPID=${APPID}&q=`;
 const FIVE_DAYS_ENDPOINT = `http://api.openweathermap.org/data/2.5/forecast?units=metric&APPID=${APPID}&q=`;
 const defaultCity = 'Izhevsk';
+const overlay = document.querySelector('.overlay');
+const spinner = document.querySelector('.spinner');
 
 const weatherDetails = {
     init() {
@@ -49,6 +51,9 @@ const weatherDetails = {
     },
 
     getWeatherDetails(endpoint, city, ...callbacks) {
+        overlay.style.display = 'block';
+        spinner.style.display = 'block';
+
         const url = `${endpoint}${city}`;
         const xhr = new XMLHttpRequest();
 
@@ -57,6 +62,8 @@ const weatherDetails = {
                 for (let callback of callbacks) {
                     callback(JSON.parse(xhr.responseText));
                 }
+                overlay.style.display = 'none';
+                spinner.style.display = 'none';
             }
         };
 

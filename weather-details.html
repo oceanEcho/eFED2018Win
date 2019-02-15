@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="ru">
 
-<head>
-  <title>Прогноз погоды на сегодня</title>
+  <head>
+    <title>Прогноз погоды на сегодня</title>
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="application-name" content="WeatherForecast" />
-  <meta name="author" content="Ivan Zaytsev" />
-  <meta name="description" content="Weather forecast for today">
-  <meta name="keywords" content="weather, izhevsk, temperature" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="application-name" content="WeatherForecast" />
+    <meta name="author" content="Ivan Zaytsev" />
+    <meta name="description" content="Weather forecast for today">
+    <meta name="keywords" content="weather, izhevsk, temperature" />
 
-  <link rel="stylesheet" type="text/css" href="styles/weather-detail.css" />
-</head>
+    <link rel="stylesheet" type="text/css" href="styles/weather-detail.css" />
+  </head>
 
-<body>
-  <div class="container">
+  <body>
     <header>
       <nav class="main-nav">
         <ul>
@@ -33,7 +32,8 @@
       <div class="search-bar">
         <span id="air-pollution">Загрязнение воздуха: 8.394234235345324532</span>
         <form class="search-form" action="#" method="post">
-          <input type="search" id="search" placeholder="Поиск..." pattern="[А-ЯA-Z]{1}[a-zа-я]+(?:[\s-][а-яa-zА-ЯA-Z]+)*$" />
+          <input type="search" id="search" placeholder="Поиск..."
+            pattern="[А-ЯA-Z]{1}[a-zа-я]+(?:[\s-][а-яa-zА-ЯA-Z]+)*$" />
         </form>
       </div>
     </header>
@@ -50,7 +50,7 @@
             облачно
           </div>
           <img id="curr-cond-img" src="assets/partly_cloudy.png" alt="Sunny
-              weather" />
+            weather" />
           <span id="current-temp">
             22 ℃
           </span>
@@ -233,10 +233,12 @@
       </div>
     </main>
     <footer> 2018 © Copyright </footer>
-  </div>
 
-  <script type="text/javascript" src="js/weather-details-nav.js"></script>
-  <script type="text/javascript" src="js/weather-details.js"></script>
-</body>
+    <div class="overlay"></div>
+    <div class="spinner"></div>
+
+    <script type="text/javascript" src="js/weather-details-nav.js"></script>
+    <script type="text/javascript" src="js/weather-details.js"></script>
+  </body>
 
 </html>
