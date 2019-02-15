@@ -10,11 +10,15 @@
 
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(113, 113, 156);
     background: rgb(164, 177, 221);
     font-size: 16px;
+    padding: 0px;
+    margin: 0px;
+    min-width: 300px;
 }
 
 main {
@@ -120,7 +124,7 @@ footer {
 
     .container {
         min-width: 300px;
-        width: 99%;
+        width: 100%;
         font-size: 18px;
     }
 
