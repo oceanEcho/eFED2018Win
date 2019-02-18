@@ -1,88 +1,170 @@
 @import "main.css";
 
-.city-cnd-img {
-    width: 30px;
-}
-
-.curr-city-info {
-    font-size: 16px;
-}
-
-main {
-    text-align: center;
-}
-
-.arrows {
-    text-decoration: none;
-    display: inline-block;
-    margin-top: -100px;
-    height: 40px;
-}
-
-.nav-left-arrow {
-    margin-top: 130px; 
-    float: left;
-}
-
-.nav-right-arrow {
-    margin-top: 130px; 
-    float: right;
-}
-
 .five-days-table {
-    display: inline-block;
-    width: 90%;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.five-days-table p {
-    margin-top: 0px;
-    margin-bottom: 5px;
-}
-
-.row {
+.tbl-all-days {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
     margin-top: 5px;
     margin-bottom: 5px;
 }
 
-.col {
-    display: inline-block;
+.day {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
     width: 19%;
 }
 
-.bordered {
+.tbl-weekday {
+    display: flex;
+    justify-content: center;
+    background: rgb(226, 230, 247);
     border: 1px solid #c0c0c0;
-    border-radius: 10px;
-    padding-top: 3px; 
-    padding-bottom: 3px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+    padding: 3px 0px 3px 0px;
 }
 
-.col-2 {
-    display: inline-block;
-    width: 21%;
+.tbl-day-info {
+    display: flex;
+    justify-content: center;
+    border: 1px solid #c0c0c0;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+.col-tod {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
     font-size: 14px;
 }
 
-.col-2 > img {
-    width: 30px;
-}
-
-.day {
-    display: none;
-    width: 40%;
-}
-
-.day.current {
-    display: inline-block;
-    animation: fade-in 0.5s 1;
-}
-
-.tbl-day-of-week {
+.title {
+    display: flex;
+    justify-content: space-around;
     background: rgb(226, 230, 247);
+    border: 1px solid #c0c0c0;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+    padding: 3px 0px 3px 0px;
+    flex-wrap: wrap;
+}
+
+.tbl-wind-speed {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.wind-speed-days {
+    display: flex;
+    justify-content: space-between;
+}
+
+.daily-wind-speed {
+    display: none;
+    justify-content: space-around;
+    padding: 5px;
+    width: 19%;
+    border: 1px solid #c0c0c0;
+    border-radius: 5px;
+}
+
+.tbl-precipitation {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.precipitation-days {
+    display: flex;
+    justify-content: space-between;
+}
+
+.daily-precipitation {
+    display: none;
+    justify-content: space-around;
+    padding: 5px;
+    width: 19%;
+    border: 1px solid #c0c0c0;
+    border-radius: 5px;
+}
+
+.tbl-sun-moon {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.sun-moon-info {
+    display: flex;
+    border: 1px solid #c0c0c0;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 5px;
+    justify-content: space-around;
+}
+
+.sun-info,
+.moon-info {
+    display: flex;
+    font-size: 18px;
+}
+
+.sun-icon,
+.moon-icon {
+    align-self: center;
+    width: 70px;
+}
+
+.additional-info {
+    display: flex;
+    border: 1px solid #c0c0c0;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+#day-duration-diff,
+#full-moon {
+    width: 50%;
+    padding: 5px;
+    text-align: center;
+}
+
+.nav-arrow {
+    align-self: center;
+    margin: 5px;
+    display: none;
+}
+
+.arrows{
+    width: 40px;
+}
+
+.nav-days {
+    display: none;
+    justify-content: center;
 }
 
 .day-marker {
-    width: 30px;
+    border: 1px solid #c0c0c0;
+    border-radius: 5px;
+    padding: 3px;
+    margin: 0px 2.5px 5px 2.5px;
     cursor: pointer;
 }
 
@@ -90,47 +172,102 @@ main {
     background: rgb(226, 230, 247);
 }
 
-.tbl-max-wind-speed,
-.tbl-pollution,
-.today-sun-moon {
-    background: rgb(226, 230, 247);
-    width: 98%;
-}
+/* Medium devices (landscape tablets, 768px and down) */
+@media only screen and (max-width: 992px) {
+    .day {
+        width: 60%;
+    }
 
-.today-sun-moon {
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
+    .tbl-wind-speed,
+    .tbl-precipitation,
+    .tbl-sun-moon {
+        width: 80%;
+    }
 
-.today,
-.sun-moon {
-    font-size: 16px;
-    width: 49%;
-}
+    .daily-wind-speed,
+    .daily-precipitation {
+        width: 100%;
+    }
 
-.sun-info,
-.moon-info {
-    width: 49%;
-    overflow: hidden;
-    text-align: left;
-    border: none;
-}
+    .nav-arrow {
+        display: block;
+    }
 
-.sun-info p,
-.moon-info p {
-    margin: 10px 0px 20px 0px;
-}
+    .nav-days {
+        display: flex;
+    }
 
-.sun-icon,
-.moon-icon {
-    float: left;
-    height: 100px;
-    margin: 0px 10px 10px 0px;
-}
+    .tbl-all-days,
+    .wind-speed-days,
+    .precipitation-days {
+        justify-content: center;
+    }
 
-.d-gt-thn-yst,
-.full-moon {
-    width: 49%;
-    border: none;
-    margin: 0px;
+    .current {
+        display: flex;
+        animation: fade-in 0.5s 1;
+    }
+
+    .title {
+        justify-content: space-around;
+        font-size: 16px;
+    }
+
+    .sun-info-text, .moon-info-text {
+        width: 70%;
+
+    }
+} 
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .day,
+    .daily-wind-speed,
+    .daily-precipitation,
+    .tbl-wind-speed,
+    .tbl-precipitation,
+    .tbl-sun-moon {
+        width: 100%;
+    }
+
+    .current {
+        display: flex;
+        animation: fade-in 0.5s 1;
+    }
+
+    .sun-moon-info {
+        flex-wrap: wrap;
+    }
+
+    .sun-info {
+        border-bottom: 1px solid #c0c0c0;
+        margin-bottom: 5px;
+    }
+
+    .sun-info,
+    .moon-info {
+        width: 100%;
+    }
+
+    .additional-info {
+        font-size: 16px;
+    }
+} 
+  
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .day,
+    .daily-wind-speed,
+    .daily-precipitation {
+        display: flex;
+    }
+} 
+  
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .day,
+    .daily-wind-speed,
+    .daily-precipitation {
+        display: flex;
+    }
 }
