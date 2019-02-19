@@ -43,7 +43,7 @@ div {
 }
 
 .spinner {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     margin-top: -50px;
@@ -59,7 +59,7 @@ div {
 }
 
 .overlay{
-    position: absolute;
+    position: fixed;
     top:0px;
     left:0px;
     width: 100%;

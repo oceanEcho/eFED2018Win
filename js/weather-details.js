@@ -5,6 +5,16 @@ const defaultCity = 'Izhevsk';
 const overlay = document.querySelector('.overlay');
 const spinner = document.querySelector('.spinner');
 
+function showSpinner() {
+    overlay.style.display = 'block';
+    spinner.style.display = 'block';
+}
+
+function hideSpinner() {
+    overlay.style.display = 'none';
+    spinner.style.display = 'none';
+}
+
 const weatherDetails = {
     init() {
         this.getWeatherDetails(
@@ -51,8 +61,7 @@ const weatherDetails = {
     },
 
     getWeatherDetails(endpoint, city, ...callbacks) {
-        overlay.style.display = 'block';
-        spinner.style.display = 'block';
+        showSpinner();
 
         const url = `${endpoint}${city}`;
         const xhr = new XMLHttpRequest();
@@ -62,8 +71,7 @@ const weatherDetails = {
                 for (let callback of callbacks) {
                     callback(JSON.parse(xhr.responseText));
                 }
-                overlay.style.display = 'none';
-                spinner.style.display = 'none';
+                setTimeout(hideSpinner, 2000);
             }
         };
 
