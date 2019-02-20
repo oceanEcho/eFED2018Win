@@ -1,4 +1,4 @@
-@keyframes fade-in{
+@keyframes fade-in {
     0% {
         opacity: 0;
     }
@@ -8,38 +8,72 @@
     }
 }
 
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(113, 113, 156);
     background: rgb(164, 177, 221);
     font-size: 16px;
+    padding: 0px;
+    margin: 0px;
+    min-width: 300px;
 }
 
 main {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding: 0px 10px 0px 10px;
+    padding: 20px 10px 20px 10px;
+    background: white;
 }
 
 div {
     box-sizing: border-box;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
+.spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 100px;
+    height: 100px;
+    border: 10px solid transparent;
+    border-left: 10px solid rgb(164, 177, 221);;
+    border-right: 10px solid rgb(164, 177, 221);;
+    border-bottom: 10px solid rgb(164, 177, 221);;
+    border-radius: 100px;
+    animation: spin 1s linear infinite
+}
+
+.overlay{
+    position: fixed;
+    top:0px;
+    left:0px;
+    width: 100%;
+    height: 100%;
     background: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    border: 1px solid #c0c0c0;
-    border-radius: 10px;
+    opacity: .7;
 }
 
 header {
     display: flex;
     flex-direction: column;
+    background: white;
+    position: sticky;
+    top: 0;
 }
 
 .main-nav {
@@ -84,44 +118,47 @@ header {
     align-items: center;
     border-bottom: 1px solid #c0c0c0;
     background: rgb(226, 230, 247);
-    padding: 0px 10px 0px 10px;
+    padding: 10px 10px 10px 10px;
 }
 
 .search-form {
     display: flex;
     justify-content: flex-end;
     padding: 10px 0px 10px 0px;
-    width: 50%;
-}
-
-input[type="search"] {
-    border: 1px solid #c0c0c0;
+    width: 30%;
     border-radius: 10px;
     font-size: 14px;
     padding: 3px 5px 3px 5px;
+    background: white;
+}
+
+.search-form::before {
+    content: "\1F50D";
+    
+}
+
+input[type="search"] {
+    border: none;
+    font-size: 14px;
     outline: none;
-    width: 70%;
+    width: 100%;
 }
 
 footer {
     display: flex;
     justify-content: center;
     border-top: 1px solid #c0c0c0;
+    border-bottom: 1px solid #c0c0c0;
     padding: 10px;
     background: rgb(226, 230, 247);
-    border-radius: 0px 0px 10px 10px;
+    position: sticky;
+    bottom: 0;
 }
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     body {
         background: rgb(164, 177, 221);
-    }
-
-    .container {
-        min-width: 300px;
-        width: 99%;
-        font-size: 18px;
     }
 
     .main-nav > ul {
@@ -144,16 +181,12 @@ footer {
 
     input[type="search"] {
         width: 100%;
-        font-size: 20px;
+        font-size: 16px;
     }
 }
   
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-    .container {
-        min-width: 99%;
-    }
-
     .main-nav {
         flex-direction: column;
     }
@@ -161,22 +194,14 @@ footer {
   
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-    .container {
-        min-width: 99%;
-    }
 } 
   
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-    .container {
-        min-width: 95%;
-    }
 } 
   
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-    .container {
-        min-width: 95%;
-    }
+
 }
 
