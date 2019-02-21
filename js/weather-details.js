@@ -64,19 +64,24 @@ const weatherDetails = {
         showSpinner();
 
         const url = `${endpoint}${city}`;
-        const xhr = new XMLHttpRequest();
 
-        xhr.onload = function () {
-            if (this.readyState === 4 && this.status === 200) {
-                for (let callback of callbacks) {
-                    callback(JSON.parse(xhr.responseText));
+        fetch(url)
+            .then(function (response) {
+                if (response.status == '200') {
+                    return response.json();
                 }
-                setTimeout(hideSpinner, 2000);
-            }
-        };
+            })
+            .then(function (weatherData) {
+                for (let callback of callbacks) {
+                    callback(weatherData);
+                }
+            })
+            .catch(function (error) {
+                alert('Request error: ', error);
+            });
+        
+        setTimeout(hideSpinner, 2000);
 
-        xhr.open('GET', url, true);
-        xhr.send();
     },
 
     renderMainInfo(data) {
