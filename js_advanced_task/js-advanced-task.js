@@ -166,14 +166,20 @@ let newSumWith = sumWith.bind(someObject, number);
 
 console.log(newSumWith());
 
-function counterSumWith() {
-    return this.currentValue += 2;
+function DoubleCounter() {
+    this.value = -1;
+
+    this.step = function () {
+        return this.value += 2;
+    };
 }
 
-console.log(counterSumWith.call(newObject));
-console.log(counterSumWith.call(newObject));
-console.log(counterSumWith.call(newObject));
-console.log(counterSumWith.call(newObject));
+newDoubleCounter = new DoubleCounter();
+
+console.log(newDoubleCounter.step());
+console.log(newDoubleCounter.step());
+console.log(newDoubleCounter.step());
+console.log(newDoubleCounter.step());
 
 // 6. setInterval
 
