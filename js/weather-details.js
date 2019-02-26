@@ -67,17 +67,12 @@ const weatherDetails = {
 
         fetch(url)
             .then(function (response) {
-                if (response.status == '200') {
-                    return response.json();
-                }
-            })
-            .then(function (weatherData) {
                 for (let callback of callbacks) {
-                    callback(weatherData);
+                    callback(response.json());
                 }
             })
             .catch(function (error) {
-                alert('Request error: ', error);
+                console.log(error);
             });
         
         setTimeout(hideSpinner, 2000);
