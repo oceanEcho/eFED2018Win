@@ -54,7 +54,7 @@ compare(1)
             return console.log(result);
         }
     )
-    .catch (
+    .catch(
         error => {
             return console.log(error.message);
         }
@@ -63,24 +63,24 @@ compare(1)
 // 3a. Promise chain
 
 function firstRandom(sumWith) {
-    return new Promise(function(resolve) {
+    return new Promise(function (resolve) {
         let timeout = Math.random() * 3000;
-        setTimeout(function(){
+        setTimeout(function () {
             resolve(Math.random() * 3 + sumWith);
         }, timeout);
     });
 }
 
 firstRandom(5)
-    .then(function(result) {
+    .then(function (result) {
         console.log(result);
         return firstRandom(result);
     })
-    .then(function(result) {
+    .then(function (result) {
         console.log(result);
         return firstRandom(result);
     })
-    .then(function(result) {
+    .then(function (result) {
         console.log(result);
     });
 
@@ -88,10 +88,10 @@ firstRandom(5)
 // 3b. Promise chain
 
 function secondRandom() {
-    return new Promise(function(resolve) {
-        let timeout = Math.random()*3000;
-        setTimeout(function(){
-            resolve(Math.random()*3);
+    return new Promise(function (resolve) {
+        let timeout = Math.random() * 3000;
+        setTimeout(function () {
+            resolve(Math.random() * 3);
         }, timeout);
     });
 }
@@ -101,7 +101,7 @@ let container = [];
 let newSecondRandom = secondRandom();
 for (let i = 0; i < 7; i++) {
     newSecondRandom = newSecondRandom
-        .then(function(result) {
+        .then(function (result) {
             container.push(result);
             console.log(container);
             return secondRandom();
@@ -110,42 +110,46 @@ for (let i = 0; i < 7; i++) {
 
 // 4.Closures
 
-function Counter() { 
-    this.currentCount = 1;
-    this.stack = [];
+function makeCounter() {
+    let currentCount = 1;
+    let stack = [];
 
-    this.next = function () {
-        if (this.stack.length == 10) {
-            this.stack.splice(0, 1);
+    return {
+        prev: function () {
+            if (stack.length == 10) {
+                stack.splice(0, 1);
+            }
+            stack.push(this.currentCount);
+            return currentCount++;
+        },
+        next: function () {
+            if (stack.length == 10) {
+                stack.splice(0, 1);
+            }
+            stack.push(this.currentCount);
+            return currentCount--;
+        },
+        getStack: function () {
+            return stack;
         }
-        this.stack.push(this.currentCount);
-        return this.currentCount++;
-    };
-
-    this.prev = function () {
-        if (this.stack.length == 10) {
-            this.stack.splice(0, 1);
-        }
-        this.stack.push(this.currentCount);
-        return this.currentCount--;
     };
 }
 
-let newCounter = new Counter();
-console.log( newCounter.next() );
-console.log( newCounter.prev() );
-console.log( newCounter.prev() );
-console.log( newCounter.prev() );
-console.log( newCounter.prev() );
-console.log( newCounter.next() );
-console.log( newCounter.next() );
-console.log( newCounter.next() );
-console.log( newCounter.next() );
-console.log( newCounter.next() );
-console.log( newCounter.next() );
-console.log( newCounter.next() );
-console.log( newCounter.next() );
-console.log( newCounter.stack );
+let newCounter = makeCounter();
+console.log(newCounter.next());
+console.log(newCounter.prev());
+console.log(newCounter.prev());
+console.log(newCounter.prev());
+console.log(newCounter.prev());
+console.log(newCounter.next());
+console.log(newCounter.next());
+console.log(newCounter.next());
+console.log(newCounter.next());
+console.log(newCounter.next());
+console.log(newCounter.next());
+console.log(newCounter.next());
+console.log(newCounter.next());
+console.log(newCounter.getStack());
 
 // 5. Carrying
 
@@ -166,20 +170,20 @@ let newSumWith = sumWith.bind(someObject, number);
 
 console.log(newSumWith());
 
-function DoubleCounter() {
-    this.value = -1;
+function makeDoubleCounter() {
+    let value = -1;
 
-    this.step = function () {
-        return this.value += 2;
+    return function () {
+        return value += 2;
     };
 }
 
-newDoubleCounter = new DoubleCounter();
+newDoubleCounter = makeDoubleCounter();
 
-console.log(newDoubleCounter.step());
-console.log(newDoubleCounter.step());
-console.log(newDoubleCounter.step());
-console.log(newDoubleCounter.step());
+console.log(newDoubleCounter());
+console.log(newDoubleCounter());
+console.log(newDoubleCounter());
+console.log(newDoubleCounter());
 
 // 6. setInterval
 
@@ -194,12 +198,3 @@ let newTimerId = setTimeout(function tick() {
     interval += 2000;
     newTimerId = setTimeout(tick, interval);
 }, 1000);
-
-
-
-
-
-
-
-
-
