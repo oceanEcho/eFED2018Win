@@ -11,26 +11,60 @@ function compare(value1, value2) {
     else if (value1 > value2) {
         code = 1;
     }
-    return new Promise(function (resolve) {
+    return new Promise(function (resolve, reject) {
         let timeout = 1000;
         setTimeout(function () {
-            resolve(code);
+            if (isNaN(value1) || isNaN(value2) || value1 == null || value2 == null) {
+                reject(new Error('Arguments passing error'));
+            }
+            else {
+                resolve(code);
+            }
         }, timeout);
     });
 }
 
-console.log(compare(1, 2));
-console.log(compare(2, 2));
-console.log(compare(3, 2));
-console.log(compare(-1, 1));
-console.log(compare(-1, -1));
-console.log(compare(2, -2));
+compare(1, 2)
+    .then(
+        result => {
+            return console.log(result);
+        }
+    )
+    .catch(
+        error => {
+            return console.log(error.message);
+        }
+    );
+
+compare(1, 'qwe')
+    .then(
+        result => {
+            return console.log(result);
+        }
+    )
+    .catch(
+        error => {
+            return console.log(error.message);
+        }
+    );
+
+compare(1)
+    .then(
+        result => {
+            return console.log(result);
+        }
+    )
+    .catch (
+        error => {
+            return console.log(error.message);
+        }
+    );
 
 // 3a. Promise chain
 
 function firstRandom(sumWith) {
     return new Promise(function(resolve) {
-        var timeout = Math.random() * 3000;
+        let timeout = Math.random() * 3000;
         setTimeout(function(){
             resolve(Math.random() * 3 + sumWith);
         }, timeout);
@@ -55,7 +89,7 @@ firstRandom(5)
 
 function secondRandom() {
     return new Promise(function(resolve) {
-        var timeout = Math.random()*3000;
+        let timeout = Math.random()*3000;
         setTimeout(function(){
             resolve(Math.random()*3);
         }, timeout);
@@ -76,16 +110,85 @@ for (let i = 0; i < 7; i++) {
 
 // 4.Closures
 
-function makeCounter() { 
-    var currentCount = 1;
-    return function() {
-        return currentCount++;
+function Counter() { 
+    this.currentCount = 1;
+    this.stack = [];
+
+    this.next = function () {
+        if (this.stack.length == 10) {
+            this.stack.splice(0, 1);
+        }
+        this.stack.push(this.currentCount);
+        return this.currentCount++;
+    };
+
+    this.prev = function () {
+        if (this.stack.length == 10) {
+            this.stack.splice(0, 1);
+        }
+        this.stack.push(this.currentCount);
+        return this.currentCount--;
     };
 }
 
-var counter = makeCounter();
-alert( counter() );
-alert( counter() );
+let newCounter = new Counter();
+console.log( newCounter.next() );
+console.log( newCounter.prev() );
+console.log( newCounter.prev() );
+console.log( newCounter.prev() );
+console.log( newCounter.prev() );
+console.log( newCounter.next() );
+console.log( newCounter.next() );
+console.log( newCounter.next() );
+console.log( newCounter.next() );
+console.log( newCounter.next() );
+console.log( newCounter.next() );
+console.log( newCounter.next() );
+console.log( newCounter.next() );
+console.log( newCounter.stack );
+
+// 5. Carrying
+
+function sumWith(number) {
+    return this.currentValue += number;
+}
+
+let number = 2;
+
+let someObject = {
+    currentValue: 3
+};
+
+console.log(sumWith.call(someObject, number));
+console.log(sumWith.apply(someObject, [number]));
+
+let newSumWith = sumWith.bind(someObject, number);
+
+console.log(newSumWith());
+
+function counterSumWith() {
+    return this.currentValue += 2;
+}
+
+console.log(counterSumWith.call(newObject));
+console.log(counterSumWith.call(newObject));
+console.log(counterSumWith.call(newObject));
+console.log(counterSumWith.call(newObject));
+
+// 6. setInterval
+
+let timerId = setInterval(function () {
+    console.log('Some text...');
+}, 1000);
+
+let interval = 1000;
+
+let newTimerId = setTimeout(function tick() {
+    console.log('Some text with interval ' + interval);
+    interval += 2000;
+    newTimerId = setTimeout(tick, interval);
+}, 1000);
+
 
 
 

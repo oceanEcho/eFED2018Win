@@ -67,8 +67,11 @@ const weatherDetails = {
 
         fetch(url)
             .then(function (response) {
+                return response.json();
+            })
+            .then(function (response) {
                 for (let callback of callbacks) {
-                    callback(response.json());
+                    callback(response);
                 }
             })
             .catch(function (error) {
