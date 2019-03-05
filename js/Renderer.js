@@ -1,5 +1,4 @@
-function Renderer(data) {
-    this.data = data;
+function Renderer() {
 }
 
 Renderer.prototype.renderHeader = function(header) {

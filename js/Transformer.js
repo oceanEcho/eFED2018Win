@@ -1,7 +1,6 @@
-function Transformer(response) {
-    this.response = response;
+function Transformer() {
 }
 
-Transformer.prototype.toJSON = function() {
-    return this.response.json();
+Transformer.prototype.toJSON = function(response) {
+    return JSON.parse(response);
 };

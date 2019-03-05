@@ -2,6 +2,25 @@ function WeatherDetailsRenderer() {
 }
 
 WeatherDetailsRenderer.prototype = Object.create(Renderer.prototype);
+WeatherDetailsRenderer.prototype.constructor = WeatherDetailsRenderer;
+
+WeatherDetailsRenderer.prototype.getDayBlocks = function(data) {
+    const daysObject = {};
+
+    for (let i = 0; i < data.list.length; i++) {
+        const date = new Date(data.list[i].dt * 1000);
+        const day = date.toLocaleString('ru', { weekday: 'short' });
+
+        if (day in daysObject) {
+            daysObject[day].push(data.list[i]);
+        } else {
+            daysObject[day] = [];
+            daysObject[day].push(data.list[i]);
+        }
+    }
+
+    return daysObject;
+};
 
 WeatherDetailsRenderer.prototype.renderMainInfo = function(data) {
     const city = data.name;
@@ -31,7 +50,7 @@ WeatherDetailsRenderer.prototype.renderSubInfo = function(data) {
 };
 
 WeatherDetailsRenderer.prototype.renderFiveDaysInfo = function(data) {
-    const fiveDaysList = this.getDayBlocks(data);
+    const fiveDaysList = WeatherDetailsRenderer.prototype.getDayBlocks(data);
     const daysElementList = document.querySelectorAll('.day');
 
     let blockIndex = 0;
@@ -123,22 +142,4 @@ WeatherDetailsRenderer.prototype.renderWindChart = function(data) {
             windArrows[i].style.width = '50%';
         }
     }
-};
-
-WeatherDetailsRenderer.prototype.getDayBlocks = function(data) {
-    const daysObject = {};
-
-    for (let i = 0; i < data.list.length; i++) {
-        const date = new Date(data.list[i].dt * 1000);
-        const day = date.toLocaleString('ru', { weekday: 'short' });
-
-        if (day in daysObject) {
-            daysObject[day].push(data.list[i]);
-        } else {
-            daysObject[day] = [];
-            daysObject[day].push(data.list[i]);
-        }
-    }
-
-    return daysObject;
 };

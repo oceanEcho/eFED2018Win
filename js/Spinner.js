@@ -4,11 +4,11 @@ function Spinner(overlay, spinner) {
 }
 
 Spinner.prototype.showSpinner = function () {
-    this.style.display = 'block';
-    this.style.display = 'block';
+    this.overlay.style.display = 'block';
+    this.spinner.style.display = 'block';
 };
 
 Spinner.prototype.hideSpinner = function () {
-    this.style.display = 'none';
-    this.style.display = 'none';
+    this.overlay.style.display = 'none';
+    this.spinner.style.display = 'none';
 };
