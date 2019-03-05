@@ -46,6 +46,7 @@ function Bike (speed) {
 }
 
 Bike.prototype = Object.create(Vehicle.prototype);
+Bike.prototype.constructor = Bike;
 
 Bike.prototype.valueOf = function () {
     return {
@@ -59,7 +60,7 @@ Bike.prototype.toString = function () {
 };
 
 Bike.prototype.move = function () {
-    Vehicle.prototype.move.call(this);
+    this.move();
     console.log('Vzhhhhhhhh...');
 };
 
@@ -72,11 +73,8 @@ function Car (speed, doorsCount) {
 }
 Car.count = 0;
 
-Car.getCount = function() {
-    return this.count;
-};
-
 Car.prototype = Object.create(Vehicle.prototype);
+Car.prototype.constructor = Car;
 
 Car.prototype.valueOf = function () {
     return {
@@ -118,6 +116,7 @@ function MonsterTruck (speed, doorsCount, wheelsSize) {
 }
 
 MonsterTruck.prototype = Object.create(Car.prototype);
+MonsterTruck.prototype.constructor = MonsterTruck;
 
 MonsterTruck.prototype.valueOf = function () {
     return {
@@ -136,11 +135,11 @@ MonsterTruck.prototype.toString = function () {
 };
 
 MonsterTruck.prototype.openDoor = function() {
-    setTimeout(Car.prototype.openDoor.bind(this), 1000);
+    setTimeout(this.openDoor(), 1000);
 };
 
 MonsterTruck.prototype.closeDoor = function() {
-    setTimeout(Car.prototype.closeDoor.bind(this), 1000);
+    setTimeout(this.closeDoor(), 1000);
 };
 
 let bike = new Bike(250);
@@ -164,7 +163,7 @@ car2.closeDoor();
 car2.closeDoor();
 console.log(car2);
 
-console.log(Car.getCount());
+console.log(Car.count);
 
 let truck = new MonsterTruck(140, 2, 50);
 truck.openDoor();
