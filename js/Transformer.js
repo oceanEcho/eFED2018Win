@@ -1,6 +1,7 @@
-function Transformer() {
+class Transformer {
+    constructor() {
+    }
+    toJSON(response) {
+        return JSON.parse(response);
+    }
 }
-
-Transformer.prototype.toJSON = function(response) {
-    return JSON.parse(response);
-};

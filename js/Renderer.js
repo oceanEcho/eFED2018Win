@@ -1,10 +1,10 @@
-function Renderer() {
+class Renderer {
+    constructor() {
+    }
+    renderHeader(header) {
+        header.innerHTML = `header`;
+    }
+    renderFooter(footer) {
+        footer.innerHTML = `footer`;
+    }
 }
-
-Renderer.prototype.renderHeader = function(header) {
-    header.innerHTML = `header`;
-};
-
-Renderer.prototype.renderFooter = function(footer) {
-    footer.innerHTML = `footer`;
-};
