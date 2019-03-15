@@ -111,16 +111,16 @@ class WeatherDetailsRenderer extends Renderer {
             windValues[i].innerHTML = `${Math.round(data.list[i].wind.speed)} м/c`;
             windArrows[i].style.transform = `rotate(${Math.round(data.list[i].wind.deg)}deg)`;
             if (data.list[i].wind.speed < 1) {
-                windArrows[i].style.width = '10%';
+                windArrows[i].style.width = '10px';
             }
             else if (data.list[i].wind.speed < 1.5) {
-                windArrows[i].style.width = '15%';
+                windArrows[i].style.width = '20px';
             }
             else if (data.list[i].wind.speed < 3) {
-                windArrows[i].style.width = '30%';
+                windArrows[i].style.width = '30px';
             }
             else {
-                windArrows[i].style.width = '50%';
+                windArrows[i].style.width = '40px';
             }
         }
     }

@@ -1,51 +1,245 @@
 <!DOCTYPE html>
 <html lang="ru">
 
-  <head>
-    <title>Прогноз погоды на пять дней</title>
+<head>
+  <title>Прогноз погоды на сегодня</title>
 
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="application-name" content="WeatherForecast" />
-    <meta name="author" content="Ivan Zaytsev" />
-    <meta name="description" content="Weather forecast for five days">
-    <meta name="keywords" content="weather, izhevsk, temperature" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="application-name" content="WeatherForecast" />
+  <meta name="author" content="Ivan Zaytsev" />
+  <meta name="description" content="Weather forecast for today">
+  <meta name="keywords" content="weather, izhevsk, temperature" />
 
-    <link rel="stylesheet" type="text/css" href="styles/five-days.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-  </head>
+  <link rel="stylesheet" type="text/css" href="styles/weather-detail.css" />
+  <link rel="stylesheet" type="text/css" href="styles/five-days.css" />
+  <link rel="stylesheet" type="text/css" href="styles/historical-review.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
 
-  <body>
-    <header>
-      <nav class="main-nav">
-        <ul>
-          <li class="nav-btn">
-            <a href="weather-details.html">Сегодня</a>
-          </li>
-          <li class="nav-btn active">
-            <a href="index.html">5 дней</a>
-          </li>
-          <li class="nav-btn">
-            <a href="historical-review.html">История погоды</a>
-          </li>
-        </ul>
-      </nav>
-      <section class="search-bar">
-        <span class="curr-city-info">22° Ижевск, Россия</span>
-        <form class="search-form" action="#" method="post">
-          <input type="search" id="search" placeholder="Поиск..."
-            pattern="[А-ЯA-Z]{1}[а-яa-z]+(?:[\s-][а-яА-Яa-zA-Z]+)*$" />
-        </form>
-      </section>
-    </header>
-    <main>
+<body>
+  <header>
+    <nav class="main-nav">
+      <ul>
+        <li id="todayBtn" class="main nav-btn active">
+          Сегодня
+        </li>
+        <li id="fiveDaysBtn" class="main nav-btn">
+          5 дней
+        </li>
+        <li id="historyBtn" class="main nav-btn">
+          История погоды
+        </li>
+      </ul>
+    </nav>
+    <div class="search-bar">
+      <span id="currCityInfo">0° City, Country</span>
+      <span id="airPollution">Загрязнение воздуха: -</span>
+      <form class="search-form" action="#" method="post">
+        <input type="search" id="search" placeholder="Поиск..."
+          pattern="[А-ЯA-Z]{1}[a-zа-я]+(?:[\s-][а-яa-zА-ЯA-Z]+)*$" />
+      </form>
+    </div>
+  </header>
+  <main>
+    <div id="today" class="tab-content visible">
+      <div class="info">
+        <div class="city-info">
+          <div id="location">
+            City, Country
+          </div>
+          <div id="day-of-week">
+            weekday
+          </div>
+          <div id="condition">
+            condition
+          </div>
+          <img id="curr-cond-img" src="assets/partly_cloudy.png" alt="Sunny
+              weather" />
+          <span id="current-temp">
+            0°С
+          </span>
+        </div>
+        <div class="more-info">
+          <div class="more-info-text">
+            <div id="prob-of-precip">
+              Вероятность осадков: -
+            </div>
+            <div id="humidity">
+              Влажность: -
+            </div>
+            <div id="windspeed">
+              Ветер: -
+            </div>
+          </div>
+          <div class="inner-nav">
+            <ul>
+              <li id="temp-btn" class="inner nav-btn active">
+                Температура
+              </li>
+              <li id="prob-of-precip-btn" class="inner nav-btn">
+                Вероятость осадков
+              </li>
+              <li id="wind-btn" class="inner nav-btn">
+                Ветер
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="visualisation">
+        <div id="tempChart" class="chart visible">
+          <div class="temp-values values">
+            <div class="temp-value">0</div>
+            <div class="temp-value">0</div>
+            <div class="temp-value">0</div>
+            <div class="temp-value">0</div>
+            <div class="temp-value">0</div>
+            <div class="temp-value">0</div>
+            <div class="temp-value">0</div>
+          </div>
+
+          <div class="chart-img">
+            <div class="temp-chart-block"></div>
+            <div class="temp-chart-block"></div>
+            <div class="temp-chart-block"></div>
+            <div class="temp-chart-block"></div>
+            <div class="temp-chart-block"></div>
+            <div class="temp-chart-block"></div>
+            <div class="temp-chart-block"></div>
+          </div>
+
+          <div class="temp-timepoints timepoints">
+            <div class="timepoint">00:00</div>
+            <div class="timepoint">00:00</div>
+            <div class="timepoint">00:00</div>
+            <div class="timepoint">00:00</div>
+            <div class="timepoint">00:00</div>
+            <div class="timepoint">00:00</div>
+            <div class="timepoint">00:00</div>
+          </div>
+        </div>
+        <div id="precipChart" class="chart">
+          <!-- <img src="assets/precip.png" alt="Precipation chart" /> -->
+          <div class="precip-values values">
+            <div class="precip-value">0</div>
+            <div class="precip-value">0</div>
+            <div class="precip-value">0</div>
+            <div class="precip-value">0</div>
+            <div class="precip-value">0</div>
+            <div class="precip-value">0</div>
+            <div class="precip-value">0</div>
+          </div>
+
+          <div class="chart-img">
+            <div class="precip-chart-block"></div>
+            <div class="precip-chart-block"></div>
+            <div class="precip-chart-block"></div>
+            <div class="precip-chart-block"></div>
+            <div class="precip-chart-block"></div>
+            <div class="precip-chart-block"></div>
+            <div class="precip-chart-block"></div>
+          </div>
+
+          <div class="precip-timepoints timepoints">
+            <div class="timepoint">00:00</div>
+            <div class="timepoint">00:00</div>
+            <div class="timepoint">00:00</div>
+            <div class="timepoint">00:00</div>
+            <div class="timepoint">00:00</div>
+            <div class="timepoint">00:00</div>
+            <div class="timepoint">00:00</div>
+          </div>
+        </div>
+        <div id="windChart" class="chart">
+          <!-- <img src="assets/wind.png" alt="Wind chart" /> -->
+
+          <div class="wind-values values">
+            <div class="wind-value">0</div>
+            <div class="wind-value">0</div>
+            <div class="wind-value">0</div>
+            <div class="wind-value">0</div>
+            <div class="wind-value">0</div>
+            <div class="wind-value">0</div>
+            <div class="wind-value">0</div>
+          </div>
+
+          <div class="chart-img">
+            <div class="wind-image">
+              <img src="assets/wind.svg" alt="wind" />
+            </div>
+            <div class="wind-image">
+              <img src="assets/wind.svg" alt="wind" />
+            </div>
+            <div class="wind-image">
+              <img src="assets/wind.svg" alt="wind" />
+            </div>
+            <div class="wind-image">
+              <img src="assets/wind.svg" alt="wind" />
+            </div>
+            <div class="wind-image">
+              <img src="assets/wind.svg" alt="wind" />
+            </div>
+            <div class="wind-image">
+              <img src="assets/wind.svg" alt="wind" />
+            </div>
+            <div class="wind-image">
+              <img src="assets/wind.svg" alt="wind" />
+            </div>
+          </div>
+
+          <div class="wind-timepoints timepoints">
+            <div class="timepoint">00:00</div>
+            <div class="timepoint">00:00</div>
+            <div class="timepoint">00:00</div>
+            <div class="timepoint">00:00</div>
+            <div class="timepoint">00:00</div>
+            <div class="timepoint">00:00</div>
+            <div class="timepoint">00:00</div>
+          </div>
+        </div>
+        <div class="week-info">
+          <div class="weekday">
+            <div class="day-of-week">пн</div>
+            <img src="assets/partly_cloudy.png" alt="Partlly cloudly" />
+            <div class="temp-range">22° 13°</div>
+          </div>
+          <div class="weekday">
+            <div class="day-of-week">вт</div>
+            <img src="assets/partly_cloudy.png" alt="Partlly cloudly" />
+            <div class="temp-range">22° 13°</div>
+          </div>
+          <div class="weekday">
+            <div class="day-of-week">ср</div>
+            <img src="assets/partly_cloudy.png" alt="Partlly cloudly" />
+            <div class="temp-range">22° 13°</div>
+          </div>
+          <div class="weekday">
+            <div class="day-of-week">чт</div>
+            <img src="assets/partly_cloudy.png" alt="Partlly cloudly" />
+            <div class="temp-range">22° 13°</div>
+          </div>
+          <div class="weekday">
+            <div class="day-of-week">пт</div>
+            <img src="assets/partly_cloudy.png" alt="Partlly cloudly" />
+            <div class="temp-range">22° 13°</div>
+          </div>
+          <div class="weekday">
+            <div class="day-of-week">сб</div>
+            <img src="assets/partly_cloudy.png" alt="Partlly cloudly" />
+            <div class="temp-range">22° 13°</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="fiveDays" class="tab-content">
       <div class="five-days-table">
         <div class="tbl-all-days">
 
           <nav class="nav-arrow">
             <a href="#" id="prevArrow">
-              <img class="arrows" src="assets/arrow_left.png" alt="Left arrow"
-                />
+              <img class="arrows" src="assets/arrow_left.png" alt="Left arrow" />
             </a>
           </nav>
 
@@ -178,7 +372,7 @@
           <nav class="nav-arrow">
             <a href="#" id="nextArrow">
               <img class="arrows" src="assets/arrow_right.png" alt="Right
-                arrow" />
+                  arrow" />
             </a>
           </nav>
 
@@ -361,8 +555,7 @@
           </div>
           <div class="sun-moon-info">
             <div class="sun-info">
-              <img class="sun-icon"
-                src="http://openweathermap.org/img/w/01d.png" alt="Sun" />
+              <img class="sun-icon" src="http://openweathermap.org/img/w/01d.png" alt="Sun" />
               <div class="sun-info-text">
                 <div id="day-duration">Продолжительность дня - 16 ч 43 мин</div>
                 <div id="sunrise">Восход - 4:02</div>
@@ -370,8 +563,7 @@
               </div>
             </div>
             <div class="moon-info">
-              <img class="moon-icon"
-                src="http://openweathermap.org/img/w/01n.png" alt="Moon" />
+              <img class="moon-icon" src="http://openweathermap.org/img/w/01n.png" alt="Moon" />
               <div class="moon-info-text">
                 <div id="moon-state">Луна растущая - 19%</div>
                 <div id="moonrise">Восход - 7:40</div>
@@ -386,20 +578,97 @@
           </div>
         </div>
       </div>
+    </div>
+    <div id="history" class="tab-content">
+      <div class="table">
+        <div class="row month-names">
+          <div class="col"></div>
+          <div class="col">Январь</div>
+          <div class="col">Февраль</div>
+          <div class="col">Март</div>
+          <div class="col">Апрель</div>
+          <div class="col">Июнь</div>
+          <div class="col">Июль</div>
+          <div class="col">Август</div>
+          <div class="col">Сентябрь</div>
+          <div class="col">Октябрь</div>
+          <div class="col">Ноябрь</div>
+          <div class="col">Декабрь</div>
+        </div>
+        <div class="row avg-max">
+          <div class="col">Средний максимум</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+        </div>
+        <div class="row avg-min">
+          <div class="col">Средний минимум</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+        </div>
+        <div class="row most-max">
+          <div class="col">Рекордный максимум</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+        </div>
+        <div class="row most-min">
+          <div class="col">Рекордный минимум</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer> 2018 © Copyright </footer>
 
-    </main>
-    <footer> 2018 © Copyright </footer>
+  <div class="overlay"></div>
+  <div class="spinner"></div>
 
-    <div class="overlay"></div>
-    <div class="spinner"></div>
-
-    <script type="text/javascript" src="js/Fetcher.js"></script>
-    <script type="text/javascript" src="js/Transformer.js"></script>
-    <script type="text/javascript" src="js/Renderer.js"></script>
-    <script type="text/javascript" src="js/Spinner.js"></script>
-    <script type="text/javascript" src="js/FiveDaysRenderer.js"></script>
-    <script type="text/javascript" src="js/index-nav.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-  </body>
+  <script type="text/javascript" src="js/Fetcher.js"></script>
+  <script type="text/javascript" src="js/Transformer.js"></script>
+  <script type="text/javascript" src="js/Renderer.js"></script>
+  <script type="text/javascript" src="js/Spinner.js"></script>
+  <script type="text/javascript" src="js/WeatherDetailsRenderer.js"></script>
+  <script type="text/javascript" src="js/FiveDaysRenderer.js"></script>
+  <script type="text/javascript" src="js/HistoryRenderer.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/index-nav.js"></script>
+  <script type="text/javascript" src="js/five-days-nav.js"></script>
+</body>
 
 </html>

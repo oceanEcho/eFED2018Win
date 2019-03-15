@@ -62,8 +62,6 @@ class FiveDaysRenderer extends Renderer {
                 const dayBlock = dayList[blockIndex].children;
                 const eveningBlock = eveningList[blockIndex].children;
                 const windBlock = windSpeedList[blockIndex].children;
-                
-                console.log(daysData[day]);
 
                 titlesList[blockIndex].innerHTML = daysData[day].dt;
                 daysMarkers[blockIndex].innerHTML = day;
@@ -91,5 +89,11 @@ class FiveDaysRenderer extends Renderer {
                 blockIndex++;
             }
         }
+    }
+    renderWindSunInfo(data) {
+        //code
+    }
+    renderWindMoonInfo(data) {
+        //code
     }
 }

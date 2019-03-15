@@ -6,10 +6,6 @@ main {
     justify-content: center;
 }
 
-.curr-city-info {
-    color: #f8f8ff;
-}
-
 .table {
     display: flex;
     flex-direction: column;
@@ -30,29 +26,14 @@ main {
     text-align: center;
 }
 
-.month-names .col:nth-child(odd) {
-    background: #0097a7;
-    color: #f8f8ff;
-}
-
-.avg-max .col:nth-child(even) {
-    background: #0097a7;
-    color: #f8f8ff;
-}
-
-.avg-min .col:nth-child(odd) {
-    background: #0097a7;
-    color: #f8f8ff;
-}
-
-.most-max .col:nth-child(even) {
-    background: #0097a7;
-    color: #f8f8ff;
-}
-
+.month-names .col:nth-child(odd),
+.avg-max .col:nth-child(even),
+.avg-min .col:nth-child(odd),
+.most-max .col:nth-child(even),
 .most-min .col:nth-child(odd) {
     background: #0097a7;
     color: #f8f8ff;
+    border: none;
 }
 
 .month-names .col:first-child {
@@ -83,10 +64,6 @@ main {
         text-align: center;
         min-height: 40px;
         font-size: 12px;
-    }
-
-    .curr-city-info {
-        margin-bottom: 10px;
     }
 }
 

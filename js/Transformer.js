@@ -2,6 +2,11 @@ class Transformer {
     constructor() {
     }
     toJSON(response) {
-        return JSON.parse(response);
+        if (response !== null) {
+            return JSON.parse(response);
+        }
+        else {
+            return null;
+        }
     }
 }

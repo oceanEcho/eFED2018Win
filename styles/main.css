@@ -31,7 +31,7 @@ body {
     justify-content: center;
     font-family: Arial, Helvetica, sans-serif;
     color: #0097a7;
-    background: white;
+    background: #f8f8ff;
     font-size: 16px;
     padding: 0px;
     margin: 0px;
@@ -42,7 +42,7 @@ main {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding: 20px 10px 20px 10px;
+    padding: 20px 10px;
     background: #f8f8ff;
 }
 
@@ -67,23 +67,23 @@ div {
     animation: spin 1s linear infinite
 }
 
-.overlay{
+.overlay {
     display: none;
     position: fixed;
     top:0px;
     left:0px;
     width: 100%;
     height: 100%;
-    background: #f8f8ff;
     opacity: .7;
+    background: #f8f8ff;
 }
 
 header {
     display: flex;
     flex-direction: column;
-    background: #f8f8ff;
     position: sticky;
     top: 0;
+    background: #f8f8ff;
 }
 
 .main-nav {
@@ -116,8 +116,7 @@ header {
     color: #0097a7;
 }
 
-.nav-btn.active,
-.nav-btn.active > a {
+.nav-btn.active {
     background: #0097a7;
     color: #f8f8ff;
 }
@@ -128,6 +127,16 @@ header {
     align-items: center;
     background: #0097a7;
     padding: 10px 10px 10px 10px;
+}
+
+#currCityInfo {
+    color: #f8f8ff;
+    width: 30%;
+}
+
+#airPollution {
+    width: 30%;
+    color: #f8f8ff;
 }
 
 .search-form {
@@ -190,6 +199,16 @@ footer {
     input[type="search"] {
         width: 100%;
         font-size: 16px;
+    }
+
+    #currCityInfo {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    
+    #airPollution {
+        width: 100%;
+        margin-bottom: 5px;
     }
 }
   
