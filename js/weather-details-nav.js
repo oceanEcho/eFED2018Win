@@ -9,18 +9,33 @@ const windChart = document.querySelector('#windChart');
 const chartList = document.querySelectorAll('.chart');
 const innerNavBtns = document.querySelectorAll('.inner.nav-btn');
 
-function changeChart(chart) {
-    if (chartList.length == innerNavBtns.length) {
-        for (let i = 0; i < chartList.length; i++) {
-            chartList[i].classList.remove('visible');
-            innerNavBtns[i].classList.remove('active');
+function changeTab(tab, tablist, btns) {
+    if (tablist.length == btns.length) {
+        for (let i = 0; i < tablist.length; i++) {
+            tablist[i].classList.remove('visible');
+            btns[i].classList.remove('active');
         }
     }
 
-    chart.classList.add('visible');
+    tab.classList.add('visible');
     event.target.classList.add('active');
 }
 
-tempBtn.addEventListener('click', changeChart.bind(this, tempChart));
-probOfPrecBtn.addEventListener('click', changeChart.bind(this, precipChart));
-windBtn.addEventListener('click', changeChart.bind(this, windChart));
+tempBtn.addEventListener('click', changeTab.bind(this, tempChart, chartList, innerNavBtns));
+probOfPrecBtn.addEventListener('click', changeTab.bind(this, precipChart, chartList, innerNavBtns));
+windBtn.addEventListener('click', changeTab.bind(this, windChart, chartList, innerNavBtns));
+
+const todayBtn = document.querySelector('#todayBtn');
+const fiveDaysBtn = document.querySelector('#fiveDaysBtn');
+const historyBtn = document.querySelector('#historyBtn');
+
+const todayContent = document.querySelector('#today');
+const fiveDaysContent = document.querySelector('#fiveDays');
+const historyContent = document.querySelector('#history');
+
+const tabList = document.querySelectorAll('.tab-content');
+const mainNavBtns = document.querySelectorAll('.main.nav-btn');
+
+todayBtn.addEventListener('click', changeTab.bind(this, todayContent, tabList, mainNavBtns));
+fiveDaysBtn.addEventListener('click', changeTab.bind(this, fiveDaysContent, tabList, mainNavBtns));
+historyBtn.addEventListener('click', changeTab.bind(this, historyContent, tabList, mainNavBtns));

@@ -42,7 +42,7 @@ class WeatherDetailsRenderer extends Renderer {
     }
     renderFiveDaysInfo(data) {
         const fiveDaysList = this.getDayBlocks(data);
-        const daysElementList = document.querySelectorAll('.day');
+        const daysElementList = document.querySelectorAll('.weekday');
         let blockIndex = 0;
         for (let day in fiveDaysList) {
             let minTemperature = Math.round(fiveDaysList[day][0].main.temp_min);
