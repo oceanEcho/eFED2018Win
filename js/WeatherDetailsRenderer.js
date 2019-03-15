@@ -26,7 +26,7 @@ class WeatherDetailsRenderer extends Renderer {
         const alt = data.weather[0].description;
         const condition = data.weather[0].main;
         document.querySelector('#location').innerHTML = `${city}, ${country}`;
-        document.querySelector('#current-temp').innerHTML = `${currentTemperature}℃`;
+        document.querySelector('#current-temp').innerHTML = `${currentTemperature}°С`;
         document.querySelector('#day-of-week').innerHTML = `${date.toLocaleString('ru-RU', { weekday: 'long' })}`;
         document.querySelector('#curr-cond-img').src = `https://openweathermap.org/img/w/${icon}.png`;
         document.querySelector('#curr-cond-img').alt = alt;

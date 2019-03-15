@@ -22,7 +22,7 @@ body {
     flex-direction: column;
     justify-content: center;
     font-family: Arial, Helvetica, sans-serif;
-    color: #131313;
+    color: #0097a7;
     background: white;
     font-size: 16px;
     padding: 0px;
@@ -89,7 +89,7 @@ header {
 
 .nav-btn {
     display: inline-block;
-    border: 1px solid #2a6478;
+    border: 1px solid #00bcd4;
     padding: 5px;
     margin-right: 5px;
     border-radius: 2px;
@@ -103,12 +103,12 @@ header {
 .nav-btn > a:hover,
 .nav-btn > a:visited {
     text-decoration: none;
-    color: #131313;
+    color: #0097a7;
 }
 
 .nav-btn.active,
 .nav-btn.active > a {
-    background: #2a6478;
+    background: #00bcd4;
     color: #f8f8ff;
 }
 
@@ -116,7 +116,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #2a6478;
+    background: #00bcd4;
     padding: 10px 10px 10px 10px;
 }
 
@@ -125,7 +125,7 @@ header {
     justify-content: flex-end;
     padding: 10px 0px 10px 0px;
     width: 30%;
-    border-radius: 10px;
+    border-radius: 2px;
     font-size: 14px;
     padding: 3px 5px 3px 5px;
     background: #f8f8ff;
@@ -147,7 +147,7 @@ footer {
     display: flex;
     justify-content: center;
     padding: 10px;
-    background: #2a6478;
+    background: #00bcd4;
     position: sticky;
     bottom: 0;
     color: #f8f8ff;

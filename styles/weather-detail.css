@@ -100,7 +100,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 13%
+    width: 13%;
 }
  
 .week-info {
@@ -158,7 +158,7 @@
         flex-direction: row;
         width: inherit;
         padding: 5px 10px 5px 10px;
-        border-top: 1px solid #004953;
+        border-top: 1px solid #00bcd4;
     }
 }
 

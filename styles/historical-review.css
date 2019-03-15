@@ -25,33 +25,33 @@ main {
 
 .col {
     width: 8.32%;
-    border: 1px solid #2a6478;
+    border: 1px solid #0097a7;
     padding: 10px 0px;
     text-align: center;
 }
 
 .month-names .col:nth-child(odd) {
-    background: #2a6478;
+    background: #0097a7;
     color: #f8f8ff;
 }
 
 .avg-max .col:nth-child(even) {
-    background: #2a6478;
+    background: #0097a7;
     color: #f8f8ff;
 }
 
 .avg-min .col:nth-child(odd) {
-    background: #2a6478;
+    background: #0097a7;
     color: #f8f8ff;
 }
 
 .most-max .col:nth-child(even) {
-    background: #2a6478;
+    background: #0097a7;
     color: #f8f8ff;
 }
 
 .most-min .col:nth-child(odd) {
-    background: #2a6478;
+    background: #0097a7;
     color: #f8f8ff;
 }
 
@@ -79,7 +79,7 @@ main {
     
     .col {
         width: 100%;
-        border: 1px solid #2a6478;
+        border: 1px solid #0097a7;
         text-align: center;
         min-height: 40px;
         font-size: 12px;
