@@ -34,7 +34,7 @@ WeatherDetailsRenderer.prototype.renderMainInfo = function(data) {
     document.querySelector('#location').innerHTML = `${city}, ${country}`;
     document.querySelector('#current-temp').innerHTML = `${currentTemperature}℃`;
     document.querySelector('#day-of-week').innerHTML = `${date.toLocaleString('ru-RU', { weekday: 'long' })}`;
-    document.querySelector('#curr-cond-img').src = `http://openweathermap.org/img/w/${icon}.png`;
+    document.querySelector('#curr-cond-img').src = `https://openweathermap.org/img/w/${icon}.png`;
     document.querySelector('#curr-cond-img').alt = alt;
     document.querySelector('#condition').innerHTML = condition;
 };
@@ -71,7 +71,7 @@ WeatherDetailsRenderer.prototype.renderFiveDaysInfo = function(data) {
         let dayBlock = daysElementList[blockIndex].children;
 
         dayBlock[0].innerHTML = day;
-        dayBlock[1].src = `http://openweathermap.org/img/w/${icon}.png`;
+        dayBlock[1].src = `https://openweathermap.org/img/w/${icon}.png`;
         dayBlock[2].innerHTML = `${minTemperature}° ${maxTemperature}°`;
         blockIndex++;
     }
