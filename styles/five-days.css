@@ -28,8 +28,8 @@
 .tbl-weekday {
     display: flex;
     justify-content: center;
-    background: #004953;
-    border: 1px solid #004953;
+    background: #2a6478;
+    border: 1px solid #2a6478;
     border-radius: 2px;
     margin-bottom: 5px;
     width: 100%;
@@ -40,11 +40,11 @@
 .tbl-day-info {
     display: flex;
     justify-content: center;
-    border: 1px solid #004953;
     border-radius: 2px;
     width: 100%;
     box-sizing: border-box;
     padding: 5px;
+    background: #dfe0e0;
 }
 
 .col-tod {
@@ -58,8 +58,8 @@
 .title {
     display: flex;
     justify-content: space-around;
-    background: #004953;
-    border: 1px solid #004953;
+    background: #2a6478;
+    border: 1px solid #2a6478;
     border-radius: 2px;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -85,8 +85,8 @@
     justify-content: space-around;
     padding: 5px;
     width: 19%;
-    border: 1px solid #004953;
     border-radius: 2px;
+    background: #c4cbce;
 }
 
 .tbl-precipitation {
@@ -105,7 +105,7 @@
     justify-content: space-around;
     padding: 5px;
     width: 19%;
-    border: 1px solid #004953;
+    background: #dfe0e0;
     border-radius: 2px;
 }
 
@@ -116,11 +116,7 @@
 }
 
 .sun-moon-info {
-    display: flex;
-    border: 1px solid #004953;
-    border-radius: 2px;
-    padding: 5px;
-    margin-bottom: 5px;
+    display: flex;  
     justify-content: space-around;
 }
 
@@ -128,6 +124,11 @@
 .moon-info {
     display: flex;
     font-size: 18px;
+    background: #dfe0e0;
+    border-radius: 2px;
+    width: 50%;
+    padding: 5px;
+    margin-bottom: 5px;
 }
 
 .sun-icon,
@@ -138,7 +139,7 @@
 
 .additional-info {
     display: flex;
-    border: 1px solid #004953;
+    background: #dfe0e0;
     border-radius: 2px;
     padding: 5px;
     margin-bottom: 5px;
@@ -167,7 +168,7 @@
 }
 
 .day-marker {
-    border: 1px solid #004953;
+    border: 1px solid #2a6478;
     border-radius: 2px;
     padding: 3px;
     margin: 0px 2.5px 5px 2.5px;
@@ -175,7 +176,8 @@
 }
 
 .day-marker.current {
-    background: #004953;
+    background: #2a6478;
+    color: #f8f8ff;
 }
 
 /* Medium devices (landscape tablets, 768px and down) */
@@ -246,7 +248,6 @@
     }
 
     .sun-info {
-        border-bottom: 1px solid #004953;
         margin-bottom: 5px;
     }
 

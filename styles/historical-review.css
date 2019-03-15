@@ -6,7 +6,9 @@ main {
     justify-content: center;
 }
 
-
+.curr-city-info {
+    color: #f8f8ff;
+}
 
 .table {
     display: flex;
@@ -23,29 +25,34 @@ main {
 
 .col {
     width: 8.32%;
-    border: 1px solid #c0c0c0;
+    border: 1px solid #2a6478;
     padding: 10px 0px;
     text-align: center;
 }
 
 .month-names .col:nth-child(odd) {
-    background: rgb(226, 230, 247);
+    background: #2a6478;
+    color: #f8f8ff;
 }
 
 .avg-max .col:nth-child(even) {
-    background: rgb(226, 230, 247);
+    background: #2a6478;
+    color: #f8f8ff;
 }
 
 .avg-min .col:nth-child(odd) {
-    background: rgb(226, 230, 247);
+    background: #2a6478;
+    color: #f8f8ff;
 }
 
 .most-max .col:nth-child(even) {
-    background: rgb(226, 230, 247);
+    background: #2a6478;
+    color: #f8f8ff;
 }
 
 .most-min .col:nth-child(odd) {
-    background: rgb(226, 230, 247);
+    background: #2a6478;
+    color: #f8f8ff;
 }
 
 .month-names .col:first-child {
@@ -72,10 +79,14 @@ main {
     
     .col {
         width: 100%;
-        border: 1px solid #c0c0c0;
+        border: 1px solid #2a6478;
         text-align: center;
         min-height: 40px;
         font-size: 12px;
+    }
+
+    .curr-city-info {
+        margin-bottom: 10px;
     }
 }
 

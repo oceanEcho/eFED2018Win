@@ -9,7 +9,8 @@ const spinner = new Spinner(
     document.querySelector('.spinner')
 );
 
-spinner.showSpinner();
+spinner.hideSpinner();
+//spinner.showSpinner();
 
 const todayData = transformer.toJSON(fetcher.getTodayWeather(defaultCity));
 const fiveDaysData = transformer.toJSON(fetcher.getFiveDaysWeather(defaultCity));

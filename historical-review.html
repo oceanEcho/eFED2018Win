@@ -1,121 +1,129 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>История погоды</title>
 
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="application-name" content="WeatherForecast" />
-    <meta name="author" content="Ivan Zaytsev" />
-    <meta name="description" content="Weather forecast, historical review">
-    <meta name="keywords" content="weather, izhevsk, temperature" />
+<head>
+  <title>История погоды</title>
 
-    <link rel="stylesheet" type="text/css" href="styles/historical-review.css"
-      />
-  </head>
-  <body>
-    <div class="container">
-      <header>
-        <nav class="main-nav">
-          <ul>
-            <li class="nav-btn">
-              <a href="weather-details.html">Сегодня</a>
-            </li>
-            <li class="nav-btn">
-              <a href="index.html">5 дней</a>
-            </li>
-            <li class="nav-btn active">
-              <a href="historical-review.html">История погоды</a>
-            </li>
-          </ul>
-        </nav>
-        <div class="search-bar">
-          <span class="curr-city-info">22° Ижевск, Россия</span>
-          <form class="search-form" action="#" method="post">
-            <input type="search" id="search" placeholder="Поиск..."
-              pattern="[А-Я]{1}[а-я]+(?:[\s-][а-яА-Я]+)*$" />
-          </form>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="application-name" content="WeatherForecast" />
+  <meta name="author" content="Ivan Zaytsev" />
+  <meta name="description" content="Weather forecast, historical review">
+  <meta name="keywords" content="weather, izhevsk, temperature" />
+
+  <link rel="stylesheet" type="text/css" href="styles/historical-review.css" />
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <nav class="main-nav">
+        <ul>
+          <li class="nav-btn">
+            <a href="weather-details.html">Сегодня</a>
+          </li>
+          <li class="nav-btn">
+            <a href="index.html">5 дней</a>
+          </li>
+          <li class="nav-btn active">
+            <a href="historical-review.html">История погоды</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="search-bar">
+        <span class="curr-city-info">22° Ижевск, Россия</span>
+        <form class="search-form" action="#" method="post">
+          <input type="search" id="search" placeholder="Поиск..." pattern="[А-Я]{1}[а-я]+(?:[\s-][а-яА-Я]+)*$" />
+        </form>
+      </div>
+    </header>
+    <main>
+      <div class="table">
+        <div class="row month-names">
+          <div class="col"></div>
+          <div class="col">Январь</div>
+          <div class="col">Февраль</div>
+          <div class="col">Март</div>
+          <div class="col">Апрель</div>
+          <div class="col">Июнь</div>
+          <div class="col">Июль</div>
+          <div class="col">Август</div>
+          <div class="col">Сентябрь</div>
+          <div class="col">Октябрь</div>
+          <div class="col">Ноябрь</div>
+          <div class="col">Декабрь</div>
         </div>
-      </header>
-      <main>
-        <div class="table">
-          <div class="row month-names">
-            <div class="col"></div>
-            <div class="col">Январь</div>
-            <div class="col">Февраль</div>
-            <div class="col">Март</div>
-            <div class="col">Апрель</div>
-            <div class="col">Июнь</div>
-            <div class="col">Июль</div>
-            <div class="col">Август</div>
-            <div class="col">Сентябрь</div>
-            <div class="col">Октябрь</div>
-            <div class="col">Ноябрь</div>
-            <div class="col">Декабрь</div>
-          </div>
-          <div class="row avg-max">
-            <div class="col">Средний максимум</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-          </div>
-          <div class="row avg-min">
-            <div class="col">Средний минимум</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-          </div>
-          <div class="row most-max">
-            <div class="col">Рекордный максимум</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-          </div>
-          <div class="row most-min">
-            <div class="col">Рекордный минимум</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-            <div class="col">0°</div>
-          </div>
+        <div class="row avg-max">
+          <div class="col">Средний максимум</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
         </div>
-      </main>
-      <footer> 2018 © Copyright </footer>
+        <div class="row avg-min">
+          <div class="col">Средний минимум</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+        </div>
+        <div class="row most-max">
+          <div class="col">Рекордный максимум</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+        </div>
+        <div class="row most-min">
+          <div class="col">Рекордный минимум</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+          <div class="col">0°</div>
+        </div>
+      </div>
+    </main>
+    <footer> 2018 © Copyright </footer>
 
-      <div class="overlay"></div>
-      <div class="spinner"></div>
+    <div class="overlay"></div>
+    <div class="spinner"></div>
 
-    </div>
-  </body>
+    <script type="text/javascript" src="js/Fetcher.js"></script>
+    <script type="text/javascript" src="js/Transformer.js"></script>
+    <script type="text/javascript" src="js/Renderer.js"></script>
+    <script type="text/javascript" src="js/Spinner.js"></script>
+    <script type="text/javascript" src="js/HistoryRenderer.js"></script>
+    <script type="text/javascript" src="js/historical-review.js"></script>
+
+  </div>
+</body>
+
 </html>
