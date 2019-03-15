@@ -1,5 +1,5 @@
 function Fetcher() {
-    this.url = 'http://api.openweathermap.org/data/2.5/';
+    this.url = 'https://api.openweathermap.org/data/2.5/';
     this.appid = 'e2c078e26648e8e09b6e90e982007c80';
 }
 
