@@ -2,8 +2,8 @@
 
 #air-pollution {
     width: 50%;
+    color: #fff5cc;
 }
-
 
 .info {
     display: flex;
@@ -158,7 +158,7 @@
         flex-direction: row;
         width: inherit;
         padding: 5px 10px 5px 10px;
-        border-top: 1px solid #c0c0c0;
+        border-top: 1px solid #004953;
     }
 }
 

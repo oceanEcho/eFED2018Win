@@ -3,37 +3,40 @@ class FiveDaysRenderer extends Renderer {
         super();
     }
     parseDaysData(data) {
-        let daysObject = [];
-        let index = 0;
+        let daysObject = {};
         for(let day of data.list) {
             const date = new Date(day.dt * 1000);
-            if(!daysObject[index]) {
-                daysObject[index] = {};
+            const weekday = date.toLocaleString('ru', { weekday: 'short'});
+
+            if(!daysObject[weekday]) {
+                daysObject[weekday] = {};
             }
-            daysObject[index].dt = date.toLocaleString('ru', { weekday: 'short', day: 'numeric', month: 'long',});
+
+            daysObject[weekday].dt = date.toLocaleString('ru', { weekday: 'long', day: 'numeric', month: 'long',});
+
             if(date.getHours() >= 0 && date.getHours() <= 3) {
-                daysObject[index].night = {};
-                daysObject[index].night.temp = Math.round(day.main.temp);
-                daysObject[index].night.wnd_speed = Math.round(day.wind.speed);
-                daysObject[index].night.icon = day.weather[0].icon;
+                daysObject[weekday].night = {};
+                daysObject[weekday].night.temp = Math.round(day.main.temp);
+                daysObject[weekday].night.windSpeed = Math.round(day.wind.speed);
+                daysObject[weekday].night.icon = day.weather[0].icon;
             }
             if(date.getHours() >= 4 && date.getHours() <= 11) {
-                daysObject[index].morning = {};
-                daysObject[index].morning.temp = Math.round(day.main.temp);
-                daysObject[index].morning.wnd_speed = Math.round(day.wind.speed);
-                daysObject[index].morning.icon = day.weather[0].icon;
+                daysObject[weekday].morning = {};
+                daysObject[weekday].morning.temp = Math.round(day.main.temp);
+                daysObject[weekday].morning.windSpeed = Math.round(day.wind.speed);
+                daysObject[weekday].morning.icon = day.weather[0].icon;
             }
             if(date.getHours() >= 12 && date.getHours() <= 16) {
-                daysObject[index].day= {};
-                daysObject[index].day.temp = Math.round(day.main.temp);
-                daysObject[index].day.wnd_speed = Math.round(day.wind.speed);
-                daysObject[index].day.icon = day.weather[0].icon;
+                daysObject[weekday].day= {};
+                daysObject[weekday].day.temp = Math.round(day.main.temp);
+                daysObject[weekday].day.windSpeed = Math.round(day.wind.speed);
+                daysObject[weekday].day.icon = day.weather[0].icon;
             }
             if(date.getHours() >= 17 && date.getHours() <= 23) {
-                daysObject[index].evening = {};
-                daysObject[index].evening.temp = Math.round(day.main.temp);
-                daysObject[index].evening.wnd_speed = Math.round(day.wind.speed);
-                daysObject[index].evening.icon = day.weather[0].icon;
+                daysObject[weekday].evening = {};
+                daysObject[weekday].evening.temp = Math.round(day.main.temp);
+                daysObject[weekday].evening.windSpeed = Math.round(day.wind.speed);
+                daysObject[weekday].evening.icon = day.weather[0].icon;
             }
         }
 
@@ -45,20 +48,48 @@ class FiveDaysRenderer extends Renderer {
         const morningList = document.querySelectorAll('.tbl-mrng');
         const dayList = document.querySelectorAll('.tbl-day');
         const eveningList = document.querySelectorAll('.tbl-evng');
+        const daysMarkers = document.querySelectorAll('.day-marker');
+        const windSpeedList = document.querySelectorAll('.daily-wind-speed');
+        const precipList = document.querySelectorAll('.daily-precipitation');
+
         const daysData = this.parseDaysData(data);
 
-        console.log(nightList);
+        let blockIndex = 0;
+        for (let day in daysData) {
+            if (titlesList[blockIndex]) {
+                const morningBlock = morningList[blockIndex].children;
+                const nightBlock = nightList[blockIndex].children;
+                const dayBlock = dayList[blockIndex].children;
+                const eveningBlock = eveningList[blockIndex].children;
+                const windBlock = windSpeedList[blockIndex].children;
+                
+                console.log(daysData[day]);
 
-        for (let i = 0; i < 5; i++) {
-            titlesList[i].innerHTML = daysData[i].dt;
-            if (daysData[i].night) {
-                let block = nightList[i].children;
-                block[1].src = `http://openweathermap.org/img/w/${daysData[i].night.icon}.png`;
-                block[2].innerHTML = daysData[i].night.temp;
+                titlesList[blockIndex].innerHTML = daysData[day].dt;
+                daysMarkers[blockIndex].innerHTML = day;
+                if (daysData[day].night) {
+                    nightBlock[1].src = `https://openweathermap.org/img/w/${daysData[day].night.icon}.png`;
+                    nightBlock[2].innerHTML = daysData[day].night.temp;
+                    windBlock[0].innerHTML = daysData[day].night.windSpeed;
+                }
+                if (daysData[day].morning) {
+                    morningBlock[1].src = `https://openweathermap.org/img/w/${daysData[day].morning.icon}.png`;
+                    morningBlock[2].innerHTML = daysData[day].morning.temp;
+                    windBlock[1].innerHTML = daysData[day].morning.windSpeed;
+                }
+                if (daysData[day].day) {
+                    dayBlock[1].src = `https://openweathermap.org/img/w/${daysData[day].day.icon}.png`;
+                    dayBlock[2].innerHTML = daysData[day].day.temp;
+                    windBlock[2].innerHTML = daysData[day].day.windSpeed;
+                }
+                if (daysData[day].evening) {
+                    eveningBlock[1].src = `https://openweathermap.org/img/w/${daysData[day].evening.icon}.png`;
+                    eveningBlock[2].innerHTML = daysData[day].evening.temp;
+                    windBlock[3].innerHTML = daysData[day].evening.windSpeed;
+                }
+                
+                blockIndex++;
             }
         }
-
-        console.log(data);
-        console.log(this.parseDaysData(data));
     }
 }

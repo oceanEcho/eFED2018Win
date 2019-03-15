@@ -14,7 +14,7 @@ spinner.showSpinner();
 const todayData = transformer.toJSON(fetcher.getTodayWeather(defaultCity));
 const fiveDaysData = transformer.toJSON(fetcher.getFiveDaysWeather(defaultCity));
 
-// renderer.renderFiveDaysTable(fiveDaysData);
+renderer.renderFiveDaysTable(fiveDaysData);
 
 setTimeout(spinner.hideSpinner.bind(spinner), 2000);
 
@@ -32,7 +32,7 @@ searchForm.addEventListener('submit', (event) => {
     const todayData = transformer.toJSON(fetcher.getTodayWeather(city));
     const fiveDaysData = transformer.toJSON(fetcher.getFiveDaysWeather(city));
 
-    // renderer.renderFiveDaysTable(fiveDaysData);
+    renderer.renderFiveDaysTable(fiveDaysData);
 
     setTimeout(spinner.hideSpinner.bind(spinner), 1000);
 });
