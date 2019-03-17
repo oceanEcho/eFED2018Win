@@ -57,7 +57,6 @@
 .precip-chart-block {
     display: inline-block;
     width: 13%;
-    height: 20px;
     background: #e7f1fd;
     border-top: 2px solid #1878f0;
 }

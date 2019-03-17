@@ -9,7 +9,7 @@ class Renderer {
     renderPollutionInfo(data) {
         const currPollutionBlock = document.getElementById('airPollution');
 
-        currPollutionBlock.innerHTML = `Загрязнение воздуха: ${data[0].value}`;
+        currPollutionBlock.innerHTML = `Загрязнение воздуха: ${data.data[0].value}`;
     }
     renderFooter(footer) {
         const date = new Date();

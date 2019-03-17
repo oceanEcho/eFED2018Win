@@ -1,5 +1,5 @@
 const tempBtn = document.querySelector('#temp-btn');
-const probOfPrecBtn = document.querySelector('#prob-of-precip-btn');
+const probOfPrecBtn = document.querySelector('#precip-btn');
 const windBtn = document.querySelector('#wind-btn');
 
 const tempChart = document.querySelector('#tempChart');

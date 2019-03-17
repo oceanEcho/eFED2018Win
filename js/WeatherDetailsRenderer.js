@@ -25,6 +25,7 @@ class WeatherDetailsRenderer extends Renderer {
         const icon = data.weather[0].icon;
         const alt = data.weather[0].description;
         const condition = data.weather[0].main;
+
         document.querySelector('#location').innerHTML = `${city}, ${country}`;
         document.querySelector('#current-temp').innerHTML = `${currentTemperature}°С`;
         document.querySelector('#day-of-week').innerHTML = `${date.toLocaleString('ru-RU', { weekday: 'long' })}`;
@@ -33,12 +34,23 @@ class WeatherDetailsRenderer extends Renderer {
         document.querySelector('#condition').innerHTML = condition;
     }
     renderSubInfo(data) {
-        const probOfPrecip = 0;
         const humidity = Math.round(data.main.humidity);
         const windSpeed = Math.round(data.wind.speed);
-        document.querySelector('#prob-of-precip').innerHTML = `Вероятность осадков: ${probOfPrecip}%`;
+
         document.querySelector('#humidity').innerHTML = `Влажность: ${humidity}%`;
         document.querySelector('#windspeed').innerHTML = `Скорость ветра: ${windSpeed} м/с`;
+    }
+    renderPrecipValue(data) {
+        let probOfPrecip = 0;
+
+        if ((data.list[0].rain) && (data.list[0].rain['3h'])) {
+            probOfPrecip = data.list[0].rain['3h'].toFixed(3);
+        }
+        else if ((data.list[0].snow) && (data.list[0].snow['3h'])) {
+            probOfPrecip = data.list[0].snow['3h'].toFixed(3);
+        }
+
+        document.querySelector('#precip').innerHTML = `Осадки: ${probOfPrecip} мм`;
     }
     renderFiveDaysInfo(data) {
         const fiveDaysList = this.getDayBlocks(data);
@@ -66,7 +78,7 @@ class WeatherDetailsRenderer extends Renderer {
     renderTemperatureChart(data) {
         const chartBlocks = document.querySelectorAll('.temp-chart-block');
         const timeSteps = document.querySelector('.temp-timepoints').children;
-        const tempValues = document.querySelector('.temp-values').children;
+        const tempValues = document.querySelectorAll('.temp-value');
         let minTemp = Math.round(data.list[0].main.temp_min);
         let maxTemp = Math.round(data.list[0].main.temp_max);
         for (let i = 0; i < timeSteps.length; i++) {
@@ -94,11 +106,18 @@ class WeatherDetailsRenderer extends Renderer {
     renderPrecipChart(data) {
         const chartBlocks = document.querySelectorAll('.precip-chart-block');
         const timeSteps = document.querySelector('.precip-timepoints').children;
-        // const precipValues = document.querySelector('.precip-values').children;
+        const precipValues = document.querySelectorAll('.precip-value');
         for (let i = 0; i < timeSteps.length; i++) {
             let date = new Date(data.list[i].dt * 1000);
             timeSteps[i].innerHTML = date.toLocaleString('en-GB', { hour: 'numeric', minute: 'numeric' });
-            chartBlocks[i].style.height = 0;
+            if ((data.list[i].rain) && (data.list[i].rain['3h'])) {
+                precipValues[i].innerHTML = `${data.list[i].rain['3h']} мм`;
+                chartBlocks[i].style.height = `${data.list[i].rain['3h'] * 20}px`;
+            }
+            else if ((data.list[i].snow) && (data.list[i].snow['3h'])) {
+                precipValues[i].innerHTML = `${data.list[i].snow['3h'].toFixed(3)} мм`;
+                chartBlocks[i].style.height = `${data.list[i].snow['3h'] * 20}px`;
+            }
         }
     }
     renderWindChart(data) {
