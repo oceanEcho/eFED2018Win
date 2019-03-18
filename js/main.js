@@ -11,31 +11,8 @@ const spinner = new Spinner(
     document.querySelector('.spinner')
 );
 
-// const todayData = transformer.toJSON(fetcher.getTodayWeather(city));
-// const fiveDaysData = transformer.toJSON(fetcher.getFiveDaysWeather(city));
-// const pollutionLevel = transformer.toJSON(fetcher.getPollutionInfo(todayData.coord['lon'], todayData.coord['lat']));
-
-// console.log(todayData);
-
-// todayRenderer.renderFooter(document.querySelector('footer'));
-
-// todayRenderer.renderCurrCityInfo(todayData);
-// todayRenderer.renderPollutionInfo(pollutionLevel);
-// todayRenderer.renderMainInfo(todayData);
-// todayRenderer.renderSubInfo(todayData);
-
-// todayRenderer.renderFiveDaysInfo(fiveDaysData);
-// todayRenderer.renderTemperatureChart(fiveDaysData);
-// todayRenderer.renderPrecipChart(fiveDaysData);
-// todayRenderer.renderWindChart(fiveDaysData);
-
-// fiveDaysRenderer.renderFiveDaysTable(fiveDaysData);
-// fiveDaysRenderer.renderTodayDate(todayData);
-
-// spinner.hideSpinner(spinner);
-
 function renderAll(city) {
-    fetcher.getTodayWeather(city) // Promise for five days info
+    fetcher.getTodayWeather(city) // Promise for five days request
         .then(function (response) {
             return response.json();
         })
@@ -63,7 +40,7 @@ function renderAll(city) {
             console.log(error);
         });
 
-    fetcher.getFiveDaysWeather(city) // Promise for today info
+    fetcher.getFiveDaysWeather(city) // Promise for todayrequest
         .then(function (response) {
             return response.json();
         })
