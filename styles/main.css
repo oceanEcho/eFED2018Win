@@ -178,13 +178,25 @@ footer {
         background: rgb(164, 177, 221);
     }
 
-    .main-nav > ul {
-        flex-direction: column;
-        width: 100%;
+    .main-nav {
+        display: flex;
+        padding: 10px 10px 0px 10px;
     }
 
-    .nav-btn {
+    .main-nav > ul {
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .inner.nav-btn {
         margin: 0px 5px 5px 0px;
+    }
+
+    .main.nav-btn {
+        margin: 0px 5px 0px 0px;
+        border-bottom: none;
+        border-radius: 2px 2px 0px 0px;
     }
 
     .search-bar {
@@ -214,9 +226,6 @@ footer {
   
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-    .main-nav {
-        flex-direction: column;
-    }
 }
   
 /* Medium devices (landscape tablets, 768px and up) */
