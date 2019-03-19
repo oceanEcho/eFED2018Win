@@ -11,13 +11,14 @@ const spinner = new Spinner(
     document.querySelector('.spinner')
 );
 
+todayRenderer.renderFooter(document.querySelector('footer'));
+
 function renderAll(city) {
     fetcher.getTodayWeather(city) // Promise for five days request
         .then(function (response) {
             return response.json();
         })
         .then(function (response) {
-            console.log(response);
             todayRenderer.renderCurrCityInfo(response);
             todayRenderer.renderMainInfo(response);
             todayRenderer.renderSubInfo(response);
@@ -45,7 +46,6 @@ function renderAll(city) {
             return response.json();
         })
         .then(function (response) {
-            console.log(response);
             todayRenderer.renderPrecipValue(response);
             todayRenderer.renderFiveDaysInfo(response);
             todayRenderer.renderTemperatureChart(response);
