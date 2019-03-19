@@ -1,14 +1,14 @@
-function Spinner(overlay, spinner) {
-    this.overlay = overlay;
-    this.spinner = spinner;
+class Spinner {
+    constructor(overlay, spinner) {
+        this.overlay = overlay;
+        this.spinner = spinner;
+    }
+    showSpinner() {
+        this.overlay.style.display = 'block';
+        this.spinner.style.display = 'block';
+    }
+    hideSpinner() {
+        this.overlay.style.display = 'none';
+        this.spinner.style.display = 'none';
+    }
 }
-
-Spinner.prototype.showSpinner = function () {
-    this.overlay.style.display = 'block';
-    this.spinner.style.display = 'block';
-};
-
-Spinner.prototype.hideSpinner = function () {
-    this.overlay.style.display = 'none';
-    this.spinner.style.display = 'none';
-};

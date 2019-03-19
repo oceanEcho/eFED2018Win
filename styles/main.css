@@ -17,13 +17,21 @@
     }
 }
 
+.tab-content {
+    display: none;
+}
+
+.tab-content.visible {
+    display: block;
+}
+
 body {
     display: flex;
     flex-direction: column;
     justify-content: center;
     font-family: Arial, Helvetica, sans-serif;
-    color: rgb(113, 113, 156);
-    background: rgb(164, 177, 221);
+    color: #0097a7;
+    background: #f8f8ff;
     font-size: 16px;
     padding: 0px;
     margin: 0px;
@@ -34,8 +42,8 @@ main {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding: 20px 10px 20px 10px;
-    background: white;
+    padding: 20px 10px;
+    background: #f8f8ff;
 }
 
 div {
@@ -43,6 +51,7 @@ div {
 }
 
 .spinner {
+    display: none;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -51,35 +60,35 @@ div {
     width: 100px;
     height: 100px;
     border: 10px solid transparent;
-    border-left: 10px solid rgb(164, 177, 221);;
-    border-right: 10px solid rgb(164, 177, 221);;
-    border-bottom: 10px solid rgb(164, 177, 221);;
+    border-left: 10px solid #0097a7;
+    border-right: 10px solid #0097a7;
+    border-bottom: 10px solid #0097a7;
     border-radius: 100px;
     animation: spin 1s linear infinite
 }
 
-.overlay{
+.overlay {
+    display: none;
     position: fixed;
     top:0px;
     left:0px;
     width: 100%;
     height: 100%;
-    background: white;
     opacity: .7;
+    background: #f8f8ff;
 }
 
 header {
     display: flex;
     flex-direction: column;
-    background: white;
     position: sticky;
     top: 0;
+    background: #f8f8ff;
 }
 
 .main-nav {
     display: flex;
     padding: 10px;
-    border-bottom: 1px solid #c0c0c0;
 }
 
 .main-nav > ul {
@@ -90,35 +99,44 @@ header {
 
 .nav-btn {
     display: inline-block;
-    border: 1px solid #c0c0c0;
+    border: 1px solid #0097a7;
     padding: 5px;
     margin-right: 5px;
-    border-radius: 5px;
-    background: white;
+    border-radius: 2px;
+    background: #f8f8ff;
     cursor: pointer;
     text-align: center;
     white-space: nowrap;
-}
-
-.nav-btn.active,
-.nav-btn:hover {
-    background-color: rgb(226, 230, 247);
 }
 
 .nav-btn > a,
 .nav-btn > a:hover,
 .nav-btn > a:visited {
     text-decoration: none;
-    color: rgb(79, 79, 109);
+    color: #0097a7;
+}
+
+.nav-btn.active {
+    background: #0097a7;
+    color: #f8f8ff;
 }
 
 .search-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #c0c0c0;
-    background: rgb(226, 230, 247);
+    background: #0097a7;
     padding: 10px 10px 10px 10px;
+}
+
+#currCityInfo {
+    color: #f8f8ff;
+    width: 30%;
+}
+
+#airPollution {
+    width: 30%;
+    color: #f8f8ff;
 }
 
 .search-form {
@@ -126,10 +144,10 @@ header {
     justify-content: flex-end;
     padding: 10px 0px 10px 0px;
     width: 30%;
-    border-radius: 10px;
+    border-radius: 2px;
     font-size: 14px;
     padding: 3px 5px 3px 5px;
-    background: white;
+    background: #f8f8ff;
 }
 
 .search-form::before {
@@ -147,12 +165,11 @@ input[type="search"] {
 footer {
     display: flex;
     justify-content: center;
-    border-top: 1px solid #c0c0c0;
-    border-bottom: 1px solid #c0c0c0;
     padding: 10px;
-    background: rgb(226, 230, 247);
+    background: #0097a7;
     position: sticky;
     bottom: 0;
+    color: #f8f8ff;
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -182,6 +199,16 @@ footer {
     input[type="search"] {
         width: 100%;
         font-size: 16px;
+    }
+
+    #currCityInfo {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    
+    #airPollution {
+        width: 100%;
+        margin-bottom: 5px;
     }
 }
   

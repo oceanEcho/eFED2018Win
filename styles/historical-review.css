@@ -6,8 +6,6 @@ main {
     justify-content: center;
 }
 
-
-
 .table {
     display: flex;
     flex-direction: column;
@@ -23,29 +21,19 @@ main {
 
 .col {
     width: 8.32%;
-    border: 1px solid #c0c0c0;
+    border: 1px solid #0097a7;
     padding: 10px 0px;
     text-align: center;
 }
 
-.month-names .col:nth-child(odd) {
-    background: rgb(226, 230, 247);
-}
-
-.avg-max .col:nth-child(even) {
-    background: rgb(226, 230, 247);
-}
-
-.avg-min .col:nth-child(odd) {
-    background: rgb(226, 230, 247);
-}
-
-.most-max .col:nth-child(even) {
-    background: rgb(226, 230, 247);
-}
-
+.month-names .col:nth-child(odd),
+.avg-max .col:nth-child(even),
+.avg-min .col:nth-child(odd),
+.most-max .col:nth-child(even),
 .most-min .col:nth-child(odd) {
-    background: rgb(226, 230, 247);
+    background: #0097a7;
+    color: #f8f8ff;
+    border: none;
 }
 
 .month-names .col:first-child {
@@ -72,7 +60,7 @@ main {
     
     .col {
         width: 100%;
-        border: 1px solid #c0c0c0;
+        border: 1px solid #0097a7;
         text-align: center;
         min-height: 40px;
         font-size: 12px;

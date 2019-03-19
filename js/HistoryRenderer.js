@@ -1,9 +1,8 @@
-function HistoryRenderer() {
+class HistoryRenderer extends Renderer {
+    constructor() {
+        super();
+    }
+    renderHistory(data) {
+        // some code
+    }
 }
-
-HistoryRenderer.prototype = Object.create(Renderer.prototype);
-HistoryRenderer.prototype.constructor = HistoryRenderer;
-
-HistoryRenderer.prototype.renderHistory = function(data) {
-    // some code
-};
