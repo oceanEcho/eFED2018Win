@@ -99,7 +99,7 @@ header {
 
 .nav-btn {
     display: inline-block;
-    border: 1px solid #0097a7;
+    border: 2px solid #0097a7;
     padding: 5px;
     margin-right: 5px;
     border-radius: 2px;
@@ -116,7 +116,8 @@ header {
     color: #0097a7;
 }
 
-.nav-btn.active {
+.nav-btn.active,
+.nav-btn:hover {
     background: #0097a7;
     color: #f8f8ff;
 }
@@ -127,6 +128,27 @@ header {
     align-items: center;
     background: #0097a7;
     padding: 10px 10px 10px 10px;
+}
+
+.data-fetching-error {
+    display: none;
+    border: 1px solid rgb(255, 67, 67);
+    background-color: rgb(255, 240, 240);
+    color: red;
+    border-radius: 2px;
+    padding: 5px;
+    text-align: center;
+}
+
+.loaded-stored-data {
+    display: none;
+    border: 1px solid #0097a7;
+    background-color: #0096a718;
+    border-radius: 2px;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
 }
 
 #currCityInfo {
