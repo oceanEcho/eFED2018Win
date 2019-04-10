@@ -33,7 +33,7 @@
     border-radius: 2px;
     margin-bottom: 5px;
     width: 100%;
-    padding: 3px 0px 3px 0px;
+    padding: 10px;
     color: #f8f8ff;
 }
 
@@ -108,6 +108,12 @@
     border: 1px solid #0097a7;
     border-radius: 2px;
 }
+
+.tbl-sun-moon-title {
+    padding: 10px;
+    margin-top: 20px;
+}
+
 
 .tbl-sun-moon {
     display: flex;
@@ -187,7 +193,7 @@
 /* Medium devices (landscape tablets, 768px and down) */
 @media only screen and (max-width: 992px) {
     .day {
-        width: 60%;
+        width: 80%;
     }
 
     .tbl-wind-speed,
