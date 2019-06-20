@@ -11,14 +11,42 @@ const spinner = new Spinner(
     document.querySelector('.spinner')
 );
 
+const fetchingErrorMsg = document.querySelector('.data-fetching-error');
+const lastdDataMsg = document.querySelector('.loaded-stored-data');
+
+let showFetchingError = () => {
+    fetchingErrorMsg.style.display = 'block';
+};
+
+let hideFetchingError = () => {
+    fetchingErrorMsg.style.display = 'none';
+};
+
+let showlastdDataMsg = () => {
+    lastdDataMsg.style.display = 'block';
+};
+
+let hidelastdDataMsg = () => {
+    lastdDataMsg.style.display = 'none';
+};
+
 todayRenderer.renderFooter(document.querySelector('footer'));
 
 function renderAll(city) {
-    fetcher.getTodayWeather(city) // Promise for five days request
+    let cityData = {};
+    let storedData = JSON.parse(localStorage.getItem('lastData'));
+
+    fetcher.getTodayWeather(city)
         .then(function (response) {
+            hideFetchingError();
+            hidelastdDataMsg();
+
             return response.json();
         })
-        .then(function (response) {
+        .then(response => {
+            cityData.today = response;
+            localStorage.setItem('lastData', JSON.stringify(cityData));
+
             todayRenderer.renderCurrCityInfo(response);
             todayRenderer.renderMainInfo(response);
             todayRenderer.renderSubInfo(response);
@@ -31,21 +59,41 @@ function renderAll(city) {
                     return response.json();
                 })
                 .then(function (response) {
+                    cityData.pollution = response;
+                    localStorage.setItem('lastData', JSON.stringify(cityData));
+
                     todayRenderer.renderPollutionInfo(response);
-                })
-                .catch(function (error) {
-                    console.log(error);
                 });
         })
-        .catch(function (error) {
-            console.log(error);
+        .catch(() => {
+            showFetchingError();
+
+            if (storedData.today) {
+                showlastdDataMsg();
+                todayRenderer.renderCurrCityInfo(storedData.today);
+                todayRenderer.renderMainInfo(storedData.today);
+                todayRenderer.renderSubInfo(storedData.today);
+
+                fiveDaysRenderer.renderTodayDate(storedData.today);
+                fiveDaysRenderer.renderSunInfo(storedData.today);
+            }
+            if (storedData.pollution) {
+                showlastdDataMsg();
+                todayRenderer.renderPollutionInfo(storedData.pollution);
+            }
         });
 
-    fetcher.getFiveDaysWeather(city) // Promise for todayrequest
-        .then(function (response) {
+    fetcher.getFiveDaysWeather(city)
+        .then(response => {
+            hideFetchingError();
+            hidelastdDataMsg();
+
             return response.json();
         })
-        .then(function (response) {
+        .then(response => {
+            cityData.fiveDays = response;
+            localStorage.setItem('lastData', JSON.stringify(cityData));
+
             todayRenderer.renderPrecipValue(response);
             todayRenderer.renderFiveDaysInfo(response);
             todayRenderer.renderTemperatureChart(response);
@@ -54,8 +102,17 @@ function renderAll(city) {
 
             fiveDaysRenderer.renderFiveDaysTable(response);
         })
-        .catch(function (error) {
-            console.log(error);
+        .catch(() => {
+            if (storedData.fiveDays) {
+                showlastdDataMsg();
+                todayRenderer.renderPrecipValue(storedData.fiveDays);
+                todayRenderer.renderFiveDaysInfo(storedData.fiveDays);
+                todayRenderer.renderTemperatureChart(storedData.fiveDays);
+                todayRenderer.renderPrecipChart(storedData.fiveDays);
+                todayRenderer.renderWindChart(storedData.fiveDays);
+
+                fiveDaysRenderer.renderFiveDaysTable(storedData.fiveDays);
+            }
         });
 }
 

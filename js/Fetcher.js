@@ -18,4 +18,7 @@ class Fetcher {
 
         return fetch(url);
     }
+    getSavedData(city) {
+
+    }
 }
